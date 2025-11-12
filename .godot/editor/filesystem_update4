@@ -1,3 +1,4 @@
 res://words.txt
 res://control.tscn
 res://control.gd
+res://filtered_words.txt
