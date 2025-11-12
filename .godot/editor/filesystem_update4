@@ -2,3 +2,7 @@ res://words.txt
 res://control.tscn
 res://control.gd
 res://filtered_words.txt
+res://order_words.txt
+res://wordle-answers-alphabetical.txt
+res://ranked_words.txt
+res://best_suggestions.txt

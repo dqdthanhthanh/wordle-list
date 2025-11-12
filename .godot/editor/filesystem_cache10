@@ -1,4 +1,14 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1762903949
-icon.svg::CompressedTexture2D::4725549029111908007::1762903664::1762903950::1::::<><><>0<>0<>b1f902bea2c42b7b08870905e5b8cfb3<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://::1762922400
+best_suggestions.txt::TextFile::-1::1762922158::0::1::::<><><>0<>0<><>::
+control.gd::GDScript::2777340335706640753::1762922427::0::1::::<>Control<><>0<>0<><>::
+control.tscn::PackedScene::7007722223263852571::1762922428::0::1::::<><><>0<>0<><>::uid://bftmnilb23mgf::::res://control.gd
+filtered_words.txt::TextFile::-1::1762922158::0::1::::<><><>0<>0<><>::
+icon.svg::CompressedTexture2D::4725549029111908007::1762910961::1762910961::1::::<><><>0<>0<>b1f902bea2c42b7b08870905e5b8cfb3<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+order_words.txt::TextFile::-1::1762911009::0::1::::<><><>0<>0<><>::
+ranked_words.txt::TextFile::-1::1762922406::0::1::::<><><>0<>0<><>::
 README.md::TextFile::-1::1762903157::0::1::::<><><>0<>0<><>::
+ranked_all_words.txt::TextFile::-1::1762922419::0::1::::<><><>0<>0<><>::
+valid-wordle-words.txt::TextFile::-1::1678878948::0::1::::<><><>0<>0<><>::
+wordle-answers-alphabetical.txt::TextFile::-1::1762914264::0::1::::<><><>0<>0<><>::
+words.txt::TextFile::-1::1762910961::0::1::::<><><>0<>0<><>::
