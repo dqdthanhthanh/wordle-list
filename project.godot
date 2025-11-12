@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="wordle_test"
+config/name="wordle_mgf_tools"
 run/main_scene="uid://c63ufqk4pumjj"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/image="uid://cdteigg11px85"
+config/icon="uid://cdteigg11px85"
 
 [display]
 
