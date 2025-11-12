@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://c63ufqk4pumjj"]
+[gd_scene load_steps=3 format=3 uid="uid://c63ufqk4pumjj"]
 
 [ext_resource type="Script" uid="uid://bftmnilb23mgf" path="res://control.gd" id="1_0fbet"]
+
+[sub_resource type="Theme" id="Theme_0fbet"]
+default_font_size = 40
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -21,6 +24,7 @@ grow_horizontal = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
 visible = false
@@ -29,30 +33,88 @@ theme_override_font_sizes/font_size = 30
 text = "dasdss"
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "?????"
 alignment = 1
 max_length = 5
 
+[node name="LineEditSTT1" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/minimum_character_width = 1
+theme_override_font_sizes/font_size = 50
+placeholder_text = "1"
+alignment = 1
+max_length = 1
+
+[node name="LineEditSTT2" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/minimum_character_width = 1
+theme_override_font_sizes/font_size = 50
+placeholder_text = "2"
+alignment = 1
+max_length = 1
+
+[node name="LineEditSTT3" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/minimum_character_width = 1
+theme_override_font_sizes/font_size = 50
+placeholder_text = "3"
+alignment = 1
+max_length = 1
+
+[node name="LineEditSTT4" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/minimum_character_width = 1
+theme_override_font_sizes/font_size = 50
+placeholder_text = "4"
+alignment = 1
+max_length = 1
+
+[node name="LineEditSTT5" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/minimum_character_width = 1
+theme_override_font_sizes/font_size = 50
+placeholder_text = "5"
+alignment = 1
+max_length = 1
+
 [node name="LineEdit2" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
-placeholder_text = "Tu can loai"
+theme_override_font_sizes/font_size = 40
+placeholder_text = "Eliminated words. Ex: AC"
 alignment = 1
 
 [node name="LineEdit3" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(1120, 0)
+custom_minimum_size = Vector2(1010, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
-placeholder_text = "Tu co ben trong"
+theme_override_font_sizes/font_size = 40
+placeholder_text = "The word is in the wrong position. Ex: A12D3"
 alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme = SubResource("Theme_0fbet")
+text = "DATA"
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Check"
+
+[node name="ButtonClear" type="Button" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Clear"
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
@@ -62,7 +124,8 @@ anchor_bottom = 1.0
 offset_top = 184.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 31
+theme_override_font_sizes/font_size = 34
+tab_alignment = 1
 current_tab = 0
 
 [node name="filtered_words" type="RichTextLabel" parent="TabContainer"]
@@ -72,21 +135,21 @@ text = "filtered_words"
 justification_flags = 171
 metadata/_tab_index = 0
 
-[node name="best_suggestions" type="RichTextLabel" parent="TabContainer"]
+[node name="suggestions" type="RichTextLabel" parent="TabContainer"]
 visible = false
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 30
 text = "best_suggestions"
 metadata/_tab_index = 1
 
-[node name="wordle-answers" type="RichTextLabel" parent="TabContainer"]
+[node name="answers" type="RichTextLabel" parent="TabContainer"]
 visible = false
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 30
 text = "wordle-answers"
 metadata/_tab_index = 2
 
-[node name="wordle_valid" type="RichTextLabel" parent="TabContainer"]
+[node name="valid" type="RichTextLabel" parent="TabContainer"]
 visible = false
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 30
@@ -100,20 +163,29 @@ theme_override_font_sizes/normal_font_size = 30
 text = "wordle_valid"
 metadata/_tab_index = 4
 
-[node name="ranked_words_valid" type="RichTextLabel" parent="TabContainer"]
+[node name="rank_words_valid" type="RichTextLabel" parent="TabContainer"]
 visible = false
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 30
 text = "ranked_words_valid"
 metadata/_tab_index = 5
 
-[node name="ranked_words_answer" type="RichTextLabel" parent="TabContainer"]
+[node name="rank_words_aswer" type="RichTextLabel" parent="TabContainer"]
 visible = false
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 30
 text = "ranked_words_answer"
 metadata/_tab_index = 6
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[node name="all_past_anwser" type="RichTextLabel" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 30
+text = "past_anwser"
+metadata/_tab_index = 7
+
+[connection signal="toggled" from="VBoxContainer/HBoxContainer2/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/ButtonClear" to="." method="_on_button_clear_pressed"]
 [connection signal="tab_button_pressed" from="TabContainer" to="." method="_on_tab_container_tab_button_pressed"]
 [connection signal="tab_changed" from="TabContainer" to="." method="_on_tab_container_tab_changed"]

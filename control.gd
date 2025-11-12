@@ -13,6 +13,12 @@ DUNCH
 WHUMP
 "
 
+@onready var pos1 = $VBoxContainer/HBoxContainer/LineEditSTT1
+@onready var pos2 = $VBoxContainer/HBoxContainer/LineEditSTT2
+@onready var pos3 = $VBoxContainer/HBoxContainer/LineEditSTT3
+@onready var pos4 = $VBoxContainer/HBoxContainer/LineEditSTT4
+@onready var pos5 = $VBoxContainer/HBoxContainer/LineEditSTT5
+
 @onready var rich_label: RichTextLabel = $RichTextLabel
 @onready var input_pos: LineEdit = $VBoxContainer/HBoxContainer/LineEdit
 @onready var input_exclude: LineEdit = $VBoxContainer/HBoxContainer/LineEdit2
@@ -20,69 +26,107 @@ WHUMP
 
 var path:Array[String] = ["res://filtered_words.txt",
 "res://best_suggestions.txt",
-"res://wordle-answers-alphabetical.txt",
+"res://order_words.txt",
 "res://valid-wordle-words.txt",
 "res://ranked_words.txt",
 "res://ranked_words_all.txt",
-"res://ranked_words_answer.txt"]
+"res://ranked_words_answer.txt",
+"res://all_past_anwser.txt"]
 
-var all_word:String = "res://valid-wordle-words.txt"
-var all_answer:String = "res://wordle-answers-alphabetical.txt"
-var src:String = "res://wordle-answers-alphabetical.txt"
+#var all_word:String = "res://valid-wordle-words.txt"
+#var all_answer:String = "res://order_words.txt"
+#var all_answer_past:String = "res://wordle-answers-alphabetical.txt"
+var src:String = "res://order_words.txt"
 var tmp:String = "res://filtered_words.txt"
 var pos:String = "?????"
 var exclude:String = ""
 var poscontainexclude:String = ""
 
 func check_wordsle():
-	pos = input_pos.text
+	if $VBoxContainer/HBoxContainer2/CheckBox.button_pressed == false:
+		src = path[2]
+	else:
+		src = path[3]
+	
+	pos = get_pattern()
 	exclude = input_exclude.text
 	poscontainexclude = input_poscontainexclude.text
-
+	
 	# BƯỚC 1: filter_words_by_pattern
 	print("BƯỚC 1: Lọc filter_words_by_pattern")
-	filter_words_by_pattern(all_answer, pos, tmp)
+	filter_words_by_pattern(src, pos, tmp)
 	await get_tree().create_timer(0.5).timeout
 	
-	### BƯỚC 3: filter_words_not_containing_letters_to_file
-	#print("\nBƯỚC 2: filter_words_not_containing_letters_to_file")
-	#filter_words_not_containing_letters_to_file(tmp, exclude, tmp)
-	#await get_tree().create_timer(0.5).timeout
-	#
-	## BƯỚC 4: filter_words_position_exclude_style
-	#print("\nBƯỚC 3: filter_words_position_exclude_style")
-	#filter_words_position_exclude_style(tmp, poscontainexclude, tmp)
-	#await get_tree().create_timer(0.5).timeout
-#
-	#print("\nHOÀN TẤT! Kết quả: %s" % tmp)
-	#
-	#rank_worle_words(tmp)
-	#await get_tree().create_timer(0.5).timeout
-	#
-	#rank_words_advanced(tmp,"res://best_suggestions.txt")
-	#await get_tree().create_timer(0.5).timeout
-	#
-	#rank_big_list_by_small_list(tmp, src)
-	#await get_tree().create_timer(0.5).timeout
-	##rank_words_by_letter_frequency(tmp,"res://best_suggestions.txt")
-	#
-	## Bước 2: ĐÁNH GIÁ % CHỮ TRONG GỢI Ý
-	#evaluate_suggestions_frequency("res://best_suggestions.txt")
+	## BƯỚC 3: filter_words_not_containing_letters_to_file
+	print("\nBƯỚC 2: filter_words_not_containing_letters_to_file")
+	filter_words_not_containing_letters_to_file(tmp, exclude, tmp)
+	await get_tree().create_timer(0.5).timeout
+	
+	# BƯỚC 4: filter_words_position_exclude_style
+	print("\nBƯỚC 3: filter_words_position_exclude_style")
+	filter_words_position_exclude_style(tmp, poscontainexclude, tmp)
+	await get_tree().create_timer(0.5).timeout
+
+	print("\nHOÀN TẤT! Kết quả: %s" % tmp)
+	
+	rank_worle_words(tmp)
+	await get_tree().create_timer(0.5).timeout
+	
+	rank_words_advanced(tmp,"res://best_suggestions.txt")
+	await get_tree().create_timer(0.5).timeout
+	
+	rank_big_list_by_small_list(tmp, src)
+	await get_tree().create_timer(0.5).timeout
+	#rank_words_by_letter_frequency(tmp,"res://best_suggestions.txt")
+	
+	# Bước 2: ĐÁNH GIÁ % CHỮ TRONG GỢI Ý
+	evaluate_suggestions_frequency("res://best_suggestions.txt")
+
+@warning_ignore("unused_parameter")
+func _on_check_box_toggled(toggled_on: bool) -> void:
+	_on_button_pressed()
+
+func _on_button_clear_pressed() -> void:
+	clear_pattern()
+	input_pos.text = "?????"
+	input_exclude.text = ""
+	input_poscontainexclude.text = ""
+	_on_button_pressed()
 
 func _on_button_pressed() -> void:
-	$TabContainer.get_child(0).text = "Wellcome to MGF Wordle Tools"
+	$TabContainer.get_child(0).text = "Wellcome to MGF Wordle Tools \n Loading... Please waiting!"
 	prints($TabContainer.get_child(0).text)
 	check_wordsle()
 	await get_tree().create_timer(3).timeout
 	update_tab($TabContainer.current_tab)
 
 func _on_tab_container_tab_changed(tab: int) -> void:
-	$TabContainer.get_child(tab).text = "Wellcome to MGF Wordle Tools"
+	$TabContainer.get_child(0).text = "Wellcome to MGF Wordle Tools \n Loading... Please waiting!"
 	prints($TabContainer.get_child(tab).text)
 	update_tab(tab)
 
 func update_tab(tab: int):
 	show_text_from_file($TabContainer.get_child(tab),path[tab])
+
+
+func get_pattern() -> String:
+	var positions = [pos1, pos2, pos3, pos4, pos5]
+	var pattern = ""
+	
+	for p in positions:
+		var text = p.text.strip_edges()
+		if text == "":
+			pattern += "?"  # Nếu rỗng thì dùng dấu ?
+		else:
+			pattern += text[0].to_upper()  # Lấy ký tự đầu và chuyển hoa
+
+	return pattern
+
+func clear_pattern() -> void:
+	var positions = [pos1, pos2, pos3, pos4, pos5]
+	
+	for p in positions:
+		p.text = ""
 
 func _ready():
 	#analyze_letter_frequency(src)
@@ -98,6 +142,7 @@ func _ready():
 	
 	#full_check_word_stats("stump")
 
+@warning_ignore("shadowed_variable")
 func show_text_from_file(node:RichTextLabel, path: String) -> void:
 	if not FileAccess.file_exists(path):
 		node.text = "[color=red]Không tìm thấy file: %s[/color]" % path
@@ -112,6 +157,7 @@ func show_text_from_file(node:RichTextLabel, path: String) -> void:
 	file.close()
 
 	node.clear()
+	node.text = ""
 	node.text = content
 
 func rank_big_list_by_small_list(small_path: String, big_path: String, output_path: String = "res://best_suggestions.txt") -> void:
@@ -170,6 +216,7 @@ func rank_big_list_by_small_list(small_path: String, big_path: String, output_pa
 
 
 # --- Hàm phụ: đọc file danh sách từ ---
+@warning_ignore("shadowed_variable")
 func _load_words(path: String) -> Array:
 	var arr := []
 	if not FileAccess.file_exists(path):
@@ -183,6 +230,7 @@ func _load_words(path: String) -> Array:
 	f.close()
 	return arr
 
+@warning_ignore("shadowed_variable")
 func rank_words_advanced(path: String, output_path: String) -> void:
 	print("Đọc danh sách từ: %s" % path.get_file())
 	var words = _load_words(path)
@@ -315,6 +363,7 @@ func evaluate_suggestions_frequency(
 	print("  Tổng chữ cái trong gợi ý: %d\n" % total_letters)
 
 # === XẾP HẠNG TỪ THEO CHỮ PHỔ BIẾN TRONG DANH SÁCH ===
+@warning_ignore("shadowed_variable")
 func rank_words_by_letter_frequency(path: String, output_path: String) -> void:
 	print("Đọc danh sách từ trong: %s" % path.get_file())
 	var words = _load_words(path)
@@ -416,6 +465,7 @@ func check_word_stats(word: String, freq_result: Dictionary) -> void:
 	print("    Chi tiết: %s" % " | ".join(breakdown))
 	print("    Từ này xếp hạng cao nếu > 30.00%% (39,39-10,04%) \n")
 
+@warning_ignore("shadowed_variable")
 func rank_worle_words(src):
 	var freq_data = analyze_letter_frequency(src).freq
 	#var freq_data = analyze_letter_frequency(src).total
@@ -648,6 +698,7 @@ func filter_words_position_exclude_style(
 
 
 # XÓA FILE TẠM
+@warning_ignore("shadowed_variable")
 func _cleanup_temp(path: String) -> void:
 	if FileAccess.file_exists(path):
 		DirAccess.remove_absolute(path)
@@ -753,6 +804,7 @@ func filter_words_exclude_positions_from_file(
 
 		# Đọc TẤT CẢ số liên tiếp theo sau chữ cái
 		while i < pattern.length() and pattern[i].is_valid_int():
+			@warning_ignore("shadowed_variable")
 			var pos = int(pattern[i])
 			if pos < 0 or pos > 4:
 				push_error("Vị trí phải 0-4: %s" % pos)
@@ -783,6 +835,7 @@ func filter_words_exclude_positions_from_file(
 
 		# Kiểm tra từng chữ cái ở các vị trí cấm
 		for ch in rules:
+			@warning_ignore("shadowed_variable")
 			for pos in rules[ch]:
 				if w[pos] == ch:
 					valid = false
@@ -834,6 +887,7 @@ func filter_words_with_letters_not_at_positions_simple(
 		if not pos_char.is_valid_int():
 			push_error("Phải là số 0-4: %s" % pos_char)
 			return
+		@warning_ignore("shadowed_variable")
 		var pos = int(pos_char)
 		if pos < 0 or pos > 4:
 			push_error("Vị trí 0-4: %s" % pos)
@@ -878,6 +932,7 @@ func filter_words_with_letters_not_at_positions_simple(
 		# 2. Không được ở vị trí cấm
 		var valid = true
 		for letter in rules:
+			@warning_ignore("shadowed_variable")
 			for pos in rules[letter]:
 				if word_upper[pos] == letter:
 					valid = false
@@ -922,6 +977,7 @@ func filter_words_with_letters_not_at_position_to_file(
 		if i >= pattern.length():
 			push_error("Pattern lỗi: thiếu số!")
 			return
+		@warning_ignore("shadowed_variable")
 		var pos = int(pattern[i])
 		if pos < 0 or pos > 4:
 			push_error("Vị trí phải 0-4!")
@@ -1006,6 +1062,7 @@ func filter_words_excluding_letter_at_position_to_file(
 			push_error("Pattern lỗi: thiếu vị trí!")
 			return
 		var pos_str = exclude_pattern[i]
+		@warning_ignore("shadowed_variable")
 		var pos = int(pos_str)
 		if pos < 0 or pos > 4:
 			push_error("Vị trí phải từ 0-4!")
