@@ -42,6 +42,8 @@ var pos:String = "?????"
 var exclude:String = ""
 var poscontainexclude:String = ""
 
+#LURID ATEGO L2R5I3D4
+
 func check_wordsle():
 	if $VBoxContainer/HBoxContainer2/CheckBox.button_pressed == false:
 		src = path[2]
@@ -66,21 +68,18 @@ func check_wordsle():
 	print("\nBƯỚC 3: filter_words_position_exclude_style")
 	filter_words_position_exclude_style(tmp, poscontainexclude, tmp)
 	await get_tree().create_timer(0.5).timeout
-
-	print("\nHOÀN TẤT! Kết quả: %s" % tmp)
+#
+	#print("\nHOÀN TẤT! Kết quả: %s" % tmp)
+	print("\nHOÀN TẤT! Kết quả: %s")
 	
+	#"res://ranked_words.txt"
 	rank_worle_words(tmp)
-	await get_tree().create_timer(0.5).timeout
 	
+	## Bước 2: ĐÁNH GIÁ % CHỮ TRONG GỢI Ý
 	rank_words_advanced(tmp,"res://best_suggestions.txt")
-	await get_tree().create_timer(0.5).timeout
-	
-	rank_big_list_by_small_list(tmp, src)
-	await get_tree().create_timer(0.5).timeout
+	#rank_big_list_by_small_list(tmp, src)
 	#rank_words_by_letter_frequency(tmp,"res://best_suggestions.txt")
-	
-	# Bước 2: ĐÁNH GIÁ % CHỮ TRONG GỢI Ý
-	evaluate_suggestions_frequency("res://best_suggestions.txt")
+	#evaluate_suggestions_frequency("res://best_suggestions.txt")
 
 @warning_ignore("unused_parameter")
 func _on_check_box_toggled(toggled_on: bool) -> void:
