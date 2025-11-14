@@ -1,3 +1,6 @@
 res://control_new_test.tscn
 res://control_new_test.gd
 res://filtered_words.txt
+res://tmp_full.txt
+res://tmp_input.txt
+res://tmp_output.txt
