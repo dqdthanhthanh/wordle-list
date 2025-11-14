@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://x7rtp3cexnf3"]
+
+[ext_resource type="Script" uid="uid://c5d72qrkw13qi" path="res://control_new_test.gd" id="1_lth26"]
+
+[node name="ControlNewTest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lth26")

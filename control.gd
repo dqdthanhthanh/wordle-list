@@ -11,6 +11,10 @@ NOISY
 PUNCH
 DUNCH
 WHUMP
+
+SOARE
+CLINT LINTY
+DUMPY
 "
 
 @onready var pos1 = $VBoxContainer/HBoxContainer/LineEditSTT1
