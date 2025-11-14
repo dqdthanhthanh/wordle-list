@@ -4,7 +4,9 @@ extends Control
 func _ready():
 	var guess_combos: Array[Array] = [
 		["SOARE", "CLINT"],
-		["ALTER", "NOISY"]
+		["ALTER", "NOISY"],
+		["ADIEU", "SPORT"],
+		["RAISE", "COUNT"]
 	]
 	
 	var word_list: Array = load_words_to_array("res://words.txt")
@@ -14,47 +16,67 @@ func _ready():
 	print("TỔNG TỪ ĐIỂN: %d từ" % total_words)
 	print("TỔNG ĐÁP ÁN: %d từ\n" % answer_list.size())
 	
-	# TEST CHỈ VỚI ĐÁP ÁN THỨ 10
+	# NHẬP KHOẢNG TEST TẠI ĐÂY
+	var start_idx: int = 0
+	var end_idx: int = 100   # ← THAY ĐỔI TẠI ĐÂY: 0,10 / 0,100 / 500,510...
+	
+	var summary: Array[Dictionary] = []
+	
 	for combo in guess_combos:
-		test_combo_single_answer(combo, word_list, answer_list, 10)
+		var result = test_combo_range(combo, word_list, answer_list, start_idx, end_idx)
+		summary.append({
+			"name": "-".join(combo),
+			"avg": result.avg,
+			"count": result.count
+		})
+	
+	# TỔNG KẾT ĐÚNG SỐ ĐÁP ÁN
+	print("=".repeat(80))
+	print("TỔNG KẾT HIỆU QUẢ COMBO (trên đáp án %d–%d):" % [start_idx, end_idx])
+	print("-".repeat(80))
+	for item in summary:
+		print("Combo %s: %.3f%% (trên %d đáp án)" % [item["name"], item["avg"], item["count"]])
+	print("=".repeat(80))
 
-func test_combo_single_answer(combo: Array, word_list: Array, answer_list: Array, test_index: int = 10) -> void:
-	# Kiểm tra chỉ số hợp lệ
-	if test_index < 0 or test_index >= answer_list.size():
-		print("Lỗi: Chỉ số %d không hợp lệ! (answer_list có %d từ)" % [test_index, answer_list.size()])
-		return
-	
-	var selected_answer = answer_list[test_index].to_upper()
+func test_combo_range(combo: Array, word_list: Array, answer_list: Array, 
+					  start_idx: int, end_idx: int) -> Dictionary:
 	var combo_name = ", ".join(combo).replace(",", " + ")
-	
 	print("=".repeat(70))
-	print("TEST COMBO: %s" % combo_name)
-	print("ĐÁP ÁN TEST (index %d): %s" % [test_index, selected_answer])
+	print("TEST COMBO: %s (đáp án %d → %d)" % [combo_name, start_idx, end_idx])
 	print("-".repeat(70))
 	
-	var current_words: Array = word_list.duplicate()
-	var initial_count: int = current_words.size()
+	var initial_count: int = word_list.size()
+	var total_percent: float = 0.0
+	var valid_count: int = 0
 	
-	print("Bắt đầu: %d từ (100.00%%)" % initial_count)
+	for idx in range(start_idx, end_idx + 1):
+		if idx >= answer_list.size():
+			print("Cảnh báo: Index %d vượt quá (chỉ có %d đáp án)" % [idx, answer_list.size()])
+			break
+		
+		var answer = answer_list[idx].to_upper()
+		var current_words: Array = word_list.duplicate()
+		
+		for guess in combo:
+			guess = guess.to_upper()
+			var result = simulate_guess(guess, answer)
+			var next_words: Array = []
+			for word in current_words:
+				var w = word.to_upper()
+				if is_word_valid(w, result["correct"], result["misplaced"], result["excluded"]):
+					next_words.append(word)
+			current_words = next_words
+		
+		var percent = (current_words.size() * 100.0) / initial_count
+		print("  [#%d: %s] → %.3f%%" % [idx, answer, percent])
+		
+		total_percent += percent
+		valid_count += 1
 	
-	# LŨY TÍCH QUA TỪNG BƯỚC
-	for i in range(combo.size()):
-		var guess = combo[i].to_upper()
-		var result = simulate_guess(guess, selected_answer)
-		
-		var next_words: Array = []
-		for word in current_words:
-			var w = word.to_upper()
-			if is_word_valid(w, result["correct"], result["misplaced"], result["excluded"]):
-				next_words.append(word)  # giữ nguyên chữ thường
-		
-		current_words = next_words
-		var remaining = current_words.size()
-		var percent = (remaining * 100.0) / initial_count
-		
-		print("  → Đoán: %s → Còn %d/%d từ (%.2f%%)" % [guess, remaining, initial_count, percent])
+	var avg_percent = total_percent / valid_count if valid_count > 0 else 0.0
+	print("→ Trung bình: %.3f%% (trên %d đáp án)\n" % [avg_percent, valid_count])
 	
-	print("KẾT THÚC: Còn %d/%d từ (%.2f%%)\n" % [current_words.size(), initial_count, (current_words.size() * 100.0) / initial_count])
+	return {"avg": avg_percent, "count": valid_count}
 
 func simulate_guess(guess: String, answer: String) -> Dictionary:
 	guess = guess.to_upper()
