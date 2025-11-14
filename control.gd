@@ -76,8 +76,8 @@ func check_wordsle():
 	rank_worle_words(tmp)
 	
 	## Bước 2: ĐÁNH GIÁ % CHỮ TRONG GỢI Ý
-	rank_words_advanced(tmp,"res://best_suggestions.txt")
-	#rank_big_list_by_small_list(tmp, src)
+	#rank_words_advanced(tmp,"res://best_suggestions.txt")
+	rank_big_list_by_small_list(tmp, src, "res://best_suggestions.txt")
 	#rank_words_by_letter_frequency(tmp,"res://best_suggestions.txt")
 	#evaluate_suggestions_frequency("res://best_suggestions.txt")
 
