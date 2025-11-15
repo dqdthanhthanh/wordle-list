@@ -299,6 +299,7 @@ cloud
 clove
 clown
 cluck
+clung
 coach
 coast
 cocoa
@@ -380,6 +381,7 @@ depot
 depth
 deter
 detox
+deuce
 devil
 diary
 dicey
@@ -832,6 +834,7 @@ lunar
 lunch
 lunge
 lusty
+lurid
 lying
 macaw
 macho
@@ -1434,6 +1437,7 @@ tidal
 tiger
 tilde
 timer
+tinge
 tipsy
 titan
 tithe
@@ -1574,6 +1578,7 @@ whole
 whoop
 whose
 widen
+wield
 width
 wince
 windy

@@ -4,3 +4,8 @@ res://filtered_words.txt
 res://tmp_full.txt
 res://tmp_input.txt
 res://tmp_output.txt
+res://wordle-answers-alphabetical.txt
+res://best_suggestions.txt
+res://ranked_words.txt
+res://all_past_anwser.txt
+res://control_test.gd
