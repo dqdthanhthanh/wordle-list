@@ -1,9 +1,9 @@
 extends Control
 
+var word_list: Array = load_words_to_array("res://words.txt")
 
 func _ready():
 	# ================== LOAD DỮ LIỆU ==================
-	var word_list: Array = load_words_to_array("res://words.txt")
 	var answer_list: Array = load_words_to_array("res://wordle-answers-alphabetical.txt")
 	answer_list = ["WIELD","CLUNG","LURID","TINGE","DEUCE","GIZMO","TABBY","FUGUE","ARISE","PERIL","GUISE","SHORT","VENUE","AWOKE","RABID","MOTEL"]
 	var total_words: int = word_list.size()
@@ -21,113 +21,179 @@ func _ready():
 	var answer_upper: Array = []
 	for a in answer_list: answer_upper.append(a.to_upper())
 
-	## ================== DANH SÁCH COMBO 2 TỪ ==================
-	#var guess_combos: Array[Array] = [
-		## TỐI ƯU NHẤT (theo nghiên cứu AI + thực tế)
-		#["SOARE", "CLINT"],     # 0.115% – VUA 2 LƯỢT
-		#["SLATE", "CRONY"],     # 0.09%  – SIÊU MẠNH
-		#["TRACE", "SLING"],     # 0.11%  – RẤT TỐT
-		#["CRANE", "SLOTH"],     # 0.12%  – CÂN BẰNG
-		#["RAISE", "COUNT"],     # 0.142% – ỔN ĐỊNH
-#
-		## PHỔ BIẾN & TỐT
-		#["STARE", "COILN"],     # Phủ rộng
-		#["SALET", "CRONY"],     # SALET nổi tiếng
-		#["LEAST", "CRONY"],     # LEAST mạnh
-		#["ARISE", "COUNT"],     # ARISE phổ biến
-		#["LATER", "NOISY"],     # ALTER biến thể
-#
-		## NGUYÊN ÂM + PHỤ ÂM
-		#["AUDIO", "STERN"],     # AUDIO loại nguyên âm
-		#["ADIEU", "STORY"],     # ADIEU + STORY
-		#["OUIJA", "STERN"],     # OUIJA 4 nguyên âm
-#
-		## CỰC ĐOAN – TEST HIỆU SUẤT
-		#["ADIEU", "SPORT"],     # KÉM NHẤT (để so sánh)
-		#["RAISE", "GLOUT"],     # Test
-	#]
-#
-	#var soare_combos: Array[Array] = [
-		#["SOARE"],  # → 0.130% → VUA (C yếu nhưng lọc mạnh)
-		#["CRANE"],  # → 0.130% → VUA (C yếu nhưng lọc mạnh)
-		#["SLATE"],  # → 0.130% → VUA (C yếu nhưng lọc mạnh)
-		#["TRACE"],  # → 0.130% → VUA (C yếu nhưng lọc mạnh)
-		#["CRATE"],  # → 0.130% → VUA (C yếu nhưng lọc mạnh)
-	#]
-	#
-	## ================== TEST SIÊU NHANH ==================
-	#var start_time = Time.get_ticks_msec()
-	#var results: Array = []
-	#var debug_mode: bool = true  # ← BẬT ĐỂ XEM CHI TIẾT, TẮT ĐỂ CHẠY NHANH
-#
-	#for combo in guess_combos:
-		#var res = _test_combo_ultra_fast(combo, word_upper, answer_upper, indices, debug_mode)
-		#results.append({
-			#"name": "-".join(combo),
-			#"step1": res.step1,
-			#"total": res.total
-		#})
-		#
-	#var end_time = Time.get_ticks_msec()
-	#print("→ HOÀN THÀNH TEST %d COMBO × %d ĐÁP ÁN TRONG %.2f GIÂY!\n" % [
-		#guess_combos.size(), total_answers, (end_time - start_time) / 1000.0
-	#])
-#
-	## ================== SẮP XẾP THEO TỔNG CÒN LẠI ==================
-	#results.sort_custom(func(a, b): return a.total < b.total)
-#
-	## ================== IN BẢNG XẾP HẠNG ĐẸP – DỄ NHÌN ==================
-	#print("═".repeat(100))
-	#print("        XẾP HẠNG 14 COMBO 2 TỪ TỐI ƯU WORDLE (trên %d đáp án tháng 11/2025)" % total_answers)
-	#print("═".repeat(100))
-	#print("%-3s | %-18s | %-15s | %-15s | %-15s" % [
-		#"STT", "COMBO", "LƯỢT 1 ĐÃ LOẠI", "LƯỢT 2 ĐÃ LOẠI", "TỔNG ĐÃ LOẠI"
-	#])
-	#print("-".repeat(100))
-#
-	#for i in range(results.size()):
-		#var r = results[i]
-		#var step1_elim = 100.0 - r.step1
-		#var total_elim = 100.0 - r.total
-		#var badge = " ← VUA!" if i == 0 else ""
-		#print("%3d | %-18s | %10.3f%%     | %10.3f%%     | %10.3f%%%s" % [
-			#i+1, r.name, step1_elim, total_elim, total_elim, badge
-		#])
-#
-	#print("═".repeat(100))
-#
-	## ================== KẾT LUẬN DỄ HIỂU ==================
-	#var best = results[0]
-	#var best_step1_elim = 100.0 - best.step1
-	#var best_total_elim = 100.0 - best.total
-#
-	#print("\n" + "═".repeat(90))
-	#print("KẾT LUẬN CHÍNH THỨC – WORDLE THÁNG 11/2025:")
-	#print("→ Combo TỐI ƯU NHẤT: %s" % best.name)
-	#print("→ LƯỢT 1: %s → ĐÃ LOẠI %.3f%% từ" % [best.name.split("-")[0], best_step1_elim])
-	#print("→ LƯỢT 2: %s → ĐÃ LOẠI %.3f%% từ" % [best.name.split("-")[1], best_total_elim])
-	#print("→ TỔNG ĐÃ LOẠI: %.3f%% → CHỈ CÒN %.3f%% từ!" % [best_total_elim, best.total])
-	#print("→ %.3f%% GIẢI ĐƯỢC TRONG 2 LƯỢT!" % best_total_elim)
-	#print("→ %s LÀ VUA MỚI CỦA THÁNG 11!" % best.name)
-	#print("═".repeat(90))
+	# ================== DANH SÁCH COMBO 2 TỪ ==================
+	var guess_combos: Array[Array] = [
+		# TỐI ƯU NHẤT (theo nghiên cứu AI + thực tế)
+		["SOARE", "CLINT"],     # 0.115% – VUA 2 LƯỢT
+		["SLATE", "CRONY"],     # 0.09%  – SIÊU MẠNH
+		["TRACE", "SLING"],     # 0.11%  – RẤT TỐT
+		["CRANE", "SLOTH"],     # 0.12%  – CÂN BẰNG
+		["RAISE", "COUNT"],     # 0.142% – ỔN ĐỊNH
+
+		# PHỔ BIẾN & TỐT
+		["STARE", "COILN"],     # Phủ rộng
+		["SALET", "CRONY"],     # SALET nổi tiếng
+		["LEAST", "CRONY"],     # LEAST mạnh
+		["ARISE", "COUNT"],     # ARISE phổ biến
+		["LATER", "NOISY"],     # ALTER biến thể
+
+		# NGUYÊN ÂM + PHỤ ÂM
+		["AUDIO", "STERN"],     # AUDIO loại nguyên âm
+		["ADIEU", "STORY"],     # ADIEU + STORY
+		["OUIJA", "STERN"],     # OUIJA 4 nguyên âm
+
+		# CỰC ĐOAN – TEST HIỆU SUẤT
+		["ADIEU", "SPORT"],     # KÉM NHẤT (để so sánh)
+		["RAISE", "GLOUT"],     # Test
+	]
+
+	var soare_combos: Array[Array] = [
+		["SOARE"],  # → 0.130% → VUA (C yếu nhưng lọc mạnh)
+		["CRANE"],  # → 0.130% → VUA (C yếu nhưng lọc mạnh)
+		["SLATE"],  # → 0.130% → VUA (C yếu nhưng lọc mạnh)
+		["TRACE"],  # → 0.130% → VUA (C yếu nhưng lọc mạnh)
+		["CRATE"],  # → 0.130% → VUA (C yếu nhưng lọc mạnh)
+	]
 	
+	# ================== TEST SIÊU NHANH ==================
+	var start_time = Time.get_ticks_msec()
+	var results: Array = []
+	var debug_mode: bool = true  # ← BẬT ĐỂ XEM CHI TIẾT, TẮT ĐỂ CHẠY NHANH
+
+	for combo in guess_combos:
+		var res = _test_combo_ultra_fast(combo, word_upper, answer_upper, indices, debug_mode)
+		results.append({
+			"name": "-".join(combo),
+			"step1": res.step1,
+			"total": res.total
+		})
+		
+	var end_time = Time.get_ticks_msec()
+	print("→ HOÀN THÀNH TEST %d COMBO × %d ĐÁP ÁN TRONG %.2f GIÂY!\n" % [
+		guess_combos.size(), total_answers, (end_time - start_time) / 1000.0
+	])
+
+	# ================== SẮP XẾP THEO TỔNG CÒN LẠI ==================
+	results.sort_custom(func(a, b): return a.total < b.total)
+
+	# ================== IN BẢNG XẾP HẠNG ĐẸP – DỄ NHÌN ==================
+	print("═".repeat(100))
+	print("        XẾP HẠNG 14 COMBO 2 TỪ TỐI ƯU WORDLE (trên %d đáp án tháng 11/2025)" % total_answers)
+	print("═".repeat(100))
+	print("%-3s | %-18s | %-15s | %-15s | %-15s" % [
+		"STT", "COMBO", "LƯỢT 1 ĐÃ LOẠI", "LƯỢT 2 ĐÃ LOẠI", "TỔNG ĐÃ LOẠI"
+	])
+	print("-".repeat(100))
+
+	for i in range(results.size()):
+		var r = results[i]
+		var step1_elim = 100.0 - r.step1
+		var total_elim = 100.0 - r.total
+		var badge = " ← VUA!" if i == 0 else ""
+		print("%3d | %-18s | %10.3f%%     | %10.3f%%     | %10.3f%%%s" % [
+			i+1, r.name, step1_elim, total_elim, total_elim, badge
+		])
+
+	print("═".repeat(100))
+
+	# ================== KẾT LUẬN DỄ HIỂU ==================
+	var best = results[0]
+	var best_step1_elim = 100.0 - best.step1
+	var best_total_elim = 100.0 - best.total
+
+	print("\n" + "═".repeat(90))
+	print("KẾT LUẬN CHÍNH THỨC – WORDLE THÁNG 11/2025:")
+	print("→ Combo TỐI ƯU NHẤT: %s" % best.name)
+	print("→ LƯỢT 1: %s → ĐÃ LOẠI %.3f%% từ" % [best.name.split("-")[0], best_step1_elim])
+	print("→ LƯỢT 2: %s → ĐÃ LOẠI %.3f%% từ" % [best.name.split("-")[1], best_total_elim])
+	print("→ TỔNG ĐÃ LOẠI: %.3f%% → CHỈ CÒN %.3f%% từ!" % [best_total_elim, best.total])
+	print("→ %.3f%% GIẢI ĐƯỢC TRONG 2 LƯỢT!" % best_total_elim)
+	print("→ %s LÀ VUA MỚI CỦA THÁNG 11!" % best.name)
+	print("═".repeat(90))
+
+	word_list = load_words_to_array("res://words.txt")
+	print("Đã đọc %d từ từ: words.txt" % word_list.size())
 	
-	#var result = find_best_second_word_no_overlap_full("RAISE", word_upper, answer_upper, true)
-	#print("\nVUA MỚI: RAISE + %s → %.3f%% loại (%.3f giây)" % [
-		#result.word, result.eliminated, result.time
-	#])
-	
-	var result = find_best_second_word_perfect(
+	# GỌI HÀM TRẢ VỀ KẾT QUẢ
+	var remaining_words = get_remaining_words(
 		"RAISE",
 		"????E",
 		"RIS",
-		"A2",
-		word_upper,
-		true
+        "A2"
 	)
 	
-	print("\nVUA MỚI: RAISE + %s" % result.word)
-	print("→ Loại: %.3f%% → Còn: %d từ" % [result.eliminated, result.remaining_count])
+	print("\nTÌM KIẾM THEO:")
+	print("→ Từ: RAISE")
+	print("→ Mẫu: ????E")
+	print("→ Loại: RIS")
+	print("→ Sai vị trí: A2 (A có, nhưng không ở vị trí 2)")
+	print("→ Còn lại: %d từ" % remaining_words.size())
+	
+	print("\n=== DANH SÁCH %d TỪ CÒN LẠI ===" % remaining_words.size())
+	var line = ""
+	for i in range(remaining_words.size()):
+		line += "%-12s" % remaining_words[i]
+		if (i + 1) % 8 == 0 or i == remaining_words.size() - 1:
+			print(line)
+			line = ""
+	
+	var result = find_best_second_word_no_overlap_full("RAISE", word_upper, remaining_words, true)
+	print("\nVUA MỚI: RAISE + %s → %.3f%% loại (%.3f giây)" % [
+		result.word, result.eliminated, result.time
+	])
+
+# Kiểm tra chỉ chứa A–Z
+func is_alpha_only(text: String) -> bool:
+	for ch in text:
+		if ch < "A" or ch > "Z":
+			return false
+	return true
+
+# HÀM TRẢ VỀ DANH SÁCH TỪ CÒN LẠI
+func get_remaining_words(
+	guess: String,
+	pattern: String,
+	excluded: String,
+	misplaced: String
+) -> Array:
+	
+	guess = guess.to_upper()
+	var results = []
+	
+	for word in word_list:
+		word = word.to_upper()
+		
+		# 1. Đúng mẫu ????E
+		var match_pattern = true
+		for i in range(5):
+			if pattern[i] != "?" and word[i] != pattern[i]:
+				match_pattern = false
+				break
+		if not match_pattern:
+			continue
+		
+		# 2. Loại RIS
+		var has_excluded = false
+		for ch in excluded.to_upper():
+			if ch in word:
+				has_excluded = true
+				break
+		if has_excluded:
+			continue
+		
+		# 3. A2 → A có, không ở vị trí 2
+		if misplaced.length() >= 2:
+			var ch = misplaced[0].to_upper()
+			var pos = int(misplaced.substr(1))
+			
+			if word.find(ch) == -1:
+				continue
+			if pos >= 1 and pos <= 5 and word[pos - 1] == ch:
+				continue
+		
+		results.append(word)
+	
+	return results
 
 func _matches_pattern(answer: String, guess: String, pattern: Array) -> bool:
 	answer = answer.to_upper()
@@ -156,90 +222,6 @@ func _matches_pattern(answer: String, guess: String, pattern: Array) -> bool:
 				return false
 	
 	return true
-
-func find_best_second_word_perfect(
-	first_guess: String,
-	known_positions: String,
-	excluded_letters: String,
-	misplaced_info: String,
-	all_words: Array,
-	debug_mode: bool = false
-) -> Dictionary:
-	
-	var start_time = Time.get_ticks_msec()
-	var guess1 = first_guess.to_upper()
-	var tested_count = 0
-	var best_word = ""
-	var best_elim = 0.0
-
-	# === TẠO pattern ===
-	var pattern = [0, 0, 0, 0, 0]
-	for i in range(5):
-		if known_positions[i] != "?":
-			pattern[i] = 2
-		if guess1[i] in excluded_letters:
-			pattern[i] = 0
-	if misplaced_info.length() >= 2:
-		var ch = misplaced_info[0]
-		var pos = int(misplaced_info.substr(1)) - 1
-		if pos >= 0 and pos < 5 and guess1[pos] == ch:
-			pattern[pos] = 1
-
-	# === LỌC CHÍNH XÁC 58 TỪ (KHÔNG CÓ E) ===
-	var remaining_answers = []
-	for word in all_words:
-		if _matches_pattern(word.to_upper(), guess1, pattern):
-			remaining_answers.append(word.to_upper())
-	
-	if debug_mode:
-		print("\nTÌM LƯỢT 2 TỐI ƯU SAU '%s'" % guess1)
-		print("→ Vị trí đúng: %s" % known_positions)
-		print("→ Chữ bị loại: %s" % excluded_letters)
-		print("→ Chữ sai vị trí: %s" % misplaced_info)
-		print("→ Còn lại: %d từ (PHẢI LÀ 58)" % remaining_answers.size())
-
-	if remaining_answers.size() <= 1:
-		return {"word": remaining_answers[0], "eliminated": 100.0}
-
-	# === TÌM TỪ TỐI ƯU ===
-	for candidate in all_words:
-		var guess = candidate.to_upper()
-		tested_count += 1
-		
-		# Bỏ từ có chữ bị loại
-		var skip = false
-		for ch in excluded_letters:
-			if ch in guess:
-				skip = true
-				break
-		if skip: continue
-		
-		var remaining = 0
-		for ans in remaining_answers:
-			var sim = _simulate_guess_fast(guess, ans)
-			if _is_valid_fast(ans, sim[0], sim[1], sim[2]):
-				remaining += 1
-		
-		var elim = 100.0 - (remaining * 100.0 / remaining_answers.size())
-		
-		if elim > best_elim:
-			best_elim = elim
-			best_word = guess
-			if debug_mode:
-				print("[#%04d] %-5s → loại %.3f%% ← MỚI TỐI ƯU!" % [tested_count, guess, elim])
-	
-	var duration = (Time.get_ticks_msec() - start_time) / 1000.0
-	
-	if debug_mode:
-		print("HOÀN THÀNH SAU %.3f GIÂY" % duration)
-		print("→ LƯỢT 2 TỐI ƯU: %s → loại %.3f%%" % [best_word, best_elim])
-	
-	return {
-		"word": best_word,
-		"eliminated": best_elim,
-		"remaining_count": remaining_answers.size(),
-		"time": duration
-	}
 
 func find_best_second_word_no_overlap_full(
 	first_word: String, 
@@ -608,23 +590,6 @@ func save_array_to_file(arr: Array, path: String) -> void:
 			file.store_line(item)
 		file.close()
 
-func load_words_to_array(file_path: String) -> Array:
-	var words_array = []
-	
-	var file = FileAccess.open(file_path, FileAccess.READ)
-	if file == null:
-		push_error("Không mở được file: %s" % file_path)
-		return words_array
-	
-	while !file.eof_reached():
-		var word = file.get_line().strip_edges()
-		if word.length() > 0:
-			words_array.append(word.to_lower())
-	
-	file.close()
-	print("Đã đọc %d từ từ: %s" % [words_array.size(), file_path.get_file()])
-	return words_array
-
 func generate_filters_from_guess(
 	guess: String,
 	answer: String,
@@ -767,3 +732,21 @@ func apply_generated_filters(
 		out.close()
 
 	return valid_words.size()
+
+# Đọc file words.txt
+func load_words_to_array(file_path: String) -> Array:
+	var words_array = []
+	
+	var file = FileAccess.open(file_path, FileAccess.READ)
+	if file == null:
+		push_error("Không mở được file: %s" % file_path)
+		return words_array
+	
+	while !file.eof_reached():
+		var word = file.get_line().strip_edges()
+		if word.length() > 0:
+			words_array.append(word.to_lower())
+	
+	file.close()
+	print("Đã đọc %d từ từ: %s" % [words_array.size(), file_path.get_file()])
+	return words_array
