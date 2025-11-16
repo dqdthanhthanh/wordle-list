@@ -405,10 +405,10 @@ func _ready():
 	if results.size() > 0:
 		prints("\n→ Từ tốt nhất: ",results[0])
 	
-	#if remaining_words.size() < 10:
 	# Gọi API kiểm tra tần suất từ
-	var best = await get_most_common_word(remaining_words)
-	print("Most common word:", best)
+	if remaining_words.size() < 10:
+		var best = await get_most_common_word(remaining_words)
+		print("Most common word:", best)
 
 func get_word_frequency(word: String) -> float:
 	var url = "https://api.datamuse.com/words?sp=%s&md=f" % word

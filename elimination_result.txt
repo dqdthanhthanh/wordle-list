@@ -57,5 +57,3 @@ DALED → trùng 2 → tỷ lệ 66.67% → điểm 3.33
 LEMMA → trùng 2 → tỷ lệ 66.67% → điểm 3.33
 LADED → trùng 2 → tỷ lệ 66.67% → điểm 3.33
 ADDED → trùng 2 → tỷ lệ 66.67% → điểm 2.44
-
-
