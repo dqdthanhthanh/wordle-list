@@ -415,7 +415,7 @@ func get_word_frequency(word: String) -> float:
 	var request := HTTPRequest.new()
 	add_child(request)
 
-	var err = request.request(url)
+	var err = request.request(url)  # chỉ cần url, mặc định GET
 	if err != OK:
 		return 0.0
 
@@ -424,13 +424,16 @@ func get_word_frequency(word: String) -> float:
 	var text = body.get_string_from_utf8()
 
 	var data = JSON.parse_string(text)
-	if data is Array and data.size() > 0:
-		var tags = data[0].get("tags", [])
-		for t in tags:
-			if t.begins_with("f:"):
-				return float(t.substr(2))
+	if typeof(data) != TYPE_ARRAY or data.size() == 0:
+		return 0.0
+
+	var tags = data[0].get("tags", [])
+	for t in tags:
+		if t.begins_with("f:"):
+			return float(t.substr(2))
 	return 0.0
 
+# Lấy từ thông dụng nhất trong danh sách
 func get_most_common_word(words: Array) -> String:
 	var best_word = ""
 	var best_freq = -1.0
