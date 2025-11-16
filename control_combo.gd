@@ -361,22 +361,60 @@ func filter_words_by_guess(guess: String, remaining_words: Array) -> Array:
 	
 	return filtered
 
-func exclude_words(turn:Array = [], all_answer:Array = []) -> Array:
-	var remaining_words:Array = all_answer
-	var printtxt:String = ""
-	var count:int = 0
-	var score:int = 0
-	if turn.size() > 0:
-		count = 0
-		for i in turn:
-			count += 1
-			remaining_words = filter_words_by_guess(i,remaining_words)
-			score += remaining_words.size()
-			printtxt += " " + str(count) + ". " + i + " -> " + str(remaining_words.size())
-		printtxt += " -> " + str(score)
-		prints(printtxt)
+func score_guess_combo(combo: Array, remaining_words: Array) -> Dictionary:
+	var current_remaining:Array = remaining_words.duplicate()
+	var guess:String
+	var word_scores = []
+	for i in combo:
+		guess += i
+		var before_count = current_remaining.size()
+		current_remaining = filter_words_by_guess(guess, remaining_words)
+		var eliminated = current_remaining.size()
+		word_scores.append({
+			"word": i,
+			"score": eliminated,
+			"remaining_after": current_remaining.size()
+		})
+	return {
+		"combo": combo,
+		"total_score": current_remaining.size(),
+		"word_scores": word_scores
+	}
+
+func rank_guess_combos(guess_combos: Array, remaining_words: Array) -> Array:
+	var results = []
+	for combo in guess_combos:
+		var combo_result = score_guess_combo(combo, remaining_words)
+		results.append(combo_result)
+	# Sắp xếp giảm dần theo total_score
+	results.sort_custom(func(a,b):
+		return a["total_score"] > b["total_score"]
+	)
+	return results
+
+func rank_word_list_by_remaining(word_list: Array, remaining_words: Array) -> Array:
+	var results = []
+	var total = remaining_words.size()
 	
-	return remaining_words
+	for word in word_list:
+		var filtered = filter_words_by_guess(word, remaining_words)
+		var score = total - filtered.size()  # số từ bị loại
+		results.append({
+			"word": word,
+			"score": score,
+			"remaining_after": filtered.size()
+		})
+	
+	# Sắp xếp giảm dần theo score
+	results.sort_custom(func(a, b):
+		return a["score"] < b["score"]
+	)
+	
+	return results
+
+var word_list: Array = load_words_to_array("res://wordle-full.txt")
+var all_answer: Array = load_words_to_array("res://wordle-La.txt")
+var all_past_answer: Array = load_words_to_array("res://wordle-answers-alphabetical.txt")
 
 # ===============================
 # _ready
@@ -387,43 +425,14 @@ func _ready():
 	#ROATE - SULCI
 	#SOARE - UNITY
 	
-	var word_list: Array = load_words_to_array("res://wordle-full.txt")
-	var all_answer: Array = load_words_to_array("res://wordle-La.txt")
-	var all_past_answer: Array = load_words_to_array("res://wordle-answers-alphabetical.txt")
 	#merge_wordle_files("res://wordle-Ta.txt", "res://wordle-La.txt", "res://wordle-full.txt")
 	print("Đã đọc %d từ từ: words.txt" % word_list.size())
 	
-	var guess_combos: Array[Array] = [
-		["ROATE", "SULCI"],
-		["SOARE", "UNITY"],
-		["SOARE", "CLINT"],
-		["SLATE", "CRONY"], 
-		["TRACE", "SLING"],
-		["CRANE", "SLOTH"],
-		["RAISE", "COUNT"],
-
-		["STARE", "COILN"],
-		["SALET", "CRONY"],
-		["LEAST", "CRONY"], 
-		["ARISE", "COUNT"],
-		
-		["AUDIO", "STERN"],
-		["ADIEU", "STORY"],
-		["OUIJA", "STERN"],
-		
-		["ADIEU", "SPORT"],
-		["RAISE", "GLOUT"], 
-	]
-	
-	for i in guess_combos:
-		prints(i)
-		exclude_words(i,word_list)
-	
 	# Ví dụ lọc lượt 1
-	var contain_true:String = "?????".to_upper()
-	var contain_false:String = "".to_upper()
-	var exclude:String = "ROATE".to_upper()
-	var contain = "ROATE".to_upper()
+	var contain_true:String = "??i??".to_upper()
+	var contain_false:String = "a134l235i24".to_upper()
+	var exclude:String = "roteknscmx".to_upper()
+	var contain = "rot".to_upper()
 	var contain_full:String = get_contain_full(contain_true, contain_false)
 	print(contain_full)  # Output: có thể "TYSAN" (chữ hoa, không trùng)
 	var contain_true_score: float = 2
@@ -490,6 +499,41 @@ func _ready():
 	if remaining_words.size() < 10:
 		var best = await get_most_common_word(remaining_words)
 		print("Most common word:", best)
+
+func check_data():
+	var guess_combos: Array[Array] = [
+		["ROATE", "SULCI"],
+		["SOARE", "UNITY"],
+		["SOARE", "CLINT"],
+		["SLATE", "CRONY"], 
+		["TRACE", "SLING"],
+		["CRANE", "SLOTH"],
+		["RAISE", "COUNT"],
+
+		["STARE", "COILN"],
+		["SALET", "CRONY"],
+		["LEAST", "CRONY"], 
+		["ARISE", "COUNT"],
+		
+		["AUDIO", "STERN"],
+		["ADIEU", "STORY"],
+		["OUIJA", "STERN"],
+		
+		["ADIEU", "SPORT"],
+		["RAISE", "GLOUT"], 
+	]
+	
+	var rank_word_list = rank_word_list_by_remaining(word_list, all_answer)
+	for r in rank_word_list:
+		print(r["word"], "→ loại được:", r["score"], "từ, còn lại:", r["remaining_after"])
+
+	#prints(filter_words_by_guess("ROATE", word_list).size())
+	#prints(filter_words_by_guess("ROATESULCI", word_list).size())
+	var ranked = rank_guess_combos(guess_combos, word_list)
+	for r in ranked:
+		print("Combo:", r["combo"], " → total_score:", r["total_score"])
+		for ws in r["word_scores"]:
+			print("   Word:", ws["word"], " → score:", ws["score"])
 
 # Gọi API kiểm tra tần suất từ
 func get_word_frequency(word: String) -> float:
