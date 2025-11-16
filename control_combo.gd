@@ -216,16 +216,15 @@ func find_best_eliminator(
 	contain_true: String = "",         
 	contain_false: String = "",        
 	contain_true_score: float = 1.0,
-	contain_false_score: float = 1.0,  
+	contain_false_score: float = 1.0,
+	position_weights:Array = [0,0,0,0,0],
 	debug_mode: bool = false
 ) -> Array:
 	var results = []
 	var total = remaining_words.size()
 	var tested = 0
 	
-	# -------------------------
-	# 1️⃣ Tính tần suất chữ cái trong remaining_words
-	# -------------------------
+	# Tính tần suất chữ cái trong remaining_words
 	var letter_freq = {}
 	for word in remaining_words:
 		var seen = {}
@@ -234,18 +233,24 @@ func find_best_eliminator(
 				letter_freq[ch] = letter_freq.get(ch, 0) + 1
 				seen[ch] = true
 	
-	# -------------------------
-	# 2️⃣ Tạo contain_full = tất cả chữ không lặp lại trong contain_true + contain_false
-	# -------------------------
-	var contain_full = get_contain_full(contain_true, contain_false)
+	# Tạo contain_full từ contain_true + contain_false
+	var contain_full = ""
+	var letters = {}
+	for ch in contain_true.to_upper():
+		if ch != "?":
+			letters[ch] = true
+	for ch in contain_false.to_upper():
+		if ch >= "A" and ch <= "Z":
+			letters[ch] = true
+	for ch in letters.keys():
+		contain_full += ch
 	
-	# -------------------------
-	# 3️⃣ Duyệt từng candidate
-	# -------------------------
+	# Tính trọng số vị trí (position_weights)
+	# position_weights[i] = lợi thế ở vị trí i
 	for candidate in word_list:
 		var wu = candidate.to_upper()
 		
-		# Tính overlap_count (số từ trùng, chưa loại)
+		# Tính overlap_count
 		var overlap_count = 0
 		for ans in remaining_words:
 			var sim = _simulate_guess_fast(candidate, ans)
@@ -254,22 +259,18 @@ func find_best_eliminator(
 		
 		var overlap_percent = (overlap_count * 100.0) / total
 		
-		# Tính score theo tần suất và hệ số chứa chữ
+		# Tính score cơ bản theo tần suất chữ cái và contain_true/contain_false
 		var score = 0
 		var seen = {}
-		for ch in wu:
+		for i in range(wu.length()):
+			var ch = wu[i]
 			if not seen.has(ch):
-				var ch_score = 0.0
 				if contain_true.find(ch) != -1:
-					ch_score = letter_freq.get(ch, 0) / (contain_true_score*total)
-					#print(" +%d (%s) → contain_true" % [ch_score, ch])
+					score += letter_freq.get(ch, 0) * contain_true_score
 				elif contain_false.find(ch) != -1:
-					ch_score = letter_freq.get(ch, 0) / (contain_false_score*total)
-					#print(" +%d (%s) → contain_false" % [ch_score, ch])
+					score += letter_freq.get(ch, 0) * contain_false_score
 				else:
-					ch_score = letter_freq.get(ch, 0)
-					#print(" +%d (%s) → other" % [ch_score, ch])
-				score += ch_score
+					score += letter_freq.get(ch, 0)
 				seen[ch] = true
 		
 		# Tính thêm điểm dựa trên số chữ trùng với contain_full
@@ -278,12 +279,13 @@ func find_best_eliminator(
 			if wu.find(ch) != -1:
 				match_count += 1
 		if contain_full.length() > 0:
-			score += (score * match_count / contain_full.length())/total
-			
-		# Tính bonus nếu candidate còn trong remaining_words
-		if remaining_words.has(candidate):
-			if total > 0:
-				score += score * (2.0 / total)
+			score += score * match_count / contain_full.length()
+		
+		# **Cộng thêm điểm theo vị trí chữ cái**
+		for i in range(wu.length()):
+			var ch = wu[i]
+			if letter_freq.has(ch):
+				score += letter_freq[ch] * position_weights[i]/10
 		
 		# Lưu kết quả
 		if overlap_count > 0:
@@ -300,9 +302,7 @@ func find_best_eliminator(
 					tested, candidate, overlap_count, total, overlap_percent, score
 				])
 	
-	# -------------------------
-	# 4️⃣ Sắp xếp giảm dần theo score
-	# -------------------------
+	# Sắp xếp: ưu tiên score giảm dần
 	results.sort_custom(func(a, b):
 		return a["score"] > b["score"]
 	)
@@ -327,15 +327,65 @@ func save_results_to_file(results: Array, output_path: String) -> void:
 	file.close()
 	print("Đã lưu kết quả vào %s" % output_path)
 
+func compute_position_weights(word_list):
+	var position_counts = [ {}, {}, {}, {}, {} ]  # 5 vị trí
+	for word in word_list:
+		for i in range(5):
+			var ch = word[i]
+			position_counts[i][ch] = position_counts[i].get(ch, 0) + 1
+	
+	var weights = []
+	var total_words = word_list.size()
+	for i in range(5):
+		var max_count = 0
+		for ch in position_counts[i].keys():
+			max_count = max(max_count, position_counts[i][ch])
+		weights.append(float(max_count) / total_words)
+	return weights
+
+func filter_words_by_guess(guess: String, remaining_words: Array) -> Array:
+	var filtered = []
+	var guess_chars = {}
+	for ch in guess.to_upper():
+		guess_chars[ch] = true
+	
+	for word in remaining_words:
+		var wu = word.to_upper()
+		var has_any = false
+		for ch in wu:
+			if guess_chars.has(ch):
+				has_any = true
+				break
+		if has_any:
+			filtered.append(word)
+	
+	return filtered
+
+func exclude_words(turn:Array = [], all_answer:Array = []) -> Array:
+	var remaining_words:Array = all_answer
+	var printtxt:String = ""
+	var count:int = 0
+	var score:int = 0
+	if turn.size() > 0:
+		count = 0
+		for i in turn:
+			count += 1
+			remaining_words = filter_words_by_guess(i,remaining_words)
+			score += remaining_words.size()
+			printtxt += " " + str(count) + ". " + i + " -> " + str(remaining_words.size())
+		printtxt += " -> " + str(score)
+		prints(printtxt)
+	
+	return remaining_words
+
 # ===============================
 # _ready
 # ===============================
 func _ready():
-	#ORATE → trùng 1612 → tỷ lệ 100.00% → điểm 3013.00
-	#OATER → trùng 1612 → tỷ lệ 100.00% → điểm 3013.00
-	#ROATE → trùng 1612 → tỷ lệ 100.00% → điểm 3013.00
-	#SULCI → trùng 195 → tỷ lệ 100.00% → điểm 413.00
-	#SOARE
+	#ORATE
+	#OATER
+	#ROATE - SULCI
+	#SOARE - UNITY
 	
 	var word_list: Array = load_words_to_array("res://wordle-full.txt")
 	var all_answer: Array = load_words_to_array("res://wordle-La.txt")
@@ -343,11 +393,37 @@ func _ready():
 	#merge_wordle_files("res://wordle-Ta.txt", "res://wordle-La.txt", "res://wordle-full.txt")
 	print("Đã đọc %d từ từ: words.txt" % word_list.size())
 	
+	var guess_combos: Array[Array] = [
+		["ROATE", "SULCI"],
+		["SOARE", "UNITY"],
+		["SOARE", "CLINT"],
+		["SLATE", "CRONY"], 
+		["TRACE", "SLING"],
+		["CRANE", "SLOTH"],
+		["RAISE", "COUNT"],
+
+		["STARE", "COILN"],
+		["SALET", "CRONY"],
+		["LEAST", "CRONY"], 
+		["ARISE", "COUNT"],
+		
+		["AUDIO", "STERN"],
+		["ADIEU", "STORY"],
+		["OUIJA", "STERN"],
+		
+		["ADIEU", "SPORT"],
+		["RAISE", "GLOUT"], 
+	]
+	
+	for i in guess_combos:
+		prints(i)
+		exclude_words(i,word_list)
+	
 	# Ví dụ lọc lượt 1
 	var contain_true:String = "?????".to_upper()
 	var contain_false:String = "".to_upper()
 	var exclude:String = "ROATE".to_upper()
-	var contain = "dfnpvgbxmwnd".to_upper()
+	var contain = "ROATE".to_upper()
 	var contain_full:String = get_contain_full(contain_true, contain_false)
 	print(contain_full)  # Output: có thể "TYSAN" (chữ hoa, không trùng)
 	var contain_true_score: float = 2
@@ -355,12 +431,15 @@ func _ready():
 	
 	var remaining_words = get_remaining_words(all_answer, contain_true, exclude, contain_false)
 	#var remaining_words = get_remaining_contain(all_answer, contain,3)
+	var position_weights = compute_position_weights(remaining_words)
+	#position_weights = [0,0,0,0,0]
 	
 	var freq_array = count_letter_frequency(remaining_words)
 	
 	print("→ LỌC HOÀN TẤT: %d từ còn lại" % remaining_words.size())
 	print(remaining_words)
 	print(freq_array)
+	print(position_weights)
 	
 	# Tìm từ loại tốt nhất lượt 2
 	var filtered_word_list = []
@@ -395,11 +474,13 @@ func _ready():
 	print(filtered_word_list)
 
 
-	var results = find_best_eliminator(filtered_word_list, remaining_words, contain_true, contain_false,contain_true_score,contain_false_score, true)
+	var results = find_best_eliminator(filtered_word_list, remaining_words, contain_true, contain_false,contain_true_score,contain_false_score,position_weights, true)
 	
 	await save_results_to_file(results, "res://elimination_result.txt")
+	await save_text_to_file_at_top(position_weights, "res://elimination_result.txt",true)
 	await save_text_to_file_at_top(freq_array, "res://elimination_result.txt",true)
 	await save_text_to_file_at_top(remaining_words, "res://elimination_result.txt",true)
+	
 	
 	if results.size() > 0:
 		prints("\n→ Từ tốt nhất: ",results[0])
