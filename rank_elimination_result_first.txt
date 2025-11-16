@@ -12972,3 +12972,5 @@ GYPPY → trùng 1637 → tỷ lệ 70.71% → điểm 1063.00
 ZOPPO → trùng 1459 → tỷ lệ 63.02% → điểm 1054.00
 IMMIX → trùng 1478 → tỷ lệ 63.84% → điểm 982.00
 QAJAQ → trùng 1459 → tỷ lệ 63.02% → điểm 965.00
+
+

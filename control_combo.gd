@@ -335,6 +335,7 @@ func _ready():
 	#OATER → trùng 1612 → tỷ lệ 100.00% → điểm 3013.00
 	#ROATE → trùng 1612 → tỷ lệ 100.00% → điểm 3013.00
 	#SULCI → trùng 195 → tỷ lệ 100.00% → điểm 413.00
+	#SOARE
 	
 	var word_list: Array = load_words_to_array("res://wordle-full.txt")
 	var all_answer: Array = load_words_to_array("res://wordle-La.txt")
@@ -343,9 +344,9 @@ func _ready():
 	print("Đã đọc %d từ từ: words.txt" % word_list.size())
 	
 	# Ví dụ lọc lượt 1
-	var contain_true:String = "cla??".to_upper()
+	var contain_true:String = "?????".to_upper()
 	var contain_false:String = "".to_upper()
-	var exclude:String = "soreink".to_upper()
+	var exclude:String = "ROATE".to_upper()
 	var contain = "dfnpvgbxmwnd".to_upper()
 	var contain_full:String = get_contain_full(contain_true, contain_false)
 	print(contain_full)  # Output: có thể "TYSAN" (chữ hoa, không trùng)
@@ -396,11 +397,9 @@ func _ready():
 
 	var results = find_best_eliminator(filtered_word_list, remaining_words, contain_true, contain_false,contain_true_score,contain_false_score, true)
 	
-	save_results_to_file(results, "res://elimination_result.txt")
-	await get_tree().create_timer(0.5).timeout
-	save_text_to_file_at_top(freq_array, "res://elimination_result.txt",true)
-	await get_tree().create_timer(0.5).timeout
-	save_text_to_file_at_top(remaining_words, "res://elimination_result.txt",true)
+	await save_results_to_file(results, "res://elimination_result.txt")
+	await save_text_to_file_at_top(freq_array, "res://elimination_result.txt",true)
+	await save_text_to_file_at_top(remaining_words, "res://elimination_result.txt",true)
 	
 	if results.size() > 0:
 		prints("\n→ Từ tốt nhất: ",results[0])
