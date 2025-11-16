@@ -4,3 +4,5 @@ res://elimination_result.txt
 res://best_suggestions.txt
 res://filtered_words.txt
 res://ranked_words.txt
+res://control.gd
+res://wordle-full.txt

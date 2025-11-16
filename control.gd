@@ -30,8 +30,8 @@ DUMPY
 
 var path:Array[String] = ["res://filtered_words.txt",
 "res://best_suggestions.txt",
-"res://order_words.txt",
-"res://valid-wordle-words.txt",
+"res://res://wordle-La.txt",
+"res://wordle-La.txt",
 "res://ranked_words.txt",
 "res://ranked_words_all.txt",
 "res://ranked_words_answer.txt",
