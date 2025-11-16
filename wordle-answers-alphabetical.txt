@@ -281,6 +281,7 @@ cinch
 circa
 civic
 civil
+clamp
 clash
 class
 clean

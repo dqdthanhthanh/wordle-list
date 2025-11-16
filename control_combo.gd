@@ -343,9 +343,9 @@ func _ready():
 	print("Đã đọc %d từ từ: words.txt" % word_list.size())
 	
 	# Ví dụ lọc lượt 1
-	var contain_true:String = "?lea?".to_upper()
-	var contain_false:String = "a3e5".to_upper()
-	var exclude:String = "sorcint".to_upper()
+	var contain_true:String = "cla??".to_upper()
+	var contain_false:String = "".to_upper()
+	var exclude:String = "soreink".to_upper()
 	var contain = "dfnpvgbxmwnd".to_upper()
 	var contain_full:String = get_contain_full(contain_true, contain_false)
 	print(contain_full)  # Output: có thể "TYSAN" (chữ hoa, không trùng)
@@ -406,10 +406,12 @@ func _ready():
 		prints("\n→ Từ tốt nhất: ",results[0])
 	
 	# Gọi API kiểm tra tần suất từ
+	prints("remaining_words",remaining_words)
 	if remaining_words.size() < 10:
 		var best = await get_most_common_word(remaining_words)
 		print("Most common word:", best)
 
+# Gọi API kiểm tra tần suất từ
 func get_word_frequency(word: String) -> float:
 	var url = "https://api.datamuse.com/words?sp=%s&md=f" % word
 	var request := HTTPRequest.new()
