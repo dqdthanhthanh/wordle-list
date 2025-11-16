@@ -405,11 +405,45 @@ func _ready():
 	if results.size() > 0:
 		prints("\n→ Từ tốt nhất: ",results[0])
 	
-	var ds = ""
-	for w in remaining_words:
-		ds += w
-		ds += ", "
-	prints(ds)
+	#if remaining_words.size() < 10:
+	# Gọi API kiểm tra tần suất từ
+	var best = await get_most_common_word(remaining_words)
+	print("Most common word:", best)
+
+func get_word_frequency(word: String) -> float:
+	var url = "https://api.datamuse.com/words?sp=%s&md=f" % word
+	var request := HTTPRequest.new()
+	add_child(request)
+
+	var err = request.request(url)
+	if err != OK:
+		return 0.0
+
+	var result = await request.request_completed
+	var body: PackedByteArray = result[3]
+	var text = body.get_string_from_utf8()
+
+	var data = JSON.parse_string(text)
+	if data is Array and data.size() > 0:
+		var tags = data[0].get("tags", [])
+		for t in tags:
+			if t.begins_with("f:"):
+				return float(t.substr(2))
+	return 0.0
+
+func get_most_common_word(words: Array) -> String:
+	var best_word = ""
+	var best_freq = -1.0
+
+	for w in words:
+		var freq = await get_word_frequency(w)
+		print("Word:", w, " freq:", freq)
+
+		if freq > best_freq:
+			best_freq = freq
+			best_word = w
+
+	return best_word
 
 # Hàm lọc từ chỉ giữ lại từ có ít nhất 1 chữ trong 'contain'
 func get_remaining_contain(word_list: Array, contain: String, max_count:int) -> Array:
