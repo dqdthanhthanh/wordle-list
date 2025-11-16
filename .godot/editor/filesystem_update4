@@ -1,11 +1,6 @@
-res://control_new_test.tscn
-res://control_new_test.gd
-res://filtered_words.txt
-res://tmp_full.txt
-res://tmp_input.txt
-res://tmp_output.txt
-res://wordle-answers-alphabetical.txt
+res://control_combo.tscn
+res://control_combo.gd
+res://elimination_result.txt
 res://best_suggestions.txt
+res://filtered_words.txt
 res://ranked_words.txt
-res://all_past_anwser.txt
-res://control_test.gd
