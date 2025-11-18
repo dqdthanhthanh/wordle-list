@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://4b4f6bspev50"]
+[gd_scene load_steps=3 format=3 uid="uid://4b4f6bspev50"]
 
 [ext_resource type="Script" uid="uid://ckjtt7f4l3ekp" path="res://control_combo.gd" id="1_riv4u"]
+[ext_resource type="AudioStream" uid="uid://0h8af4fhd1td" path="res://ringing-35278.mp3" id="2_8qa75"]
 
 [node name="ControlCombo" type="Control"]
 layout_mode = 3
@@ -10,3 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_riv4u")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_8qa75")
+volume_db = 10.0

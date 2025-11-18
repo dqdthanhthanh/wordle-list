@@ -848,6 +848,7 @@ major
 mambo
 manga
 mango
+maker
 mania
 manly
 manor
@@ -958,6 +959,7 @@ omega
 onion
 onset
 opera
+opine
 order
 organ
 other

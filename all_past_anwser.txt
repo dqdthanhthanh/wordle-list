@@ -1,14 +1,31 @@
+Xếp hạng,Từ,Ngày (#),Trung bình lượt,% Fail,Lý do khó
+1,PARER,#454 (2022),6.3,48%,"Pattern _A_ER (10+ từ tương tự: PAPER, LAYER, PAGER)."
+2,CORER,#1214 (2024),5.7,50%,"Lặp R + O giữa, nhầm COWER/ROGER."
+3,ROWER,#1000 (2023),5.6,45%,"_O_ER bẫy (ROWER nhầm LOWER, MOWER)."
+4,GOFER,#398 (2022),5.5,44%,"G đầu hiếm + _O_ER (GOFER nhầm GOFER, LOWER)."
+5,FOYER,#379 (2022),5.4,43%,"Y giữa hiếm + OYER bẫy (FOYER nhầm FOYER, TOYER)."
+6,TIZZY,#1456 (Aug 2025),5.4,52%,"Z hiếm + Y giữa, _I__Y (nhầm DITTY, PIZZY)."
+7,RAZOR,#1618 (Nov 2025),5.4,61%,Z giữa + R lặp đầu/cuối (nhầm RADAR).
+8,MUMMY,#491 (2022),5.8,45%,Lặp 3 M + Y cuối hiếm.
+9,JOLLY,#1400 (2025),5.3,40%,J đầu hiếm + lặp L + OLLY bẫy (nhầm HOLLY).
+10,FIBER,#1200 (2024),5.2,20%,"_I_ER pattern (10 từ: FIBER, VIPER, WIPER)."
+
+	- Wordle ???? (November 17, 2025): THETA (3) ROATE DELTA THETA | SALET CHORD THETA
+	- Wordle ???? (November 17, 2025): CURVY (4) ROATE SULCI CURRY CURVY | SALET IRONY MURKY CURRY CURVY
+	- Wordle ???? (November 17, 2025): CADDY (4) ROATE LYSIN CHUMP CADDY | SALET
 
 November 2025
-
-	- Wordle 1611 (November 17, 2025): CLAMP
-	- Wordle 1610 (November 16, 2025): WIELD
-	- Wordle 1609 (November 15, 2025): CLUNG
-	- Wordle 1609 (November 14, 2025): LURID
-	- Wordle 1608 (November 13, 2025): TINGE
-	- Wordle 1607 (November 12, 2025): DEUCE
-	- Wordle 1606 (November 11, 2025): GIZMO
-	- Wordle 1605 (November 10, 2025): TABBY
+	
+	- Wordle 1614 (November 19, 2025): MAKER (3) TRACE GLYPH NIMBS MAKER
+	- Wordle 1613 (November 18, 2025): OPINE (3) ROATE KILNS OVINE OPINE | SLATE GROIN OVINE OPINE
+	- Wordle 1612 (November 17, 2025): CLAMP (3) ROATE LICKS CLAMP | SLATE PRINK CLAMP
+	- Wordle 1611 (November 16, 2025): WIELD (4)
+	- Wordle 1610 (November 15, 2025): CLUNG (4)
+	- Wordle 1609 (November 14, 2025): LURID (3)
+	- Wordle 1608 (November 13, 2025): TINGE (3)
+	- Wordle 1607 (November 12, 2025): DEUCE (4)
+	- Wordle 1606 (November 11, 2025): GIZMO (3)
+	- Wordle 1605 (November 10, 2025): TABBY (7)
 	- Wordle 1604 (November 09, 2025): FUGUE
 	- Wordle 1603 (November 08, 2025): ARISE
 	- Wordle 1602 (November 07, 2025): PERIL
@@ -838,7 +855,7 @@ October 2023
 	- Wordle 853 (October 20, 2023): OCCUR
 	- Wordle 852 (October 19, 2023): SPLAT
 	- Wordle 851 (October 18, 2023): MERCY
-	- Wordle 850 (October 17, 2023): ADULT
+	- Wordle 850 (October 17, 2023): ADULT (4) ROATE LINCH VAULT ADULT
 	- Wordle 849 (October 16, 2023): GRAPH
 	- Wordle 848 (October 15, 2023): LEAKY
 	- Wordle 847 (October 14, 2023): AGENT
@@ -999,7 +1016,7 @@ May 2023
 	- Wordle 707 (May 27, 2023): RAMEN
 	- Wordle 706 (May 26, 2023): SWINE
 	- Wordle 705 (May 25, 2023): BAGEL
-	- Wordle 704 (May 24, 2023): UTTER
+	- Wordle 704 (May 24, 2023): UTTER (3)
 	- Wordle 703 (May 23, 2023): CLERK
 	- Wordle 702 (May 22, 2023): IGLOO
 	- Wordle 701 (May 21, 2023): BRASH
@@ -1273,7 +1290,7 @@ September 2022
 	- Wordle 457 (September 19, 2022): TRICE
 	- Wordle 456 (September 18, 2022): STICK
 	- Wordle 455 (September 17, 2022): CHUTE
-	- Wordle 454 (September 16, 2022): PARER
+	- Wordle 454 (September 16, 2022): PARER (4) ROATE-GYMPS-PALER-PARER
 	- Wordle 453 (September 15, 2022): DOUBT
 	- Wordle 452 (September 14, 2022): THYME
 	- Wordle 451 (September 13, 2022): ALPHA
@@ -1650,7 +1667,7 @@ October 2021
 	- Wordle 113 (October 10, 2021): HATCH
 	- Wordle 112 (October 09, 2021): ALONE
 	- Wordle 111 (October 08, 2021): MOTOR
-	- Wordle 110 (October 07, 2021): ABACK
+	- Wordle 110 (October 07, 2021): ABACK ["SALET", "CORNI", "BUCKU", "ABACK"]
 	- Wordle 109 (October 06, 2021): GUILD
 	- Wordle 108 (October 05, 2021): KEBAB
 	- Wordle 107 (October 04, 2021): SPEND
@@ -1743,7 +1760,7 @@ July 2021
 	- Wordle 29 (July 18, 2021): BATTY
 	- Wordle 28 (July 17, 2021): REACT
 	- Wordle 27 (July 16, 2021): MARRY
-	- Wordle 26 (July 15, 2021): ABASE
+	- Wordle 26 (July 15, 2021): ABASE ["SALET", "CHIRU", "ABBEY", "ABASE"]
 	- Wordle 25 (July 14, 2021): COLON
 	- Wordle 24 (July 13, 2021): STOOL
 	- Wordle 23 (July 12, 2021): CRUST
