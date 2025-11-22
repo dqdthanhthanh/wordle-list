@@ -619,6 +619,7 @@ gorge
 gouge
 grace
 grade
+grave
 graft
 grail
 grain
@@ -1419,6 +1420,7 @@ their
 theme
 there
 these
+thick
 thief
 thigh
 thing
@@ -1552,6 +1554,7 @@ voice
 voila
 voter
 vouch
+vowel
 vying
 wacky
 wafer

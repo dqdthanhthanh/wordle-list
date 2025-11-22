@@ -12,3 +12,5 @@ res://wordle-La.txt
 res://rank_elimination_result_first.txt
 res://control_new_test.tscn
 res://wordle-answer-full.txt
+res://filtered.txt
+res://wordle-full_exclude.txt

@@ -16,7 +16,10 @@ Xếp hạng,Từ,Ngày (#),Trung bình lượt,% Fail,Lý do khó
 
 November 2025
 	
-	- Wordle 1614 (November 19, 2025): MAKER (3) TRACE GLYPH NIMBS MAKER
+	- Wordle 1617 (November 22, 2025): THICK (4) SALET HOURI THICK
+	- Wordle 1616 (November 21, 2025): VOWEL (4) SALET BOURD HOVEL VOWEL
+	- Wordle 1615 (November 20, 2025): GRAVE (3) TRACE GAMPS GRAVE
+	- Wordle 1614 (November 19, 2025): MAKER (4) TRACE GLYPH NIMBS MAKER
 	- Wordle 1613 (November 18, 2025): OPINE (3) ROATE KILNS OVINE OPINE | SLATE GROIN OVINE OPINE
 	- Wordle 1612 (November 17, 2025): CLAMP (3) ROATE LICKS CLAMP | SLATE PRINK CLAMP
 	- Wordle 1611 (November 16, 2025): WIELD (4)
