@@ -16,6 +16,9 @@ Xếp hạng,Từ,Ngày (#),Trung bình lượt,% Fail,Lý do khó
 
 November 2025
 	
+	- Wordle 1620 (November 25, 2025): PLEAT (3) SALET TENCH PLEAT
+	- Wordle 1619 (November 24, 2025): DOUGH (3) SALET DUROY DOUGH
+	- Wordle 1618 (November 23, 2025): BUNNY (4) SALET DUROY CIPPI BUNNY
 	- Wordle 1617 (November 22, 2025): THICK (4) SALET HOURI THICK
 	- Wordle 1616 (November 21, 2025): VOWEL (4) SALET BOURD HOVEL VOWEL
 	- Wordle 1615 (November 20, 2025): GRAVE (3) TRACE GAMPS GRAVE

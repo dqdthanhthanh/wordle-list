@@ -183,7 +183,7 @@ func main_process()-> void:
 	#SALET - IRONY
 	
 	# Ví dụ lọc lượt 1
-	var contain_true:String = "?hick".to_upper()
+	var contain_true:String = "?????".to_upper()
 	var contain_false:String = "".to_upper()
 	var exclude:String = "".to_upper()
 	var contain = "hi".to_upper()
@@ -220,7 +220,7 @@ func all_combo_test():
 	#all_past_answer = ["PARER","CORER","ROWER","GOFER","FOYER","TIZZY","RAZOR","MUMMY","JOLLY","FIBER"]
 	#all_past_answer = ["TABBY","GIZMO","DEUCE","TINGE","LURID","CLUNG","WIELD","CLAMP","OPINE"]
 	#all_past_answer = ["JOKER","POPPY","MOMMY","STUNT","GIDDY","JUDGE","REGAL","DITTY","FIXER","STOUT","MOIST","RODEO","HOLLY","BOXER","TASTE","HUNCH","SPOON","WATCH","POUND","SHAKE","SHADE","FOLLY","RIPER","RIDER","TAUNT","JOLLY","HATCH","FROWN","ROWER"]
-	#all_past_answer = ["MAKER"]
+	test_answers = ["PLEAT"]
 	prints(test_answers)
 	prints(wordle.size())
 	all_combo_main_process(test_answers)
@@ -229,9 +229,9 @@ func all_combo_test():
 	$AudioStreamPlayer.play()
 
 func all_combo_main_process(corrects:Array):
-	var answers:Array[String] = ["GRAME"]
-	#var answers:Array[String] = ["TRACE","CRANE","SALET","LEAST","STARE"]
-	#var answers:Array[String] = ["TRACE","CRANE","SALET","LEAST","STARE","ROATE","SOARE","ALTER","ADIEU","AUDIO"]
+	#var answers:Array[String] = ["GRAME"]
+	#var answers:Array[String] = ["TRACE","SALET","CRANE","ROATE","STARE"]
+	var answers:Array[String] = ["TRACE","CRANE","SALET","LEAST","STARE","ROATE","SOARE","ALTER","ADIEU","AUDIO"]
 	var check 
 	var save = []
 	
@@ -251,8 +251,11 @@ func all_combo_main_process(corrects:Array):
 		able_word_list.erase(corrects[i])
 	
 	prints("Tổng kết:",corrects.size())
+	var sum = 0
 	for i in answers.size():
 		prints(answers[i],"%.2f" % compute_average_score(save[i]),save[i])
+		sum += float("%.2f" % compute_average_score(save[i]))
+	prints("Trung bình:",float(sum)/answers.size())
 
 func guess_main_process(answer:String = "ROATE",correct:String = "CLUNG",debug:bool=false)-> Array:
 	# Check danh sách
