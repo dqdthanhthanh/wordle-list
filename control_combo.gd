@@ -13,12 +13,18 @@ var contain_false_score: float = 1
 var weight_missing_letters:float = 5
 
 """
+Tổng kết: 2341
+SALET 3.35 [0, 189, 1275, 759, 98, 18, 2]
+TARSE 3.35 [0, 201, 1268, 742, 116, 11, 3]
+
+
 Tổng kết: 725 còn lại
+SALET 2.98 [0, 134, 477, 108, 5, 1, 0]
+TARSE 3.00 [0, 126, 480, 116, 2, 1, 0]
+STARE 3.01 [0, 117, 487, 118, 3, 0, 0]
 TRACE 3.06 [0, 115, 464, 135, 10, 0, 1]
 CRANE 3.05 [0, 115, 473, 123, 11, 3, 0]
-SALET 2.98 [0, 134, 477, 108, 5, 1, 0]
 LEAST 3.03 [0, 117, 478, 120, 9, 1, 0]
-STARE 3.01 [0, 117, 487, 118, 3, 0, 0]
 ROATE 3.05 [0, 108, 484, 125, 7, 1, 0]
 SOARE 3.04 [0, 128, 453, 133, 10, 1, 0]
 ALTER 3.03 [0, 114, 479, 125, 7, 0, 0]
@@ -186,13 +192,13 @@ func main_process()-> void:
 	var contain_true:String = "?????".to_upper()
 	var contain_false:String = "".to_upper()
 	var exclude:String = "".to_upper()
-	var contain = "hi".to_upper()
+	var contain = "fzae".to_upper()
 	
 	# Check danh sách
 	print("Đã đọc %d từ từ: words.txt" % able_word_list.size())
 	
 	var remaining_words = get_remaining_words(able_answer, contain_true, exclude, contain_false)
-	#var remaining_words = filter_by_contain(all_answer, contain,2)
+	#remaining_words = filter_by_contain(all_answer, contain,contain.length()-1)
 	var position_weights = compute_position_weights(remaining_words)
 	#position_weights = [0,0,0,0,0]
 	var freq_array = count_letter_frequency(remaining_words)
@@ -214,13 +220,14 @@ func main_process()-> void:
 	save_data_check(remaining_words,freq_array,position_weights,results)
 
 func all_combo_test():
-	var wordle:Array = all_answer_exclude
+	#var wordle:Array = all_answer_exclude
+	var wordle:Array = all_answer
 	var test_answers = pick_random_words(wordle, wordle.size()-1)
 	#all_past_answer = ["HATCH","LAGER","BOXER","RIPER","REGAL","STILT","ORDER","SNOOP","BOOBY","SPOON","JOKER"]
 	#all_past_answer = ["PARER","CORER","ROWER","GOFER","FOYER","TIZZY","RAZOR","MUMMY","JOLLY","FIBER"]
 	#all_past_answer = ["TABBY","GIZMO","DEUCE","TINGE","LURID","CLUNG","WIELD","CLAMP","OPINE"]
 	#all_past_answer = ["JOKER","POPPY","MOMMY","STUNT","GIDDY","JUDGE","REGAL","DITTY","FIXER","STOUT","MOIST","RODEO","HOLLY","BOXER","TASTE","HUNCH","SPOON","WATCH","POUND","SHAKE","SHADE","FOLLY","RIPER","RIDER","TAUNT","JOLLY","HATCH","FROWN","ROWER"]
-	test_answers = ["PLEAT"]
+	test_answers = ["COLIC"]
 	prints(test_answers)
 	prints(wordle.size())
 	all_combo_main_process(test_answers)
@@ -229,9 +236,9 @@ func all_combo_test():
 	$AudioStreamPlayer.play()
 
 func all_combo_main_process(corrects:Array):
-	#var answers:Array[String] = ["GRAME"]
+	#var answers:Array[String] = ["SALET","TARSE"]
 	#var answers:Array[String] = ["TRACE","SALET","CRANE","ROATE","STARE"]
-	var answers:Array[String] = ["TRACE","CRANE","SALET","LEAST","STARE","ROATE","SOARE","ALTER","ADIEU","AUDIO"]
+	var answers:Array[String] = ["TARSE","TRACE","CRANE","SALET","LEAST","STARE","ROATE","SOARE","ALTER","ADIEU","AUDIO"]
 	var check 
 	var save = []
 	

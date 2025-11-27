@@ -16,6 +16,9 @@ Xếp hạng,Từ,Ngày (#),Trung bình lượt,% Fail,Lý do khó
 
 November 2025
 	
+	- Wordle 1623 (November 28, 2025): COLIC (3) SALET GOYIM COLIC
+	- Wordle 1622 (November 27, 2025): HOVEL (3) SALET INCUR MERIT REMIT
+	- Wordle 1621 (November 26, 2025): HOVEL (3) SALET BOURD HOVEL
 	- Wordle 1620 (November 25, 2025): PLEAT (3) SALET TENCH PLEAT
 	- Wordle 1619 (November 24, 2025): DOUGH (3) SALET DUROY DOUGH
 	- Wordle 1618 (November 23, 2025): BUNNY (4) SALET DUROY CIPPI BUNNY
