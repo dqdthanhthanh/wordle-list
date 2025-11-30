@@ -1,4 +1,36 @@
-FOLIO 
-["F", 1] ["O", 1] ["L", 1] ["I", 1] 
-1.0 1.0 1.0 1.0 1.0 
-FOLIO → trùng 1 → tỷ lệ 100.00% → điểm 20.50
+FUDGY GUNKY JUDGY JUNKY MUDDY YUMMY 
+["U", 6] ["Y", 6] ["D", 3] ["G", 3] ["N", 2] ["K", 2] ["J", 2] ["M", 2] ["F", 1] 
+0.33333333333333 1.0 0.5 0.33333333333333 1.0 
+JUDGY → trùng 6 → tỷ lệ 100.00% → điểm 281.52
+NUDGY → trùng 6 → tỷ lệ 100.00% → điểm 281.52
+DUNGY → trùng 6 → tỷ lệ 100.00% → điểm 281.50
+GUNDY → trùng 6 → tỷ lệ 100.00% → điểm 281.50
+FUDGY → trùng 6 → tỷ lệ 100.00% → điểm 279.48
+MUNGY → trùng 6 → tỷ lệ 100.00% → điểm 279.47
+DUMKY → trùng 6 → tỷ lệ 100.00% → điểm 279.47
+GUNKY → trùng 6 → tỷ lệ 100.00% → điểm 279.47
+JUNKY → trùng 6 → tỷ lệ 100.00% → điểm 277.43
+FUNDY → trùng 6 → tỷ lệ 100.00% → điểm 277.43
+MUGGY → trùng 3 → tỷ lệ 50.00% → điểm 275.52
+NUDDY → trùng 4 → tỷ lệ 66.67% → điểm 275.52
+MUDDY → trùng 4 → tỷ lệ 66.67% → điểm 275.52
+GUNGY → trùng 3 → tỷ lệ 50.00% → điểm 275.50
+GUNNY → trùng 4 → tỷ lệ 66.67% → điểm 275.47
+GUMMY → trùng 5 → tỷ lệ 83.33% → điểm 275.47
+DUNNY → trùng 4 → tỷ lệ 66.67% → điểm 275.47
+DUMMY → trùng 5 → tỷ lệ 83.33% → điểm 275.47
+FUNKY → trùng 6 → tỷ lệ 100.00% → điểm 275.40
+NYUNG → trùng 4 → tỷ lệ 66.67% → điểm 275.33
+FUGGY → trùng 3 → tỷ lệ 50.00% → điểm 273.48
+FUDDY → trùng 4 → tỷ lệ 66.67% → điểm 273.48
+NUMMY → trùng 5 → tỷ lệ 83.33% → điểm 273.43
+NUNKY → trùng 4 → tỷ lệ 66.67% → điểm 273.43
+DUDDY → trùng 3 → tỷ lệ 50.00% → điểm 271.55
+FUNNY → trùng 4 → tỷ lệ 66.67% → điểm 271.40
+MUFFY → trùng 5 → tỷ lệ 83.33% → điểm 271.35
+MUMMY → trùng 4 → tỷ lệ 66.67% → điểm 269.43
+NUNNY → trùng 4 → tỷ lệ 66.67% → điểm 269.43
+FUFFY → trùng 5 → tỷ lệ 83.33% → điểm 267.32
+GYNNY → trùng 1 → tỷ lệ 16.67% → điểm 242.97
+YUKKY → trùng 1 → tỷ lệ 16.67% → điểm 89.57
+YUMMY → trùng 1 → tỷ lệ 16.67% → điểm 89.57

@@ -1,9 +1,10 @@
 extends Node
 
-var word_list: Array = load_words_to_array("res://wordle-full.txt")
-var all_answer: Array = load_words_to_array("res://wordle-answer-full.txt")
-var all_answer_past: Array = load_words_to_array("res://wordle-answers-alphabetical.txt")
+var all_answer_past: Array = load_words_to_array("res://wordle-answers-past.txt")
+var word_list: Array = load_words_to_array("res://valid-wordle-words.txt")
+#var word_list: Array = load_words_to_array("res://wordle-full.txt")
 var word_list_exclude: Array = load_words_to_array("res://wordle-full_exclude.txt")
+var all_answer: Array = load_words_to_array("res://wordle-answer-full.txt")
 var all_answer_exclude: Array = load_words_to_array("res://wordle-answer-exclude.txt")
 var is_answer_past = false
 var able_word_list:Array
@@ -154,29 +155,21 @@ ALTER 3.74 [1, 36, 599, 792, 144, 17, 24]
 MARSE 3.75 [0, 27, 610, 752, 195, 19, 10]
 AUDIO 3.90 [1, 27, 497, 749, 292, 36, 11]
 ADIEU 3.96 [0, 16, 450, 806, 282, 38, 21]
-
-100 SALET 3.46 [0, 7, 47, 39, 7, 0, 0] edit remaining_words (<100)0-5
-100 SALET 3.48 [0, 7, 48, 38, 4, 3, 0] edit remaining_words (<10)0-5
-100 SALET 3.48 [0, 6, 50, 36, 6, 2, 0] edit remaining_words (<5)0-5
-100 SALET 3.50 [0, 5, 45, 45, 5, 0, 0] edit remaining_words (<3)0-5 2-1
-100 SALET 3.55 [0, 4, 41, 51, 4, 0, 0] edit remaining_words (<3)0-5 0-0
-100 SALET 3.52 [0, 5, 44, 45, 6, 0, 0] edit remaining_words (<3)1-5
-100 SALET 3.52 [0, 6, 48, 36, 8, 2, 0] edit remaining_words (<5)1-5
-100 SALET 3.60 [0, 4, 41, 46, 9, 0, 0] noedit
 """
 
 # ===============================
 # _ready
 # ===============================
 func _ready()-> void:
-	#merge_wordle_files("res://wordle-La.txt", "res://wordle-answers-alphabetical.txt", "res://wordle-answer-full.txt")
-	#subtract_list("res://wordle-full.txt", "res://wordle-answers-alphabetical.txt","res://wordle-full_exclude.txt")
+	#convert_to_word_list("res://list_weight.txt", "res://clean_word_list.txt")
+	#merge_wordle_files("res://clean_word_list.txt", "res://wordle-answers-past.txt", "res://wordle-answer-full.txt")
+	#subtract_list("res://wordle-full.txt", "res://wordle-answers-past.txt","res://wordle-full_exclude.txt")
+	#subtract_list("res://wordle-answer-full.txt", "res://wordle-answers-past.txt","res://wordle-answer-exclude.txt")
 	is_answer_past = true
+	able_word_list = word_list
 	if is_answer_past == true:
-		able_word_list = word_list_exclude
 		able_answer = all_answer_exclude
 	else:
-		able_word_list = word_list
 		able_answer = all_answer
 	main_process()
 	#all_combo_test()
@@ -186,13 +179,13 @@ func main_process()-> void:
 	#OATER
 	#ROATE - SULCI
 	#SOARE - UNITY
-	#SALET - IRONY
+	#SALET - YOURN - IRONY - DUROY
 	
 	# Ví dụ lọc lượt 1
-	var contain_true:String = "?????".to_upper()
+	var contain_true:String = "?u??y".to_upper()
 	var contain_false:String = "".to_upper()
-	var exclude:String = "".to_upper()
-	var contain = "fzae".to_upper()
+	var exclude:String = "saletcripbh".to_upper()
+	var contain = "bgnh".to_upper()
 	
 	# Check danh sách
 	print("Đã đọc %d từ từ: words.txt" % able_word_list.size())
@@ -213,26 +206,30 @@ func main_process()-> void:
 	if results.size() > 0:
 		prints("\n→ Từ tốt nhất: ",results[0])
 	
-	#remaining_words = ["GRACE", "GRADE", "GRAPE", "GRATE", "GRAVE", "GRAZE"]
+	var check_size = 20
 	
-	call_API_final_check(remaining_words)
+	if remaining_words.size() <= check_size:
+		prints("")
+		find_best_guess_from_remaining(remaining_words)
+		prints("")
+	
+	call_API_final_check(remaining_words,check_size)
 	
 	save_data_check(remaining_words,freq_array,position_weights,results)
 
 func all_combo_test():
-	#var wordle:Array = all_answer_exclude
-	var wordle:Array = all_answer
+	var wordle:Array = all_answer_exclude
+	#var wordle:Array = all_answer
 	var test_answers = pick_random_words(wordle, wordle.size()-1)
 	#all_past_answer = ["HATCH","LAGER","BOXER","RIPER","REGAL","STILT","ORDER","SNOOP","BOOBY","SPOON","JOKER"]
 	#all_past_answer = ["PARER","CORER","ROWER","GOFER","FOYER","TIZZY","RAZOR","MUMMY","JOLLY","FIBER"]
 	#all_past_answer = ["TABBY","GIZMO","DEUCE","TINGE","LURID","CLUNG","WIELD","CLAMP","OPINE"]
 	#all_past_answer = ["JOKER","POPPY","MOMMY","STUNT","GIDDY","JUDGE","REGAL","DITTY","FIXER","STOUT","MOIST","RODEO","HOLLY","BOXER","TASTE","HUNCH","SPOON","WATCH","POUND","SHAKE","SHADE","FOLLY","RIPER","RIDER","TAUNT","JOLLY","HATCH","FROWN","ROWER"]
-	test_answers = ["COLIC"]
+	#test_answers = ["MUGGY"]
 	prints(test_answers)
 	prints(wordle.size())
 	all_combo_main_process(test_answers)
 	prints(test_answers)
-	#guess_main_process("TRACE","BITTY",true)HATCH,WITTY
 	$AudioStreamPlayer.play()
 
 func all_combo_main_process(corrects:Array):
@@ -565,9 +562,9 @@ func filtered_word_list(word_list, remaining_words, exclude, contain_true, conta
 		
 	return result
 
-func call_API_final_check(remaining_words):
+func call_API_final_check(remaining_words,size):
 	prints("remaining_words",remaining_words)
-	if remaining_words.size() <= 10:
+	if remaining_words.size() <= size:
 		var best = await get_most_common_word(remaining_words)
 		print("Most common word:", best)
 
@@ -1205,3 +1202,124 @@ func subtract_list(
 	file_out.close()
 	
 	var duration = (Time.get_ticks_msec() - start_time) / 1000.0
+
+func split_multi(s: String, separators: Array[String]) -> Array[String]:
+	var result: Array[String] = [s]
+	for sep in separators:
+		var new_result: Array[String] = []
+		for part in result:
+			var chunks = part.split(sep, false)
+			for c in chunks:
+				var t = c.strip_edges()
+				if t != "":
+					new_result.append(t)
+		result = new_result
+	return result
+
+
+func convert_to_word_list(input_path: String, output_path: String):
+	var f = FileAccess.open(input_path, FileAccess.READ)
+	if f == null:
+		print("Cannot open input file:", input_path)
+		return
+	
+	var temp_words: Array[String] = []
+
+	while not f.eof_reached():
+		var line := f.get_line().strip_edges()
+		if line == "":
+			continue
+
+		# Tách bằng nhiều ký tự phân tách
+		var parts = split_multi(line, [" ", "\t", ",", ";"])
+
+		for p in parts:
+			p = p.strip_edges()
+			# Nếu muốn chỉ giữ từ chỉ chứa chữ cái:
+			if p != "" and p.is_valid_identifier():
+				temp_words.append(p.to_upper())
+	
+	f.close()
+
+	# 🔥 Loại trùng bằng dictionary
+	var seen := {}
+	var words: Array[String] = []
+	for w in temp_words:
+		if not seen.has(w):
+			seen[w] = true
+			words.append(w)
+
+	# Sắp xếp
+	words.sort()
+
+	# Ghi file
+	var out = FileAccess.open(output_path, FileAccess.WRITE)
+	for w in words:
+		out.store_line(w)
+	out.close()
+
+	print("Done. Saved:", words.size(), "words to:", output_path)
+
+func find_best_guess_from_remaining(
+	remaining_words: Array,
+	weight_file_path: String = "res://list_weight.txt"
+) -> Dictionary:
+	
+	print("=== TÌM TỪ ĐOÁN TỐT NHẤT TRONG %d TỪ CÒN LẠI ===" % remaining_words.size())
+	
+	var file = FileAccess.open(weight_file_path, FileAccess.READ)
+	if not file:
+		push_error("KHÔNG MỞ ĐƯỢC FILE: %s" % weight_file_path)
+		return {}
+	
+	var word_weights = {}  # "YUMMY": 57.6636
+	while !file.eof_reached():
+		var line = file.get_line().strip_edges()
+		if line == "" or line.begins_with("#"):
+			continue
+		var parts = line.split("\t", true, 1)  # Tách bởi tab
+		if parts.size() < 2:
+			continue
+		var word = parts[0].strip_edges().to_upper()
+		var weight_str = parts[1].replace("%", "").strip_edges()
+		var weight = float(weight_str)
+		word_weights[word] = weight
+	
+	file.close()
+	print("Đã load %d từ với trọng số từ file!" % word_weights.size())
+	
+	# Lọc chỉ những từ có trong remaining_words
+	var candidates = []
+	for word in remaining_words:
+		var w = word.to_upper()
+		if word_weights.has(w):
+			candidates.append({
+				"word": w,
+				"weight": word_weights[w]
+			})
+		else:
+			# Nếu không có trong file → mặc định 58% (rất tốt)
+			candidates.append({
+				"word": w,
+				"weight": 58.0
+			})
+	
+	# Sắp xếp theo trọng số GIẢM DẦN (cao nhất = tốt nhất)
+	candidates.sort_custom(func(a, b): return a.weight > b.weight)
+	
+	# In bảng xếp hạng đẹp
+	print("\nXẾP HẠNG TỪ TỐT NHẤT (dựa trên % loại bỏ trung bình):\n")
+	for i in range(candidates.size()):
+		var c = candidates[i]
+		var rank = i + 1
+		var star = " → TỐT NHẤT!" if rank == 1 else ""
+		print("%d. %s → %.4f%%%s" % [rank, c.word, c.weight, star])
+	
+	if candidates.size() > 0:
+		var best = candidates[0]
+		print("\nKẾT LUẬN: TỪ TỐT NHẤT ĐỂ ĐOÁN NGAY BÂY GIỜ LÀ:")
+		print(">>> %s <<< (%.4f%%)" % [best.word, best.weight])
+		return best
+	else:
+		print("Không tìm thấy từ nào hợp lệ!")
+		return {}
