@@ -161,17 +161,22 @@ ADIEU 3.96 [0, 16, 450, 806, 282, 38, 21]
 # _ready
 # ===============================
 func _ready()-> void:
+	#convert_to_uppercase_and_sort("res://wordle-answers-past.txt","res://wordle-answers-past_new.txt")
+	#convert_to_one_word_per_line("res://wordle_words.txt","res://wordle_words.txt")
 	#convert_to_word_list("res://list_weight.txt", "res://clean_word_list.txt")
 	#merge_wordle_files("res://clean_word_list.txt", "res://wordle-answers-past.txt", "res://wordle-answer-full.txt")
 	#subtract_list("res://wordle-full.txt", "res://wordle-answers-past.txt","res://wordle-full_exclude.txt")
 	#subtract_list("res://wordle-answer-full.txt", "res://wordle-answers-past.txt","res://wordle-answer-exclude.txt")
-	is_answer_past = true
+	var word_list_fix:Array[String] = ["AMONG", "TULIP", "HASTE"]
+	add_word_to_list_and_save("res://wordle-answers-past.txt",word_list_fix)
+	remove_word_from_list_and_save("res://wordle-answer-exclude.txt",word_list_fix)
+	is_answer_past = false
 	able_word_list = word_list
 	if is_answer_past == true:
 		able_answer = all_answer_exclude
 	else:
 		able_answer = all_answer
-	main_process()
+	#main_process()
 	#all_combo_test()
 
 func main_process()-> void:
@@ -182,9 +187,10 @@ func main_process()-> void:
 	#SALET - YOURN - IRONY - DUROY
 	
 	# Ví dụ lọc lượt 1
-	var contain_true:String = "?u??y".to_upper()
-	var contain_false:String = "".to_upper()
-	var exclude:String = "saletcripbh".to_upper()
+	# MUDDY | SALET YOURN CHIMP MUDDY
+	var contain_true:String = "???n?".to_upper()
+	var contain_false:String = "a2o2".to_upper()
+	var exclude:String = "sletcri".to_upper()
 	var contain = "bgnh".to_upper()
 	
 	# Check danh sách
@@ -224,8 +230,8 @@ func all_combo_test():
 	#all_past_answer = ["HATCH","LAGER","BOXER","RIPER","REGAL","STILT","ORDER","SNOOP","BOOBY","SPOON","JOKER"]
 	#all_past_answer = ["PARER","CORER","ROWER","GOFER","FOYER","TIZZY","RAZOR","MUMMY","JOLLY","FIBER"]
 	#all_past_answer = ["TABBY","GIZMO","DEUCE","TINGE","LURID","CLUNG","WIELD","CLAMP","OPINE"]
-	#all_past_answer = ["JOKER","POPPY","MOMMY","STUNT","GIDDY","JUDGE","REGAL","DITTY","FIXER","STOUT","MOIST","RODEO","HOLLY","BOXER","TASTE","HUNCH","SPOON","WATCH","POUND","SHAKE","SHADE","FOLLY","RIPER","RIDER","TAUNT","JOLLY","HATCH","FROWN","ROWER"]
-	#test_answers = ["MUGGY"]
+	#test_answers = ["JOKER","POPPY","MOMMY","STUNT","GIDDY","JUDGE","REGAL","DITTY","FIXER","STOUT","MOIST","RODEO","HOLLY","BOXER","TASTE","HUNCH","SPOON","WATCH","POUND","SHAKE","SHADE","FOLLY","RIPER","RIDER","TAUNT","JOLLY","HATCH","FROWN","ROWER"]
+	test_answers = ["AMONG"]
 	prints(test_answers)
 	prints(wordle.size())
 	all_combo_main_process(test_answers)
@@ -233,9 +239,9 @@ func all_combo_test():
 	$AudioStreamPlayer.play()
 
 func all_combo_main_process(corrects:Array):
-	#var answers:Array[String] = ["SALET","TARSE"]
+	#var answers:Array[String] = ["SALET"]
 	#var answers:Array[String] = ["TRACE","SALET","CRANE","ROATE","STARE"]
-	var answers:Array[String] = ["TARSE","TRACE","CRANE","SALET","LEAST","STARE","ROATE","SOARE","ALTER","ADIEU","AUDIO"]
+	var answers:Array[String] = ["TRACE","CRANE","SALET","LEAST","STARE","ROATE","SOARE","ALTER","ADIEU","AUDIO"]
 	var check 
 	var save = []
 	
@@ -1323,3 +1329,153 @@ func find_best_guess_from_remaining(
 	else:
 		print("Không tìm thấy từ nào hợp lệ!")
 		return {}
+
+# convert_horizontal_to_vertical.gd
+# Godot 4 | Tác giả: Wordle AI God
+# Chuyển file wordle_words.txt (các từ nằm ngang) → mỗi từ 1 dòng
+
+func convert_to_one_word_per_line(
+	input_path: String = "res://wordle_words.txt",
+	output_path: String = "res://wordle_words_vertical.txt"
+) -> void:
+	
+	print("BẮT ĐẦU CHUYỂN ĐỔI: MỖI TỪ 1 DÒNG")
+	print("→ Từ file: %s" % input_path)
+	print("→ Ra file: %s" % output_path)
+	
+	var file_in = FileAccess.open(input_path, FileAccess.READ)
+	if not file_in:
+		push_error("KHÔNG MỞ ĐƯỢC FILE NGUỒN: %s" % input_path)
+		return
+	
+	var all_text = file_in.get_as_text()
+	file_in.close()
+	
+	# Tách tất cả từ (bằng space hoặc nhiều space)
+	var words = []
+	for word in all_text.split(" ", false):  # false = bỏ qua khoảng trắng thừa
+		var w = word.strip_edges().to_upper()
+		if w.length() == 5 and w.is_valid_identifier():  # chỉ giữ từ 5 chữ A-Z
+			words.append(w)
+	
+	# Ghi ra file mới – mỗi từ 1 dòng
+	var file_out = FileAccess.open(output_path, FileAccess.WRITE)
+	if not file_out:
+		push_error("KHÔNG GHI ĐƯỢC FILE KẾT QUẢ: %s" % output_path)
+		return
+	
+	for word in words:
+		file_out.store_line(word)
+	
+	file_out.close()
+	
+	print("\nHOÀN THÀNH SIÊU NHANH!")
+	print("→ Tổng cộng: %,d từ được chuyển" % words.size())
+	print("→ Đã lưu thành công: %s" % output_path)
+	print("→ Sẵn sàng dùng cho Wordle AI!\n")
+
+# to_uppercase_and_sort.gd
+# Godot 4 | Tác giả: Wordle God Supreme
+# Chuyển toàn bộ từ thành CHỮ HOA + sắp xếp thứ tự A → Z
+
+# to_uppercase_and_sort_fixed.gd
+# Godot 4.5+ HOÀN HẢO – Không dùng .unique()
+
+func convert_to_uppercase_and_sort(
+	input_path: String = "res://wordle_words.txt",
+	output_path: String = "res://wordle_words_upper_sorted.txt"
+) -> void:
+	
+	print("BẮT ĐẦU CHUYỂN: chữ thường → CHỮ HOA + SẮP XẾP A-Z + LOẠI TRÙNG")
+	print("→ Input : %s" % input_path)
+	print("→ Output: %s" % output_path)
+	
+	var file_in = FileAccess.open(input_path, FileAccess.READ)
+	if not file_in:
+		push_error("KHÔNG MỞ ĐƯỢC FILE NGUỒN: %s" % input_path)
+		return
+	
+	var word_dict := {}  # Dùng Dictionary để tự động loại trùng (siêu nhanh!)
+	
+	while !file_in.eof_reached():
+		var line = file_in.get_line().strip_edges()
+		if line == "":
+			continue
+		var upper = line.to_upper()
+		if upper.length() == 5 and upper.is_valid_identifier():  # chỉ A-Z, 5 chữ
+			word_dict[upper] = true  # key duy nhất → tự loại trùng
+	
+	file_in.close()
+	
+	# Chuyển keys thành Array và sắp xếp A-Z
+	var words := word_dict.keys()
+	words.sort()  # Godot 4 vẫn có .sort() bình thường
+	
+	# Ghi ra file – mỗi từ 1 dòng
+	var file_out = FileAccess.open(output_path, FileAccess.WRITE)
+	if not file_out:
+		push_error("KHÔNG GHI ĐƯỢC FILE: %s" % output_path)
+		return
+	
+	for word in words:
+		file_out.store_line(word)
+	
+	file_out.close()
+	
+	print("\nHOÀN THÀNH THÀNH CÔNG!")
+	print("→ Tổng cộng: %,d từ duy nhất" % words.size())
+	print("→ Đã chuyển hết thành CHỮ HOA")
+	print("→ Đã sắp xếp A → Z")
+	print("→ Đã loại bỏ hoàn toàn từ trùng")
+	print("→ File đã lưu: %s" % output_path)
+	print("→ SẴN SÀNG CHO WORDLE AI THẦN THÁNH!\n")
+
+func remove_word_from_list_and_save(
+	path: String,
+	remove_words: Array
+) -> void:
+	
+	var past_words: Array = load_words_to_array(path)
+	var remove_dict := {}
+	var result := []
+	
+	# Tạo dict các từ cần xoá
+	for w in remove_words:
+		remove_dict[w.to_upper()] = true
+	
+	# Lọc giữ lại từ KHÔNG bị xoá
+	for w in past_words:
+		var key = w.to_upper()
+		if not remove_dict.has(key):
+			result.append(key)
+	
+	# Ghi đè lại chính file cũ
+	var file := FileAccess.open(path, FileAccess.WRITE)
+	for w in result:
+		file.store_line(w)
+	file.close()
+
+func add_word_to_list_and_save(
+	path: String,
+	add_words: Array
+) -> void:
+	
+	var past_words: Array = load_words_to_array(path)
+	var word_dict := {}
+	
+	# Đưa toàn bộ từ cũ vào dict chống trùng
+	for w in past_words:
+		word_dict[w.to_upper()] = true
+	
+	# Thêm từ mới (nếu chưa có)
+	for w in add_words:
+		var key = w.to_upper()
+		if not word_dict.has(key):
+			past_words.append(key)
+			word_dict[key] = true
+	
+	# Ghi đè lại chính file cũ
+	var file := FileAccess.open(path, FileAccess.WRITE)
+	for w in past_words:
+		file.store_line(w.to_upper())
+	file.close()

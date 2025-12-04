@@ -16,6 +16,11 @@ Xếp hạng,Từ,Ngày (#),Trung bình lượt,% Fail,Lý do khó
 
 November 2025
 	
+	- Wordle 1630 (Decenber 05, 2025): AMONG (3) SALET CORNI AMONG
+	- Wordle 1629 (Decenber 04, 2025): TULIP (3) SALET HYOID TULIP
+	- Wordle 1628 (Decenber 03, 2025): HASTE (3) SALET CWTCH HASTE
+	- Wordle 1627 (Decenber 02, 2025): CACTI (3) SALET OCHRY CACTI
+	- Wordle 1626 (Decenber 01, 2025): LEACH (3) SALET GONCH LEACH
 	- Wordle 1625 (November 29, 2025): MUGGY (7) SALET DUROY ... MUGGY (Không có dữ liệu)
 	- Wordle 1624 (November 29, 2025): GRUFF (3) SALET DUROY GRUFF
 	- Wordle 1623 (November 28, 2025): COLIC (3) SALET GOYIM COLIC

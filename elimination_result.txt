@@ -1,36 +1,32 @@
-FUDGY GUNKY JUDGY JUNKY MUDDY YUMMY 
-["U", 6] ["Y", 6] ["D", 3] ["G", 3] ["N", 2] ["K", 2] ["J", 2] ["M", 2] ["F", 1] 
-0.33333333333333 1.0 0.5 0.33333333333333 1.0 
-JUDGY → trùng 6 → tỷ lệ 100.00% → điểm 281.52
-NUDGY → trùng 6 → tỷ lệ 100.00% → điểm 281.52
-DUNGY → trùng 6 → tỷ lệ 100.00% → điểm 281.50
-GUNDY → trùng 6 → tỷ lệ 100.00% → điểm 281.50
-FUDGY → trùng 6 → tỷ lệ 100.00% → điểm 279.48
-MUNGY → trùng 6 → tỷ lệ 100.00% → điểm 279.47
-DUMKY → trùng 6 → tỷ lệ 100.00% → điểm 279.47
-GUNKY → trùng 6 → tỷ lệ 100.00% → điểm 279.47
-JUNKY → trùng 6 → tỷ lệ 100.00% → điểm 277.43
-FUNDY → trùng 6 → tỷ lệ 100.00% → điểm 277.43
-MUGGY → trùng 3 → tỷ lệ 50.00% → điểm 275.52
-NUDDY → trùng 4 → tỷ lệ 66.67% → điểm 275.52
-MUDDY → trùng 4 → tỷ lệ 66.67% → điểm 275.52
-GUNGY → trùng 3 → tỷ lệ 50.00% → điểm 275.50
-GUNNY → trùng 4 → tỷ lệ 66.67% → điểm 275.47
-GUMMY → trùng 5 → tỷ lệ 83.33% → điểm 275.47
-DUNNY → trùng 4 → tỷ lệ 66.67% → điểm 275.47
-DUMMY → trùng 5 → tỷ lệ 83.33% → điểm 275.47
-FUNKY → trùng 6 → tỷ lệ 100.00% → điểm 275.40
-NYUNG → trùng 4 → tỷ lệ 66.67% → điểm 275.33
-FUGGY → trùng 3 → tỷ lệ 50.00% → điểm 273.48
-FUDDY → trùng 4 → tỷ lệ 66.67% → điểm 273.48
-NUMMY → trùng 5 → tỷ lệ 83.33% → điểm 273.43
-NUNKY → trùng 4 → tỷ lệ 66.67% → điểm 273.43
-DUDDY → trùng 3 → tỷ lệ 50.00% → điểm 271.55
-FUNNY → trùng 4 → tỷ lệ 66.67% → điểm 271.40
-MUFFY → trùng 5 → tỷ lệ 83.33% → điểm 271.35
-MUMMY → trùng 4 → tỷ lệ 66.67% → điểm 269.43
-NUNNY → trùng 4 → tỷ lệ 66.67% → điểm 269.43
-FUFFY → trùng 5 → tỷ lệ 83.33% → điểm 267.32
-GYNNY → trùng 1 → tỷ lệ 16.67% → điểm 242.97
-YUKKY → trùng 1 → tỷ lệ 16.67% → điểm 89.57
-YUMMY → trùng 1 → tỷ lệ 16.67% → điểm 89.57
+AGONY AMONG GUANO 
+["A", 3] ["G", 3] ["O", 3] ["N", 3] ["Y", 1] ["M", 1] ["U", 1] 
+0.66666666666667 0.33333333333333 0.66666666666667 1.0 0.33333333333333 
+GUMMY → trùng 2 → tỷ lệ 66.67% → điểm 7782.43
+YUMMY → trùng 1 → tỷ lệ 33.33% → điểm 7779.30
+MUMMY → trùng 2 → tỷ lệ 66.67% → điểm 7779.30
+MUNGY → trùng 3 → tỷ lệ 100.00% → điểm 1312.63
+UNGUM → trùng 2 → tỷ lệ 66.67% → điểm 1311.17
+GAUMY → trùng 3 → tỷ lệ 100.00% → điểm 1308.50
+NUMMY → trùng 2 → tỷ lệ 66.67% → điểm 1308.43
+GAMMY → trùng 2 → tỷ lệ 66.67% → điểm 1307.17
+GUMMA → trùng 2 → tỷ lệ 66.67% → điểm 1307.17
+YUMMO → trùng 2 → tỷ lệ 66.67% → điểm 1304.37
+MAUMY → trùng 2 → tỷ lệ 66.67% → điểm 1304.37
+MOMMY → trùng 2 → tỷ lệ 66.67% → điểm 1303.03
+MAMMY → trùng 2 → tỷ lệ 66.67% → điểm 1303.03
+MANGY → trùng 3 → tỷ lệ 100.00% → điểm 240.03
+MUNGA → trùng 3 → tỷ lệ 100.00% → điểm 240.03
+MUNGO → trùng 3 → tỷ lệ 100.00% → điểm 240.03
+YOUNG → trùng 3 → tỷ lệ 100.00% → điểm 239.97
+YAMUN → trùng 3 → tỷ lệ 100.00% → điểm 236.43
+MYOMA → trùng 2 → tỷ lệ 66.67% → điểm 229.83
+MOMMA → trùng 2 → tỷ lệ 66.67% → điểm 228.10
+GUANO → trùng 3 → tỷ lệ 100.00% → điểm 68.83
+AMONG → trùng 3 → tỷ lệ 100.00% → điểm 68.83
+AGONY → trùng 3 → tỷ lệ 100.00% → điểm 68.83
+MANGO → trùng 3 → tỷ lệ 100.00% → điểm 68.77
+NGOMA → trùng 3 → tỷ lệ 100.00% → điểm 68.70
+MOANY → trùng 3 → tỷ lệ 100.00% → điểm 64.70
+NOYAU → trùng 3 → tỷ lệ 100.00% → điểm 64.70
+ANOMY → trùng 3 → tỷ lệ 100.00% → điểm 64.63
+AMMON → trùng 2 → tỷ lệ 66.67% → điểm 62.70

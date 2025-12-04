@@ -12,3 +12,6 @@ res://wordle-Ta.txt
 res://wordle-answer-exclude.txt
 res://wordle-full.txt
 res://wordle-answers-past.txt
+res://wordle_words.txt
+res://wordle-answers-past_new.txt
+res://control.tscn
