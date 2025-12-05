@@ -167,9 +167,10 @@ func _ready()-> void:
 	#merge_wordle_files("res://clean_word_list.txt", "res://wordle-answers-past.txt", "res://wordle-answer-full.txt")
 	#subtract_list("res://wordle-full.txt", "res://wordle-answers-past.txt","res://wordle-full_exclude.txt")
 	#subtract_list("res://wordle-answer-full.txt", "res://wordle-answers-past.txt","res://wordle-answer-exclude.txt")
-	var word_list_fix:Array[String] = ["AMONG", "TULIP", "HASTE"]
-	add_word_to_list_and_save("res://wordle-answers-past.txt",word_list_fix)
-	remove_word_from_list_and_save("res://wordle-answer-exclude.txt",word_list_fix)
+	
+	#var word_list_fix:Array[String] = ["AMONG", "TULIP", "HASTE"]
+	#add_word_to_list_and_save("res://wordle-answers-past.txt",word_list_fix)
+	#remove_word_from_list_and_save("res://wordle-answer-exclude.txt",word_list_fix)
 	is_answer_past = false
 	able_word_list = word_list
 	if is_answer_past == true:
@@ -1449,6 +1450,8 @@ func remove_word_from_list_and_save(
 		if not remove_dict.has(key):
 			result.append(key)
 	
+	result.sort()
+	
 	# Ghi đè lại chính file cũ
 	var file := FileAccess.open(path, FileAccess.WRITE)
 	for w in result:
@@ -1473,6 +1476,8 @@ func add_word_to_list_and_save(
 		if not word_dict.has(key):
 			past_words.append(key)
 			word_dict[key] = true
+	
+	past_words.sort()
 	
 	# Ghi đè lại chính file cũ
 	var file := FileAccess.open(path, FileAccess.WRITE)

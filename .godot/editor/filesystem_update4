@@ -1,17 +1,4 @@
 res://control_combo.tscn
 res://control_combo.gd
-res://filtered_words.txt
-res://elimination_result.txt
-res://all_past_anwser.txt
-res://wordle-answers-alphabetical.txt
-res://wordle-full_exclude.txt
-res://wordle-answer-full.txt
-res://list.txt
-res://rank_elimination_result_first.txt
-res://wordle-Ta.txt
 res://wordle-answer-exclude.txt
-res://wordle-full.txt
 res://wordle-answers-past.txt
-res://wordle_words.txt
-res://wordle-answers-past_new.txt
-res://control.tscn
