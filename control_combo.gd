@@ -6,7 +6,7 @@ var word_list: Array = load_words_to_array("res://valid-wordle-words.txt")
 var word_list_exclude: Array = load_words_to_array("res://wordle-full_exclude.txt")
 var all_answer: Array = load_words_to_array("res://wordle-answer-full.txt")
 var all_answer_exclude: Array = load_words_to_array("res://wordle-answer-exclude.txt")
-var is_answer_past = false
+var limit_answer_past:bool = true
 var able_word_list:Array
 var able_answer:Array
 var contain_true_score: float = 2
@@ -61,19 +61,19 @@ func _ready()-> void:
 	#subtract_list("res://wordle-full.txt", "res://wordle-answers-past.txt","res://wordle-full_exclude.txt")
 	#subtract_list("res://wordle-answer-full.txt", "res://wordle-answers-past.txt","res://wordle-answer-exclude.txt")
 	
-	#var word_list_fix:Array[String] = ["SWING"]
+	#var word_list_fix:Array[String] = ["SEGUE"]
 	#add_word_to_list_and_save("res://wordle-answers-past.txt",word_list_fix)
 	#remove_word_from_list_and_save("res://wordle-answer-exclude.txt",word_list_fix)
 	
-	is_answer_past = false
+	limit_answer_past = true
 	able_word_list = word_list
-	if is_answer_past == true:
+	if limit_answer_past == true:
 		able_answer = all_answer_exclude
 	else:
 		able_answer = all_answer
 	
 	main_process()
-	#all_combo_test()
+	#all_combo_test(true,"ISSUE")
 	
 	#var corrects = ["AUGUR", "AWARD", "BRAVA", "DRAMA", "DWARF", "FRAUD", "GRAPH", "GRAVY", "GUARD", "HYDRA", "QUARK", "RUMBA", "UMBRA", "WHARF"]
 	#var answers = corrects.duplicate()
@@ -85,7 +85,7 @@ func main_process()-> void:
 	var contain_true:String = "?????".to_upper()
 	var contain_false:String = "".to_upper()
 	var exclude:String = "".to_upper()
-	var contain = "bgnh".to_upper()
+	var contain = "".to_upper()
 	
 	# Check danh sách
 	print("Đã đọc %d từ từ: words.txt" % able_word_list.size())
@@ -117,16 +117,16 @@ func main_process()-> void:
 	
 	save_data_check(remaining_words,freq_array,position_weights,results)
 
-func all_combo_test():
-	var wordle:Array = all_answer_exclude
-	#var wordle:Array = all_answer
-	var corrects = pick_random_words(wordle, wordle.size()-1)
+func all_combo_test(is_multiple:bool = false, test = "SEGUE"):
 	#corrects = ["JOKER","POPPY","MOMMY","STUNT","GIDDY","JUDGE","REGAL","DITTY","FIXER","STOUT","MOIST","RODEO","HOLLY","BOXER","TASTE","HUNCH","SPOON","WATCH","POUND","SHAKE","SHADE","FOLLY","RIPER","RIDER","TAUNT","JOLLY","HATCH","FROWN","ROWER"]
-	corrects = ["SWING"]
+	var corrects = [test]
+	if is_multiple == true:
+		#var wordle:Array = all_answer
+		corrects = pick_random_words(able_answer, able_answer.size()-1)
 	
 	#var answers:Array[String] = ["SALET","SLATE"]
 	#var answers:Array[String] = ["TRACE","SALET","CRANE","ROATE","STARE"]
-	var answers:Array[String] = ["TRACE","CRANE","SALET","LEAST","STARE","ROATE","SOARE","ALTER","ADIEU","AUDIO"]
+	var answers:Array[String] = ["TRACE","CRANE","SALET","LEAST","STARE","ROAST","ROATE","SOARE","ALTER","ADIEU","AUDIO"]
 	
 	all_combo_main_process(answers,corrects)
 	$AudioStreamPlayer.play()

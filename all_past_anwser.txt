@@ -16,6 +16,8 @@ Xếp hạng,Từ,Ngày (#),Trung bình lượt,% Fail,Lý do khó
 
 November 2025
 	
+	- Wordle 1641 (Decenber 16, 2025): SEGUE (4) SALET PRION SEEDY SEGUE
+	- Wordle 1640 (Decenber 15, 2025): DODGY (3) SALET YOURN WHOMP BODGY DODGY
 	- Wordle 1639 (Decenber 14, 2025): SWING (3) SALET PRUNO SWING
 	- Wordle 1638 (Decenber 13, 2025): MISER (4) SALET ROUND WISER MISER
 	- Wordle 1637 (Decenber 12, 2025): TRUCK (3) SALET HOURI TRUCK
