@@ -14,13 +14,60 @@ var contain_false_score: float = 1
 var weight_missing_letters:float = 5
 
 """
-Tổng kết: 1570 còn lại data mới
-SALET 3.76 [0, 48, 582, 702, 181, 43, 14]
-CRANE 3.83 [0, 13, 553, 752, 204, 36, 12]
-TRACE 3.84 [0, 16, 550, 741, 213, 39, 11]
-STARE 3.84 [0, 16, 557, 724, 217, 45, 11]
-ROATE 3.85 [0, 17, 530, 747, 228, 38, 10]
-Trung bình: 3.824
+Tổng kết: 1560 còn lại data mới
+
+SALET 3.30 [0, 165, 882, 421, 69, 15, 8]
+ALTER 3.33 [0, 140, 891, 433, 68, 20, 8]
+LEAST 3.35 [0, 146, 847, 473, 68, 17, 9]
+STARE 3.35 [0, 152, 848, 460, 78, 12, 10]
+ROATE 3.37 [0, 132, 843, 479, 87, 14, 5]
+CRANE 3.38 [0, 139, 826, 483, 90, 17, 5]
+ROAST 3.38 [1, 134, 840, 473, 91, 12, 9]
+TRACE 3.39 [0, 132, 855, 456, 86, 19, 12]
+SOARE 3.39 [0, 147, 850, 420, 112, 17, 14]
+AUDIO 3.52 [0, 109, 727, 560, 136, 23, 5]
+ADIEU 3.53 [1, 96, 753, 554, 117, 24, 15]
+Trung bình: 3.39
+
+200 SALET 3.67 [0, 7, 88, 79, 19, 4, 3]
+200 TRACE 3.69 [0, 6, 92, 73, 19, 6, 4]
+200 STARE 3.69 [0, 6, 85, 81, 23, 3, 2]
+200 LEAST 3.70 [0, 4, 88, 84, 13, 10, 1]
+200 CRANE 3.71 [0, 2, 89, 81, 21, 6, 1]
+200 ROATE 3.71 [0, 6, 81, 86, 20, 6, 1]
+200 SOARE 3.72 [0, 8, 86, 72, 24, 8, 2]
+200 ALTER 3.72 [0, 4, 91, 75, 20, 7, 3]
+200 ROAST 3.75 [0, 5, 81, 80, 30, 2, 2]
+
+500 SALET 3.61 [0, 16, 235, 197, 37, 9, 6]
+500 ALTER 3.65 [0, 11, 236, 195, 40, 12, 6]
+500 STARE 3.65 [0, 14, 230, 196, 45, 8, 7]
+500 LEAST 3.67 [0, 13, 217, 217, 35, 11, 7]
+500 CRANE 3.68 [0, 8, 221, 213, 44, 11, 3]
+500 ROAST 3.68 [0, 10, 221, 205, 50, 9, 5]
+500 ROATE 3.68 [0, 16, 204, 221, 46, 9, 4]
+500 SOARE 3.69 [0, 15, 230, 179, 57, 10, 9]
+500 TRACE 3.70 [0, 14, 218, 205, 39, 14, 10]
+
+1000 SALET 3.48 [0, 41, 540, 346, 53, 13, 7]
+1000 STARE 3.52 [0, 44, 508, 363, 66, 11, 8]
+1000 ALTER 3.52 [0, 32, 531, 354, 57, 19, 7]
+1000 LEAST 3.53 [0, 41, 499, 383, 53, 16, 8]
+1000 CRANE 3.54 [0, 40, 493, 375, 73, 15, 4]
+1000 ROAST 3.54 [1, 43, 488, 375, 74, 11, 8]
+1000 ROATE 3.56 [0, 42, 472, 391, 78, 12, 5]
+1000 SOARE 3.56 [0, 45, 504, 334, 90, 14, 13]
+1000 TRACE 3.57 [0, 38, 499, 361, 74, 17, 11]
+
+1500 SALET 3.33 [0, 133, 857, 418, 69, 15, 8] 2 FETAL [["SALET", "FETAL"], true]
+1500 ALTER 3.37 [0, 105, 867, 432, 68, 20, 8] 2 FETAL [["ALTER", "FETAL"], true]
+1500 STARE 3.38 [0, 121, 820, 459, 78, 12, 10] 2 FETAL [["STARE", "FETAL"], true]
+1500 LEAST 3.39 [0, 113, 822, 471, 68, 17, 9] 2 FETAL [["LEAST", "FETAL"], true]
+1500 ROAST 3.41 [1, 106, 809, 472, 91, 12, 9] 2 FETAL [["ROAST", "FETAL"], true]
+1500 ROATE 3.41 [0, 101, 815, 478, 87, 14, 5] 2 FETAL [["ROATE", "FETAL"], true]
+1500 TRACE 3.42 [0, 99, 828, 456, 86, 19, 12] 2 FETAL [["TRACE", "FETAL"], true]
+1500 CRANE 3.42 [0, 109, 797, 482, 90, 17, 5] 3 FETAL [["CRANE", "WEALD", "FETAL"], true]
+1500 SOARE 3.43 [0, 113, 824, 420, 112, 17, 14] 3 FETAL [["SOARE", "DELFT", "FETAL"], true]
 
 Tổng kết: 725 còn lại data cũ
 SALET 2.98 [0, 134, 477, 108, 5, 1, 0]
@@ -35,19 +82,6 @@ ALTER 3.03 [0, 114, 479, 125, 7, 0, 0]
 GRAME 3.13 [0, 98, 451, 160, 14, 1, 1]
 ADIEU 3.22 [0, 76, 434, 197, 18, 0, 0]
 AUDIO 3.25 [0, 74, 421, 210, 18, 2, 0]
-
-Tổng kết khi giải 1613 đáp án cũ
-TRACE 3.66 [1, 49, 678, 702, 152, 20, 11]
-CRANE 3.68 [1, 40, 671, 712, 156, 15, 18]
-SALET 3.72 [0, 38, 655, 697, 183, 26, 14]
-LEAST 3.72 [1, 28, 651, 713, 189, 19, 12]
-STARE 3.72 [1, 31, 655, 718, 167, 18, 23]
-ROATE 3.73 [0, 37, 632, 721, 192, 15, 16]
-SOARE 3.73 [0, 23, 694, 664, 181, 34, 17]
-ALTER 3.74 [1, 36, 599, 792, 144, 17, 24]
-MARSE 3.75 [0, 27, 610, 752, 195, 19, 10]
-AUDIO 3.90 [1, 27, 497, 749, 292, 36, 11]
-ADIEU 3.96 [0, 16, 450, 806, 282, 38, 21]
 """
 
 # ===============================
@@ -72,8 +106,8 @@ func _ready()-> void:
 	else:
 		able_answer = all_answer
 	
-	main_process()
-	#all_combo_test(true,"ISSUE")
+	#main_process()
+	all_combo_test(true,"ISSUE")
 	
 	#var corrects = ["AUGUR", "AWARD", "BRAVA", "DRAMA", "DWARF", "FRAUD", "GRAPH", "GRAVY", "GUARD", "HYDRA", "QUARK", "RUMBA", "UMBRA", "WHARF"]
 	#var answers = corrects.duplicate()
@@ -125,8 +159,8 @@ func all_combo_test(is_multiple:bool = false, test = "SEGUE"):
 		corrects = pick_random_words(able_answer, able_answer.size()-1)
 	
 	#var answers:Array[String] = ["SALET","SLATE"]
-	#var answers:Array[String] = ["TRACE","SALET","CRANE","ROATE","STARE"]
-	var answers:Array[String] = ["TRACE","CRANE","SALET","LEAST","STARE","ROAST","ROATE","SOARE","ALTER","ADIEU","AUDIO"]
+	#var answers:Array[String] = ["SALET","ALTER","LEAST","STARE","ROATE","CRANE","ROAST","TRACE","SOARE","AUDIO","ADIEU"]
+	var answers:Array[String] = ["SALET","ALTER","LEAST","STARE","ROATE","CRANE","ROAST","TRACE","SOARE"]
 	
 	all_combo_main_process(answers,corrects)
 	$AudioStreamPlayer.play()
