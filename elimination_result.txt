@@ -1,5 +1,21 @@
-SEDGE 
-["S", 1] ["E", 1] ["D", 1] ["G", 1] 
-1.0 1.0 1.0 1.0 1.0 
-EDGES → trùng 1 → tỷ lệ 100.00% → điểm 46.50
-SEDGE → trùng 1 → tỷ lệ 100.00% → điểm 46.50
+CURVY MURKY RUGBY RUMMY 
+["U", 4] ["R", 4] ["Y", 4] ["M", 2] ["C", 1] ["V", 1] ["K", 1] ["G", 1] ["B", 1] 
+0.5 1.0 0.5 0.25 1.0 
+MUCKY → trùng 4 → tỷ lệ 100.00% → điểm 236.97
+CRUMB → trùng 4 → tỷ lệ 100.00% → điểm 236.80
+GUMMY → trùng 3 → tỷ lệ 75.00% → điểm 235.33
+MUGGY → trùng 3 → tỷ lệ 75.00% → điểm 235.31
+GUCKY → trùng 4 → tỷ lệ 100.00% → điểm 235.26
+BRUCK → trùng 4 → tỷ lệ 100.00% → điểm 235.11
+MUMMY → trùng 2 → tỷ lệ 50.00% → điểm 233.72
+CUBBY → trùng 3 → tỷ lệ 75.00% → điểm 233.59
+BUGGY → trùng 3 → tỷ lệ 75.00% → điểm 233.59
+VUGGY → trùng 3 → tỷ lệ 75.00% → điểm 233.59
+CRUCK → trùng 3 → tỷ lệ 75.00% → điểm 233.44
+BUBBY → trùng 3 → tỷ lệ 75.00% → điểm 231.93
+MURKY → trùng 4 → tỷ lệ 100.00% → điểm 67.12
+RUMMY → trùng 3 → tỷ lệ 75.00% → điểm 65.15
+CURVY → trùng 4 → tỷ lệ 100.00% → điểm 65.07
+RUGBY → trùng 4 → tỷ lệ 100.00% → điểm 65.07
+RUBBY → trùng 3 → tỷ lệ 75.00% → điểm 63.07
+RUGGY → trùng 3 → tỷ lệ 75.00% → điểm 63.07

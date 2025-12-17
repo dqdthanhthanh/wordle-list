@@ -95,7 +95,7 @@ func _ready()-> void:
 	#subtract_list("res://wordle-full.txt", "res://wordle-answers-past.txt","res://wordle-full_exclude.txt")
 	#subtract_list("res://wordle-answer-full.txt", "res://wordle-answers-past.txt","res://wordle-answer-exclude.txt")
 	
-	#var word_list_fix:Array[String] = ["SEGUE"]
+	#var word_list_fix:Array[String] = ["RUBGY"]
 	#add_word_to_list_and_save("res://wordle-answers-past.txt",word_list_fix)
 	#remove_word_from_list_and_save("res://wordle-answer-exclude.txt",word_list_fix)
 	
@@ -106,13 +106,13 @@ func _ready()-> void:
 	else:
 		able_answer = all_answer
 	
-	#main_process()
-	all_combo_test(true,"ISSUE")
+	main_process()
+	#all_combo_test(false,"RUBGY",[])
 	
-	#var corrects = ["AUGUR", "AWARD", "BRAVA", "DRAMA", "DWARF", "FRAUD", "GRAPH", "GRAVY", "GUARD", "HYDRA", "QUARK", "RUMBA", "UMBRA", "WHARF"]
+	#var corrects = ["CURVY", "MURKY", "RUGBY", "RUMMY" ]
 	#var answers = corrects.duplicate()
-	#answers.insert(0, "FUDGY")
-	#all_combo_main_process(answers,corrects)
+	#answers.insert(0, "CHIRU")
+	#all_combo_main_process(answers,corrects,["SALET"])
 
 func main_process()-> void:
 	# Data
@@ -151,7 +151,7 @@ func main_process()-> void:
 	
 	save_data_check(remaining_words,freq_array,position_weights,results)
 
-func all_combo_test(is_multiple:bool = false, test = "SEGUE"):
+func all_combo_test(is_multiple:bool = false, test = "SEGUE",answers_array:Array[String] = []):
 	#corrects = ["JOKER","POPPY","MOMMY","STUNT","GIDDY","JUDGE","REGAL","DITTY","FIXER","STOUT","MOIST","RODEO","HOLLY","BOXER","TASTE","HUNCH","SPOON","WATCH","POUND","SHAKE","SHADE","FOLLY","RIPER","RIDER","TAUNT","JOLLY","HATCH","FROWN","ROWER"]
 	var corrects = [test]
 	if is_multiple == true:
@@ -162,10 +162,10 @@ func all_combo_test(is_multiple:bool = false, test = "SEGUE"):
 	#var answers:Array[String] = ["SALET","ALTER","LEAST","STARE","ROATE","CRANE","ROAST","TRACE","SOARE","AUDIO","ADIEU"]
 	var answers:Array[String] = ["SALET","ALTER","LEAST","STARE","ROATE","CRANE","ROAST","TRACE","SOARE"]
 	
-	all_combo_main_process(answers,corrects)
+	all_combo_main_process(answers,corrects,answers_array,false)
 	$AudioStreamPlayer.play()
 
-func all_combo_main_process(answers:Array,corrects:Array,debug:bool = false):
+func all_combo_main_process(answers:Array,corrects:Array,answers_array:Array[String] = [],debug:bool = false):
 	prints("Số combo test:",answers.size(),answers)
 	prints("Số đáp án:",corrects.size(),corrects)
 	
@@ -178,7 +178,7 @@ func all_combo_main_process(answers:Array,corrects:Array,debug:bool = false):
 	for i in corrects.size():
 		prints("_____")
 		for j in answers.size():
-			check = guess_main_process(answers[j],corrects[i],debug)
+			check = guess_main_process(answers[j],corrects[i],answers_array,debug)
 			if check[1] == true:
 				save[j][check[0].size()-1] += 1
 			else:
@@ -194,7 +194,7 @@ func all_combo_main_process(answers:Array,corrects:Array,debug:bool = false):
 		sum += float("%.2f" % compute_average_score(save[i]))
 	prints("Trung bình:",float(sum)/answers.size())
 
-func guess_main_process(answer:String = "ROATE",correct:String = "CLUNG",debug:bool=false)-> Array:
+func guess_main_process(answer:String = "ROATE",correct:String = "CLUNG",answers_array:Array[String] = [],debug:bool=false)-> Array:
 	# Check danh sách
 	var guesses:Array[String]
 	var contain_true:String = "?????"
@@ -209,11 +209,12 @@ func guess_main_process(answer:String = "ROATE",correct:String = "CLUNG",debug:b
 		if debug:
 			prints("Lượt",i,answer)
 		if !guesses.has(answer):
-			#if i == 1:
-				#guesses.append("SALET")
-			#elif i == 2:
-				#guesses.append("CORNI")
-			#else:
+			if answers_array.size() > 0:
+				if i > 0 and i-1 < answers_array.size():
+					guesses.append(answers_array[i-1])
+				else:
+					guesses.append(answer)
+			else:
 				guesses.append(answer)
 		data = compute_constraints_from_guesses(correct, guesses)
 		contain_true = data.contain_true
@@ -1154,7 +1155,6 @@ func split_multi(s: String, separators: Array[String]) -> Array[String]:
 					new_result.append(t)
 		result = new_result
 	return result
-
 
 func convert_to_word_list(input_path: String, output_path: String):
 	var f = FileAccess.open(input_path, FileAccess.READ)
