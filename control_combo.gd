@@ -14,74 +14,56 @@ var contain_false_score: float = 1
 var weight_missing_letters:float = 5
 
 """
-Tổng kết: 1560 còn lại data mới
+Tổng kết: 1559 còn lại data mới
+SALET 3.32 [0, 169, 848, 449, 69, 18, 6]
+ALTER 3.33 [0, 140, 891, 428, 78, 17, 5]
+LEAST 3.35 [0, 145, 855, 456, 80, 13, 10]
+ROATE 3.36 [0, 137, 864, 444, 87, 21, 6]
+SOARE 3.37 [0, 144, 858, 432, 91, 26, 8]
+STARE 3.38 [0, 143, 831, 478, 78, 22, 7]
+TRACE 3.38 [0, 133, 850, 463, 89, 16, 8]
+CRANE 3.39 [0, 130, 837, 476, 98, 12, 6]
+Trung bình: 3.36
 
-SALET 3.30 [0, 165, 882, 421, 69, 15, 8]
-ALTER 3.33 [0, 140, 891, 433, 68, 20, 8]
-LEAST 3.35 [0, 146, 847, 473, 68, 17, 9]
-STARE 3.35 [0, 152, 848, 460, 78, 12, 10]
-ROATE 3.37 [0, 132, 843, 479, 87, 14, 5]
-CRANE 3.38 [0, 139, 826, 483, 90, 17, 5]
-ROAST 3.38 [1, 134, 840, 473, 91, 12, 9]
-TRACE 3.39 [0, 132, 855, 456, 86, 19, 12]
-SOARE 3.39 [0, 147, 850, 420, 112, 17, 14]
-AUDIO 3.52 [0, 109, 727, 560, 136, 23, 5]
-ADIEU 3.53 [1, 96, 753, 554, 117, 24, 15]
-Trung bình: 3.39
+100 ALTER 3.59 [0, 2, 47, 41, 10, 0, 0]
+100 LEAST 3.62 [0, 5, 42, 40, 12, 1, 0]
+100 TRACE 3.65 [0, 2, 45, 42, 8, 3, 0]
+100 SALET 3.67 [0, 7, 34, 45, 13, 1, 0]
+100 STARE 3.69 [0, 3, 42, 41, 12, 1, 1]
+100 CRANE 3.79 [0, 0, 38, 48, 11, 3, 0]
 
-200 SALET 3.67 [0, 7, 88, 79, 19, 4, 3]
-200 TRACE 3.69 [0, 6, 92, 73, 19, 6, 4]
-200 STARE 3.69 [0, 6, 85, 81, 23, 3, 2]
-200 LEAST 3.70 [0, 4, 88, 84, 13, 10, 1]
-200 CRANE 3.71 [0, 2, 89, 81, 21, 6, 1]
-200 ROATE 3.71 [0, 6, 81, 86, 20, 6, 1]
-200 SOARE 3.72 [0, 8, 86, 72, 24, 8, 2]
-200 ALTER 3.72 [0, 4, 91, 75, 20, 7, 3]
-200 ROAST 3.75 [0, 5, 81, 80, 30, 2, 2]
+200 SALET 3.60 [0, 12, 80, 88, 17, 3, 0]
+200 ALTER 3.62 [0, 3, 91, 87, 16, 3, 0]
+200 LEAST 3.62 [0, 7, 86, 88, 16, 1, 2]
+200 TRACE 3.64 [0, 8, 89, 80, 15, 6, 2]
+200 STARE 3.68 [0, 5, 87, 84, 17, 5, 2]
+200 CRANE 3.71 [0, 1, 84, 92, 18, 4, 1]
 
-500 SALET 3.61 [0, 16, 235, 197, 37, 9, 6]
-500 ALTER 3.65 [0, 11, 236, 195, 40, 12, 6]
-500 STARE 3.65 [0, 14, 230, 196, 45, 8, 7]
-500 LEAST 3.67 [0, 13, 217, 217, 35, 11, 7]
-500 CRANE 3.68 [0, 8, 221, 213, 44, 11, 3]
-500 ROAST 3.68 [0, 10, 221, 205, 50, 9, 5]
-500 ROATE 3.68 [0, 16, 204, 221, 46, 9, 4]
-500 SOARE 3.69 [0, 15, 230, 179, 57, 10, 9]
-500 TRACE 3.70 [0, 14, 218, 205, 39, 14, 10]
+500 SALET 3.58 [0, 22, 226, 207, 34, 9, 2]
+500 ALTER 3.59 [0, 12, 242, 200, 32, 12, 2]
+500 LEAST 3.61 [0, 20, 224, 206, 38, 7, 5]
+500 TRACE 3.63 [0, 14, 236, 191, 43, 11, 5]
+500 STARE 3.63 [0, 16, 229, 197, 43, 11, 4]
+500 CRANE 3.65 [0, 10, 218, 221, 40, 9, 2]
 
-1000 SALET 3.48 [0, 41, 540, 346, 53, 13, 7]
-1000 STARE 3.52 [0, 44, 508, 363, 66, 11, 8]
-1000 ALTER 3.52 [0, 32, 531, 354, 57, 19, 7]
-1000 LEAST 3.53 [0, 41, 499, 383, 53, 16, 8]
-1000 CRANE 3.54 [0, 40, 493, 375, 73, 15, 4]
-1000 ROAST 3.54 [1, 43, 488, 375, 74, 11, 8]
-1000 ROATE 3.56 [0, 42, 472, 391, 78, 12, 5]
-1000 SOARE 3.56 [0, 45, 504, 334, 90, 14, 13]
-1000 TRACE 3.57 [0, 38, 499, 361, 74, 17, 11]
+1000 SALET 3.49 [0, 58, 503, 360, 58, 16, 5]
+1000 ALTER 3.50 [0, 40, 529, 344, 66, 17, 4]
+1000 LEAST 3.52 [0, 56, 492, 360, 72, 11, 9]
+1000 TRACE 3.55 [0, 37, 503, 361, 76, 15, 8]
+1000 STARE 3.56 [0, 39, 491, 377, 67, 20, 6]
+1000 ROATE 3.56 [0, 45, 488, 361, 80, 21, 5]
+1000 SOARE 3.57 [0, 35, 510, 341, 82, 25, 7]
+1000 CRANE 3.58 [0, 30, 484, 384, 86, 12, 4]
 
-1500 SALET 3.33 [0, 133, 857, 418, 69, 15, 8] 2 FETAL [["SALET", "FETAL"], true]
-1500 ALTER 3.37 [0, 105, 867, 432, 68, 20, 8] 2 FETAL [["ALTER", "FETAL"], true]
-1500 STARE 3.38 [0, 121, 820, 459, 78, 12, 10] 2 FETAL [["STARE", "FETAL"], true]
-1500 LEAST 3.39 [0, 113, 822, 471, 68, 17, 9] 2 FETAL [["LEAST", "FETAL"], true]
-1500 ROAST 3.41 [1, 106, 809, 472, 91, 12, 9] 2 FETAL [["ROAST", "FETAL"], true]
-1500 ROATE 3.41 [0, 101, 815, 478, 87, 14, 5] 2 FETAL [["ROATE", "FETAL"], true]
-1500 TRACE 3.42 [0, 99, 828, 456, 86, 19, 12] 2 FETAL [["TRACE", "FETAL"], true]
-1500 CRANE 3.42 [0, 109, 797, 482, 90, 17, 5] 3 FETAL [["CRANE", "WEALD", "FETAL"], true]
-1500 SOARE 3.43 [0, 113, 824, 420, 112, 17, 14] 3 FETAL [["SOARE", "DELFT", "FETAL"], true]
+1500 SALET 3.35 [0, 139, 819, 449, 69, 18, 6]
+1500 ALTER 3.37 [0, 107, 865, 428, 78, 17, 5]
+1500 LEAST 3.39 [0, 116, 826, 455, 80, 13, 10]
+1500 ROATE 3.40 [0, 108, 835, 443, 87, 21, 6]
+1500 STARE 3.41 [0, 112, 806, 475, 78, 22, 7]
+1500 TRACE 3.41 [0, 102, 823, 462, 89, 16, 8]
+1500 SOARE 3.41 [0, 113, 831, 431, 91, 26, 8]
+1500 CRANE 3.42 [0, 100, 809, 475, 98, 12, 6]
 
-Tổng kết: 725 còn lại data cũ
-SALET 2.98 [0, 134, 477, 108, 5, 1, 0]
-TARSE 3.00 [0, 126, 480, 116, 2, 1, 0]
-STARE 3.01 [0, 117, 487, 118, 3, 0, 0]
-TRACE 3.06 [0, 115, 464, 135, 10, 0, 1]
-CRANE 3.05 [0, 115, 473, 123, 11, 3, 0]
-LEAST 3.03 [0, 117, 478, 120, 9, 1, 0]
-ROATE 3.05 [0, 108, 484, 125, 7, 1, 0]
-SOARE 3.04 [0, 128, 453, 133, 10, 1, 0]
-ALTER 3.03 [0, 114, 479, 125, 7, 0, 0]
-GRAME 3.13 [0, 98, 451, 160, 14, 1, 1]
-ADIEU 3.22 [0, 76, 434, 197, 18, 0, 0]
-AUDIO 3.25 [0, 74, 421, 210, 18, 2, 0]
 """
 
 # ===============================
@@ -95,7 +77,7 @@ func _ready()-> void:
 	#subtract_list("res://wordle-full.txt", "res://wordle-answers-past.txt","res://wordle-full_exclude.txt")
 	#subtract_list("res://wordle-answer-full.txt", "res://wordle-answers-past.txt","res://wordle-answer-exclude.txt")
 	
-	#var word_list_fix:Array[String] = ["RUBGY"]
+	#var word_list_fix:Array[String] = ["RUGBY"]
 	#add_word_to_list_and_save("res://wordle-answers-past.txt",word_list_fix)
 	#remove_word_from_list_and_save("res://wordle-answer-exclude.txt",word_list_fix)
 	
@@ -107,7 +89,10 @@ func _ready()-> void:
 		able_answer = all_answer
 	
 	main_process()
-	#all_combo_test(false,"RUBGY",[])
+	
+	#all_combo_test(true,"RUGBY",[])
+	#guess_main_process("STARE","RUGBY",[],true)
+	#prints(compute_constraints_from_guesses("RUGBY", ["GUGGL"]))
 	
 	#var corrects = ["CURVY", "MURKY", "RUGBY", "RUMMY" ]
 	#var answers = corrects.duplicate()
@@ -115,7 +100,7 @@ func _ready()-> void:
 	#all_combo_main_process(answers,corrects,["SALET"])
 
 func main_process()-> void:
-	# Data
+	# Data GUGGL
 	var contain_true:String = "?????".to_upper()
 	var contain_false:String = "".to_upper()
 	var exclude:String = "".to_upper()
@@ -152,15 +137,22 @@ func main_process()-> void:
 	save_data_check(remaining_words,freq_array,position_weights,results)
 
 func all_combo_test(is_multiple:bool = false, test = "SEGUE",answers_array:Array[String] = []):
+	#SOARE - DOTED
+	#6 corrects = ["BODED","GUSSY","PLIED","GAMED","CAPED","WADER","PIPED","DOZED","FAZED","MOODY","MIRED",
+	#"HONED","WILED","CUSHY","CEDED","HIKED","BOOED","BAKED","WIRED","DIZZY","MINED","CAVED","RACED",]
+	#"MOOED","HUSSY","PAVED","EBBED","EARED","FATED","MATED","WAGED","FACED","WANED","DARED","OOZED"]
+	#""]
+	#7 corrects = ["BOXED","DOTED","JAWED","DIKED","PINED","CAWED","SPOOL","ROWED","DAZED","PARED",]
+	#"JADED","WADED","COOED","RAKED",""]
 	#corrects = ["JOKER","POPPY","MOMMY","STUNT","GIDDY","JUDGE","REGAL","DITTY","FIXER","STOUT","MOIST","RODEO","HOLLY","BOXER","TASTE","HUNCH","SPOON","WATCH","POUND","SHAKE","SHADE","FOLLY","RIPER","RIDER","TAUNT","JOLLY","HATCH","FROWN","ROWER"]
 	var corrects = [test]
 	if is_multiple == true:
 		#var wordle:Array = all_answer
 		corrects = pick_random_words(able_answer, able_answer.size()-1)
 	
-	#var answers:Array[String] = ["SALET","SLATE"]
-	#var answers:Array[String] = ["SALET","ALTER","LEAST","STARE","ROATE","CRANE","ROAST","TRACE","SOARE","AUDIO","ADIEU"]
-	var answers:Array[String] = ["SALET","ALTER","LEAST","STARE","ROATE","CRANE","ROAST","TRACE","SOARE"]
+	#var answers:Array[String] = ["SALET","SLATE","ALTER"]
+	#var answers:Array[String] = ["SALET","ALTER","LEAST","STARE","ROATE","CRANE","TRACE","ROAST","SOARE","AUDIO","ADIEU"]
+	var answers:Array[String] = ["SALET","ALTER","LEAST","STARE","CRANE","TRACE"]
 	
 	all_combo_main_process(answers,corrects,answers_array,false)
 	$AudioStreamPlayer.play()
@@ -207,7 +199,7 @@ func guess_main_process(answer:String = "ROATE",correct:String = "CLUNG",answers
 	
 	for i in 6:
 		if debug:
-			prints("Lượt",i,answer)
+			prints("- Lượt",i,":",answer)
 		if !guesses.has(answer):
 			if answers_array.size() > 0:
 				if i > 0 and i-1 < answers_array.size():
@@ -253,9 +245,9 @@ func guess_main_process(answer:String = "ROATE",correct:String = "CLUNG",answers
 						list.erase(guess)
 				var result = filtered_word_list(list, remaining_words, exclude, contain_true, contain_false, false)
 				answer = result[0].word
-				if debug:
-					if size < 10:
-						print("result",result)
+				#if debug:
+					#if size < 10:
+						#print("result",result)
 			if debug:
 				prints("answer",answer)
 				prints(data)
@@ -272,6 +264,8 @@ func guess_main_process(answer:String = "ROATE",correct:String = "CLUNG",answers
 			break
 	if debug:
 		prints([guesses,check])
+		prints(data)
+		prints("remaining_words",remaining_words)
 	
 	return [guesses,check]
 
@@ -283,95 +277,78 @@ func check_guess_process()-> void:
 	print(guess)
 	print(result)
 
-func compute_constraints_from_guesses(correct: String, guesses: Array) -> Dictionary:
-	"""
-	correct: ví dụ "OPINE" (đã uppercase hoặc sẽ được uppercase trong hàm)
-	guesses: Array các Array, ví dụ [["ROATE"], ["UNITY"], ...]
-	trả về: { "contain_true": "????E", "contain_false": "O2", "exclude": "RAT" }
-	"""
+func compute_constraints_from_guesses(correct: String, guesses: Array[String]) -> Dictionary:
 	correct = correct.to_upper()
-	var L = correct.length()
-	if L != 5:
-		push_error("Answer length must be 5")
-		return {}
+	var L := correct.length()
 
-	# init
-	var contain_true := "?????"  # 5 chars
-	var contain_false_map := {}   # {'O': [2,4], ...} positions 1-based
+	var contain_true := "?????"
+	var contain_false := ""
+	var contain_false_map := {}   # { "G": [1,4] }
 	var exclude_map := {}
-
-	# Duyệt từng guess (mỗi guess là array, lấy phần tử 0)
-	for g_arr in guesses:
-		var guess = str(g_arr).to_upper()
+	
+	for guess in guesses:
+		guess = guess.to_upper()
 		if guess.length() != L:
 			continue
 
-		# 1) chuẩn bị: đánh dấu green và đếm remaining letters trong answer
-		var used_correct = []
+		# 1️⃣ Đếm chữ trong correct
+		var letter_count := {}
 		for i in range(L):
-			used_correct.append(false)
-		# mark greens and build remaining_count
-		var remaining_count := {}
-		for i in range(L):
-			# we won't fill remaining_count yet — first mark greens
-			pass
-		# mark greens
-		for i in range(L):
-			if guess[i] == correct[i]:
-				# set contain_true at position i
-				contain_true = contain_true.substr(0, i) + guess[i] + contain_true.substr(i + 1)
-				used_correct[i] = true
-		# build remaining_count from answer for non-green positions
-		for i in range(L):
-			if not used_correct[i]:
-				var ch = correct[i]
-				remaining_count[ch] = remaining_count.get(ch, 0) + 1
+			var c := correct.substr(i, 1)
+			letter_count[c] = letter_count.get(c, 0) + 1
 
-		# 2) xử lý non-green positions: nếu letter còn trong remaining_count => yellow (misplaced)
-		#    nếu không => gray (exclude), nhưng chỉ mark exclude sau khi chắc chắn không yellow/green
+		# 2️⃣ GREEN pass
+		var green_mask := []
 		for i in range(L):
-			if guess[i] == correct[i]:
-				continue  # already green
-			var ch = guess[i]
-			if remaining_count.get(ch, 0) > 0:
-				# yellow: ghi vị trí sai (i+1) cho chữ ch
-				if not contain_false_map.has(ch):
-					contain_false_map[ch] = []
-				# tránh push trùng vị trí
-				if (i + 1) not in contain_false_map[ch]:
-					contain_false_map[ch].append(i + 1)
-				# chiếm 1 occurrence trong remaining_count
-				remaining_count[ch] = remaining_count[ch] - 1
-			else:
-				# gray -> khả năng exclude, nhưng có thể letter đã là green/yellow ở nơi khác;
-				# ở đây remaining_count đã xử lý occurrences, nên nếu còn 0 thì letter là gray
-				# lưu tạm vào exclude_map (key true)
-				# chú ý: nếu letter đã là green hoặc đã có yellow từ trước, không đưa vào exclude
-				if contain_true.find(ch) == -1 and not contain_false_map.has(ch):
-					exclude_map[ch] = true
+			green_mask.append(false)
+			var c := correct.substr(i, 1)
+			var g := guess.substr(i, 1)
+			if g == c:
+				contain_true = contain_true.substr(0, i) + g + contain_true.substr(i + 1)
+				letter_count[g] -= 1
+				green_mask[i] = true
 
-	# Sau khi xử lý tất cả guesses, chuẩn hoá outputs
-	# contain_true đã là chuỗi 5 ký tự
-	# build contain_false string theo format LETTER + concat positions
-	var contain_false_str := ""
+		# 3️⃣ YELLOW / MISPLACED pass (Wordle-correct)
+		for i in range(L):
+			if green_mask[i]:
+				continue
+			var g := guess.substr(i, 1)
+			# chữ tồn tại trong correct ở đâu đó
+			if correct.find(g) != -1:
+				if not contain_false_map.has(g):
+					contain_false_map[g] = []
+				contain_false_map[g].append(i + 1)
+				# chỉ trừ count nếu còn
+				if letter_count.get(g, 0) > 0:
+					letter_count[g] -= 1
+
+		# 4️⃣ GRAY pass
+		for i in range(L):
+			var g := guess.substr(i, 1)
+			if green_mask[i]:
+				continue
+			if contain_true.find(g) != -1:
+				continue
+			if contain_false_map.has(g):
+				continue
+			exclude_map[g] = true
+
+	# build contain_false
 	for ch in contain_false_map.keys():
-		# sắp xếp các vị trí tăng dần
 		contain_false_map[ch].sort()
-		var s = str(ch)
+		contain_false += ch
 		for pos in contain_false_map[ch]:
-			s += str(pos)
-		contain_false_str += s
+			contain_false += str(pos)
 
-	# build exclude string (loại trùng)
-	var exclude_str := ""
+	# build exclude
+	var exclude := ""
 	for ch in exclude_map.keys():
-		exclude_str += ch
-	
-	# trả về
+		exclude += ch
+
 	return {
 		"contain_true": contain_true,
-		"contain_false": contain_false_str,
-		"exclude": exclude_str
+		"contain_false": contain_false,
+		"exclude": exclude
 	}
 
 func compute_average_score(stats: Array) -> float:

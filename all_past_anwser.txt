@@ -16,7 +16,7 @@ Xếp hạng,Từ,Ngày (#),Trung bình lượt,% Fail,Lý do khó
 
 November 2025
 	
-	- Wordle 1643 (Decenber 18, 2025): RUBGY (3) SALET YOURN RUBGY
+	- Wordle 1643 (Decenber 18, 2025): RUGBY (3) SALET YOURN RUGBY
 	- Wordle 1642 (Decenber 17, 2025): GRASS (3) SALET CRASH GRASS
 	- Wordle 1641 (Decenber 16, 2025): SEGUE (4) SALET PRION SEEDY SEGUE
 	- Wordle 1640 (Decenber 15, 2025): DODGY (5) SALET YOURN WHOMP BODGY DODGY
