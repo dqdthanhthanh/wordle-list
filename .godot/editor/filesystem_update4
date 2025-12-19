@@ -1,6 +1,6 @@
 res://control_combo.tscn
 res://control_combo.gd
-res://wordle-answer-exclude.txt
-res://wordle-answers-past.txt
 res://elimination_result.txt
 res://all_past_anwser.txt
+res://wordle-answer-exclude.txt
+res://wordle-answers-past.txt
