@@ -16,12 +16,14 @@ Xếp hạng,Từ,Ngày (#),Trung bình lượt,% Fail,Lý do khó
 
 November 2025
 	
+	- Wordle 1647 (Decenber 22, 2025): CONCH (3) SALET YOURN CONCH
+	- Wordle 1646 (Decenber 21, 2025): QUILT (3) SALET GUILT QUILT
 	- Wordle 1645 (Decenber 20, 2025): WHITE (3) SALET TRIBE WHITE
 	- Wordle 1644 (Decenber 19, 2025): MYRRH (3) SALET YOURN MYRRH
 	- Wordle 1643 (Decenber 18, 2025): RUGBY (3) SALET YOURN RUGBY
 	- Wordle 1642 (Decenber 17, 2025): GRASS (3) SALET CRASH GRASS
 	- Wordle 1641 (Decenber 16, 2025): SEGUE (4) SALET PRION SEEDY SEGUE
-	- Wordle 1640 (Decenber 15, 2025): DODGY (5) SALET YOURN WHOMP BODGY DODGY
+	- Wordle 1640 (Decenber 15, 2025): DODGY (5) SALET YOURN WHOMP BODGY DODGY (Chọn sai dữ liệu)
 	- Wordle 1639 (Decenber 14, 2025): SWING (3) SALET PRUNO SWING
 	- Wordle 1638 (Decenber 13, 2025): MISER (4) SALET ROUND WISER MISER
 	- Wordle 1637 (Decenber 12, 2025): TRUCK (3) SALET HOURI TRUCK
@@ -55,7 +57,7 @@ November 2025
 	- Wordle 1609 (November 14, 2025): LURID (3)
 	- Wordle 1608 (November 13, 2025): TINGE (3)
 	- Wordle 1607 (November 12, 2025): DEUCE (4)
-	- Wordle 1606 (November 11, 2025): GIZMO (3)
+	- Wordle 1606 (November 11, 2025): GIZMO (2)
 	- Wordle 1605 (November 10, 2025): TABBY (7)
 	- Wordle 1604 (November 09, 2025): FUGUE
 	- Wordle 1603 (November 08, 2025): ARISE

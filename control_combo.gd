@@ -77,9 +77,9 @@ func _ready()-> void:
 	#subtract_list("res://wordle-full.txt", "res://wordle-answers-past.txt","res://wordle-full_exclude.txt")
 	#subtract_list("res://wordle-answer-full.txt", "res://wordle-answers-past.txt","res://wordle-answer-exclude.txt")
 	
-	#var word_list_fix:Array[String] = ["WHITE"]
-	#add_word_to_list_and_save("res://wordle-answers-past.txt",word_list_fix)
-	#remove_word_from_list_and_save("res://wordle-answer-exclude.txt",word_list_fix)
+	var word_list_fix:Array[String] = ["CONCH"]
+	add_word_to_list_and_save("res://wordle-answers-past.txt",word_list_fix)
+	remove_word_from_list_and_save("res://wordle-answer-exclude.txt",word_list_fix)
 	
 	limit_answer_past = true
 	able_word_list = word_list
@@ -88,15 +88,15 @@ func _ready()-> void:
 	else:
 		able_answer = all_answer
 	
-	main_process()
+	#main_process()
 	
-	#all_combo_test(false,"WHITE",[])
+	#all_combo_test(false,"CONCH",[])
 	#guess_main_process("STARE","RUGBY",[],true)
 	#prints(compute_constraints_from_guesses("RUGBY", ["GUGGL"]))
 	
-	#var corrects = ["BENTO", "BUTTE", "CUTIE", "EMOTE", "ENTRY", "ETUDE", "GETUP", "HERTZ", "JETTY", "METRE", "OUTRE", "PETRI", "RETIE", "TEDDY", "TEENY", "TERRY", "THINE", "TORTE", "TRIBE", "TRIKE", "TRUCE", "TWERK", "TWERP", "VENTI", "WHITE"]
+	#var corrects = ["CLOUT", "GLINT", "GUILT", "LICIT", "QUILT"]
 	#var answers = corrects.duplicate()
-	#answers.insert(0, "IRONY")
+	#answers.insert(0, "CUING")
 	#all_combo_main_process(answers,corrects,["SALET"])
 	
 	"""
