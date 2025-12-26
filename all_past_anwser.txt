@@ -1,21 +1,9 @@
-Xếp hạng,Từ,Ngày (#),Trung bình lượt,% Fail,Lý do khó
-1,PARER,#454 (2022),6.3,48%,"Pattern _A_ER (10+ từ tương tự: PAPER, LAYER, PAGER)."
-2,CORER,#1214 (2024),5.7,50%,"Lặp R + O giữa, nhầm COWER/ROGER."
-3,ROWER,#1000 (2023),5.6,45%,"_O_ER bẫy (ROWER nhầm LOWER, MOWER)."
-4,GOFER,#398 (2022),5.5,44%,"G đầu hiếm + _O_ER (GOFER nhầm GOFER, LOWER)."
-5,FOYER,#379 (2022),5.4,43%,"Y giữa hiếm + OYER bẫy (FOYER nhầm FOYER, TOYER)."
-6,TIZZY,#1456 (Aug 2025),5.4,52%,"Z hiếm + Y giữa, _I__Y (nhầm DITTY, PIZZY)."
-7,RAZOR,#1618 (Nov 2025),5.4,61%,Z giữa + R lặp đầu/cuối (nhầm RADAR).
-8,MUMMY,#491 (2022),5.8,45%,Lặp 3 M + Y cuối hiếm.
-9,JOLLY,#1400 (2025),5.3,40%,J đầu hiếm + lặp L + OLLY bẫy (nhầm HOLLY).
-10,FIBER,#1200 (2024),5.2,20%,"_I_ER pattern (10 từ: FIBER, VIPER, WIPER)."
-
-	- Wordle ???? (November 17, 2025): THETA (3) ROATE DELTA THETA | SALET CHORD THETA
-	- Wordle ???? (November 17, 2025): CURVY (4) ROATE SULCI CURRY CURVY | SALET IRONY MURKY CURRY CURVY
-	- Wordle ???? (November 17, 2025): CADDY (4) ROATE LYSIN CHUMP CADDY | SALET
-
 November 2025
-	
+	- Wordle 1652 (Decenber 26, 2025): BATCH (4) SALET TANGO BINKY BATCH
+	- Wordle 1651 (Decenber 25, 2025): SPEED (3) SALET DHIKR SPEED
+	- Wordle 1650 (Decenber 24, 2025): PRISM (4) SALET HUSKY CORPS PRISM
+	- Wordle 1649 (Decenber 23, 2025): SPOOL (3) SALET SKULL SPOOL
+	- Wordle 1648 (Decenber 23, 2025): GLINT (3) SALET GUILT GLINT
 	- Wordle 1647 (Decenber 22, 2025): CONCH (3) SALET YOURN CONCH
 	- Wordle 1646 (Decenber 21, 2025): QUILT (3) SALET GUILT QUILT
 	- Wordle 1645 (Decenber 20, 2025): WHITE (3) SALET TRIBE WHITE

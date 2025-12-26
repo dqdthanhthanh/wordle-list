@@ -1,45 +1,4 @@
-BOING CONCH GONZO 
-["O", 3] ["N", 3] ["G", 2] ["B", 1] ["I", 1] ["C", 1] ["H", 1] ["Z", 1] 
-0.33333333333333 1.0 0.66666666666667 0.33333333333333 0.33333333333333 
-CHIZZ → trùng 2 → tỷ lệ 66.67% → điểm 7780.27
-CHICH → trùng 2 → tỷ lệ 66.67% → điểm 7779.27
-GOBBI → trùng 2 → tỷ lệ 66.67% → điểm 1311.50
-BOCCI → trùng 3 → tỷ lệ 100.00% → điểm 1309.97
-BIZZO → trùng 2 → tỷ lệ 66.67% → điểm 1309.83
-CHICO → trùng 3 → tỷ lệ 100.00% → điểm 1309.83
-COCCI → trùng 2 → tỷ lệ 66.67% → điểm 1308.47
-GINCH → trùng 3 → tỷ lệ 100.00% → điểm 1308.43
-CHING → trùng 3 → tỷ lệ 100.00% → điểm 1308.37
-ICING → trùng 2 → tỷ lệ 66.67% → điểm 1306.87
-CINCH → trùng 3 → tỷ lệ 100.00% → điểm 1305.40
-HONGI → trùng 3 → tỷ lệ 100.00% → điểm 242.63
-GONCH → trùng 3 → tỷ lệ 100.00% → điểm 242.63
-HOING → trùng 3 → tỷ lệ 100.00% → điểm 242.57
-COIGN → trùng 3 → tỷ lệ 100.00% → điểm 242.57
-INCOG → trùng 3 → tỷ lệ 100.00% → điểm 242.57
-BOING → trùng 3 → tỷ lệ 100.00% → điểm 242.57
-BINGO → trùng 3 → tỷ lệ 100.00% → điểm 242.50
-GINZO → trùng 3 → tỷ lệ 100.00% → điểm 242.50
-OHING → trùng 3 → tỷ lệ 100.00% → điểm 242.43
-GOING → trùng 1 → tỷ lệ 33.33% → điểm 240.60
-OGGIN → trùng 1 → tỷ lệ 33.33% → điểm 240.57
-ZINCO → trùng 3 → tỷ lệ 100.00% → điểm 240.47
-BIHON → trùng 3 → tỷ lệ 100.00% → điểm 240.40
-CHINO → trùng 3 → tỷ lệ 100.00% → điểm 240.40
-CONIC → trùng 3 → tỷ lệ 100.00% → điểm 238.60
-CONCH → trùng 3 → tỷ lệ 100.00% → điểm 238.60
-IONIC → trùng 2 → tỷ lệ 66.67% → điểm 238.60
-COHOG → trùng 1 → tỷ lệ 33.33% → điểm 231.57
-HOGOH → trùng 1 → tỷ lệ 33.33% → điểm 230.10
-GOBBO → trùng 1 → tỷ lệ 33.33% → điểm 230.07
-COOCH → trùng 1 → tỷ lệ 33.33% → điểm 228.60
-HOOCH → trùng 1 → tỷ lệ 33.33% → điểm 228.60
-ZOCCO → trùng 1 → tỷ lệ 33.33% → điểm 228.53
-CHOCO → trùng 1 → tỷ lệ 33.33% → điểm 228.47
-COCCO → trùng 1 → tỷ lệ 33.33% → điểm 227.03
-GONZO → trùng 1 → tỷ lệ 33.33% → điểm 60.70
-CONGO → trùng 1 → tỷ lệ 33.33% → điểm 60.70
-BOONG → trùng 1 → tỷ lệ 33.33% → điểm 60.70
-BONGO → trùng 1 → tỷ lệ 33.33% → điểm 60.70
-COGON → trùng 1 → tỷ lệ 33.33% → điểm 60.67
-CHOON → trùng 1 → tỷ lệ 33.33% → điểm 58.53
+BATCH 
+["B", 1] ["A", 1] ["T", 1] ["C", 1] ["H", 1] 
+1.0 1.0 1.0 1.0 1.0 
+BATCH → trùng 1 → tỷ lệ 100.00% → điểm 50.50

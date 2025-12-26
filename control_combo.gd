@@ -77,9 +77,9 @@ func _ready()-> void:
 	#subtract_list("res://wordle-full.txt", "res://wordle-answers-past.txt","res://wordle-full_exclude.txt")
 	#subtract_list("res://wordle-answer-full.txt", "res://wordle-answers-past.txt","res://wordle-answer-exclude.txt")
 	
-	var word_list_fix:Array[String] = ["CONCH"]
-	add_word_to_list_and_save("res://wordle-answers-past.txt",word_list_fix)
-	remove_word_from_list_and_save("res://wordle-answer-exclude.txt",word_list_fix)
+	#var word_list_fix:Array[String] = ["BATCH"]
+	#add_word_to_list_and_save("res://wordle-answers-past.txt",word_list_fix)
+	#remove_word_from_list_and_save("res://wordle-answer-exclude.txt",word_list_fix)
 	
 	limit_answer_past = true
 	able_word_list = word_list
@@ -88,46 +88,18 @@ func _ready()-> void:
 	else:
 		able_answer = all_answer
 	
-	#main_process()
+	main_process()
 	
-	#all_combo_test(false,"CONCH",[])
+	#all_combo_test(false,"BATCH",[])
 	#guess_main_process("STARE","RUGBY",[],true)
 	#prints(compute_constraints_from_guesses("RUGBY", ["GUGGL"]))
 	
-	#var corrects = ["CLOUT", "GLINT", "GUILT", "LICIT", "QUILT"]
+	#var corrects = ["BATCH", "BATIK", "FATTY", "FATWA", "NATTY", "PANTY", "WARTY"]
 	#var answers = corrects.duplicate()
-	#answers.insert(0, "CUING")
+	#answers.insert(0, "BINKY")
 	#all_combo_main_process(answers,corrects,["SALET"])
-	
 	"""
-	Tổng kết: 25
-	IRONY 3.24 [0, 0, 19, 6, 0, 0, 0]
-	BENTO 3.24 [1, 2, 12, 10, 0, 0, 0]
-	BUTTE 3.16 [1, 4, 11, 8, 1, 0, 0]
-	CUTIE 3.24 [1, 3, 11, 9, 1, 0, 0]
-	EMOTE 3.40 [1, 3, 8, 11, 2, 0, 0]
-	ENTRY 3.24 [1, 2, 12, 10, 0, 0, 0]
-	ETUDE 3.52 [1, 1, 7, 16, 0, 0, 0]
-	GETUP 3.56 [1, 0, 8, 16, 0, 0, 0]
-	HERTZ 3.36 [1, 0, 13, 11, 0, 0, 0]
-	JETTY 3.32 [1, 3, 8, 13, 0, 0, 0]
-	METRE 3.16 [1, 2, 14, 8, 0, 0, 0]
-	OUTRE 2.92 [1, 4, 16, 4, 0, 0, 0]
-	PETRI 2.92 [1, 4, 16, 4, 0, 0, 0]
-	RETIE 2.88 [1, 5, 15, 4, 0, 0, 0]
-	TEDDY 3.48 [1, 2, 6, 16, 0, 0, 0]
-	TEENY 3.28 [1, 3, 9, 12, 0, 0, 0]
-	TERRY 3.16 [1, 4, 10, 10, 0, 0, 0]
-	THINE 3.16 [1, 3, 12, 9, 0, 0, 0]
-	TORTE 3.04 [1, 3, 15, 6, 0, 0, 0]
-	TRIBE 2.88 [1, 5, 15, 4, 0, 0, 0]
-	TRIKE 3.00 [1, 4, 14, 6, 0, 0, 0]
-	TRUCE 3.08 [1, 4, 12, 8, 0, 0, 0]
-	TWERK 3.40 [1, 2, 9, 12, 1, 0, 0]
-	TWERP 3.32 [1, 3, 9, 11, 1, 0, 0]
-	VENTI 3.20 [1, 2, 13, 9, 0, 0, 0]
-	WHITE 3.20 [1, 3, 11, 10, 0, 0, 0]
-	Trung bình: 3.20615384615385
+	
 	"""
 
 func main_process()-> void:
