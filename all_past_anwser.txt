@@ -1,8 +1,18 @@
-November 2025
-	- Wordle 1652 (Decenber 26, 2025): BATCH (4) SALET TANGO BINKY BATCH
-	- Wordle 1651 (Decenber 25, 2025): SPEED (3) SALET DHIKR SPEED
-	- Wordle 1650 (Decenber 24, 2025): PRISM (4) SALET HUSKY CORPS PRISM
-	- Wordle 1649 (Decenber 23, 2025): SPOOL (3) SALET SKULL SPOOL
+January 2026
+	- Wordle 1660 (January 04, 2025): POSSE (3) SALET PRUNO POSSE
+	- Wordle 1659 (January 03, 2025): SITAR (2) SALET SITAR
+	- Wordle 1658 (January 02, 2025): PROOF (3) SALET YOURN PROOF
+	- Wordle 1657 (January 01, 2025): FABLE (3) SALET LANCE FABLE
+
+Decenber 2025
+	- Wordle 1656 (Decenber 31, 2025): SIREN (3) SALET DHIKR SIREN
+	- Wordle 1655 (Decenber 30, 2025): DECOR (3) SALET NIDOR DECOR
+	- Wordle 1654 (Decenber 29, 2025): FRUIT (3) SALET INGOT FRUIT
+	- Wordle 1653 (Decenber 28, 2025): ABBOT (4) SALET ABORT ABBOT
+	- Wordle 1652 (Decenber 27, 2025): BATCH (4) SALET TANGO BINKY BATCH
+	- Wordle 1651 (Decenber 26, 2025): SPEED (3) SALET DHIKR SPEED
+	- Wordle 1650 (Decenber 25, 2025): PRISM (4) SALET HUSKY CORPS PRISM
+	- Wordle 1649 (Decenber 24, 2025): SPOOL (3) SALET SKULL SPOOL
 	- Wordle 1648 (Decenber 23, 2025): GLINT (3) SALET GUILT GLINT
 	- Wordle 1647 (Decenber 22, 2025): CONCH (3) SALET YOURN CONCH
 	- Wordle 1646 (Decenber 21, 2025): QUILT (3) SALET GUILT QUILT
@@ -26,6 +36,8 @@ November 2025
 	- Wordle 1628 (Decenber 03, 2025): HASTE (3) SALET CWTCH HASTE
 	- Wordle 1627 (Decenber 02, 2025): CACTI (3) SALET OCHRY CACTI
 	- Wordle 1626 (Decenber 01, 2025): LEACH (3) SALET GONCH LEACH
+
+November 2025
 	- Wordle 1625 (November 29, 2025): MUGGY (7) SALET DUROY ... MUGGY (Không có dữ liệu)
 	- Wordle 1624 (November 29, 2025): GRUFF (3) SALET DUROY GRUFF
 	- Wordle 1623 (November 28, 2025): COLIC (3) SALET GOYIM COLIC

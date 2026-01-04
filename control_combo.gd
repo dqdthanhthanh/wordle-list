@@ -77,7 +77,9 @@ func _ready()-> void:
 	#subtract_list("res://wordle-full.txt", "res://wordle-answers-past.txt","res://wordle-full_exclude.txt")
 	#subtract_list("res://wordle-answer-full.txt", "res://wordle-answers-past.txt","res://wordle-answer-exclude.txt")
 	
-	#var word_list_fix:Array[String] = ["BATCH"]
+	var correct_wordle = "POSSE"
+	
+	#var word_list_fix:Array[String] = [correct_wordle]
 	#add_word_to_list_and_save("res://wordle-answers-past.txt",word_list_fix)
 	#remove_word_from_list_and_save("res://wordle-answer-exclude.txt",word_list_fix)
 	
@@ -90,20 +92,18 @@ func _ready()-> void:
 	
 	main_process()
 	
-	#all_combo_test(false,"BATCH",[])
+	#all_combo_test(false,correct_wordle,[])
 	#guess_main_process("STARE","RUGBY",[],true)
 	#prints(compute_constraints_from_guesses("RUGBY", ["GUGGL"]))
 	
-	#var corrects = ["BATCH", "BATIK", "FATTY", "FATWA", "NATTY", "PANTY", "WARTY"]
 	#var answers = corrects.duplicate()
-	#answers.insert(0, "BINKY")
+	#answers.insert(0, "GUIRO")
 	#all_combo_main_process(answers,corrects,["SALET"])
 	"""
-	
 	"""
 
 func main_process()-> void:
-	# Data GUGGL
+	# Data
 	var contain_true:String = "?????".to_upper()
 	var contain_false:String = "".to_upper()
 	var exclude:String = "".to_upper()
@@ -123,7 +123,7 @@ func main_process()-> void:
 	print(freq_array)
 	print(position_weights)
 	
-	var results = filtered_word_list(able_word_list, remaining_words, exclude, contain_true, contain_false, true)
+	var results = filtered_word_list(able_word_list, remaining_words, exclude, contain_true, contain_false, false)
 	
 	if results.size() > 0:
 		prints("\n→ Từ tốt nhất: ",results[0])
