@@ -17,6 +17,7 @@ var weight_missing_letters:float = 5
 Tổng kết: 1559 còn lại data mới
 SALET 3.32 [0, 169, 848, 449, 69, 18, 6]
 ALTER 3.33 [0, 140, 891, 428, 78, 17, 5]
+CARLE 3.34 [0, 152, 844, 445, 74, 15, 11]
 LEAST 3.35 [0, 145, 855, 456, 80, 13, 10]
 ROATE 3.36 [0, 137, 864, 444, 87, 21, 6]
 SOARE 3.37 [0, 144, 858, 432, 91, 26, 8]
@@ -77,7 +78,7 @@ func _ready()-> void:
 	#subtract_list("res://wordle-full.txt", "res://wordle-answers-past.txt","res://wordle-full_exclude.txt")
 	#subtract_list("res://wordle-answer-full.txt", "res://wordle-answers-past.txt","res://wordle-answer-exclude.txt")
 	
-	var correct_wordle = "POSSE"
+	var correct_wordle = "QUARK"
 	
 	#var word_list_fix:Array[String] = [correct_wordle]
 	#add_word_to_list_and_save("res://wordle-answers-past.txt",word_list_fix)
@@ -92,6 +93,7 @@ func _ready()-> void:
 	
 	main_process()
 	
+	#all_combo_test(false,correct_wordle,[])
 	#all_combo_test(false,correct_wordle,[])
 	#guess_main_process("STARE","RUGBY",[],true)
 	#prints(compute_constraints_from_guesses("RUGBY", ["GUGGL"]))
@@ -153,9 +155,9 @@ func all_combo_test(is_multiple:bool = false, test = "SEGUE",answers_array:Array
 		#var wordle:Array = all_answer
 		corrects = pick_random_words(able_answer, able_answer.size()-1)
 	
-	#var answers:Array[String] = ["SALET","ALTER"]
-	#var answers:Array[String] = ["SALET","ALTER","LEAST","STARE","ROATE","CRANE","TRACE","ROAST","SOARE","AUDIO","ADIEU"]
-	var answers:Array[String] = ["SALET","ALTER","LEAST","STARE","CRANE","TRACE"]
+	#var answers:Array[String] = ["SALET","CARLE"]
+	var answers:Array[String] = ["SALET","ALTER","LEAST","STARE","ROATE","CARNE","TRACE","ROAST","SOARE","AUDIO","ADIEU"]
+	#var answers:Array[String] = ["SALET","ALTER","LEAST","STARE","CRANE","TRACE"]
 	
 	all_combo_main_process(answers,corrects,answers_array,false)
 	$AudioStreamPlayer.play()

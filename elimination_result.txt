@@ -1,14 +1,4 @@
-POESY POSSE 
-["P", 2] ["O", 2] ["E", 2] ["S", 2] ["Y", 1] 
-1.0 1.0 0.5 1.0 0.5 
-POESY → trùng 2 → tỷ lệ 100.00% → điểm 28.75
-POSEY → trùng 2 → tỷ lệ 100.00% → điểm 28.75
-POYSE → trùng 2 → tỷ lệ 100.00% → điểm 28.75
-SEPOY → trùng 2 → tỷ lệ 100.00% → điểm 28.75
-SYPES → trùng 1 → tỷ lệ 50.00% → điểm 22.45
-SYSOP → trùng 1 → tỷ lệ 50.00% → điểm 22.45
-PESOS → trùng 1 → tỷ lệ 50.00% → điểm 20.80
-POSES → trùng 1 → tỷ lệ 50.00% → điểm 20.80
-POSSE → trùng 1 → tỷ lệ 50.00% → điểm 20.80
-SPEOS → trùng 1 → tỷ lệ 50.00% → điểm 20.80
-OSEYS → trùng 1 → tỷ lệ 50.00% → điểm 18.95
+QUARK 
+["Q", 1] ["U", 1] ["A", 1] ["R", 1] ["K", 1] 
+1.0 1.0 1.0 1.0 1.0 
+QUARK → trùng 1 → tỷ lệ 100.00% → điểm 230.50
