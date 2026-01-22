@@ -78,7 +78,7 @@ func _ready()-> void:
 	#subtract_list("res://wordle-full.txt", "res://wordle-answers-past.txt","res://wordle-full_exclude.txt")
 	#subtract_list("res://wordle-answer-full.txt", "res://wordle-answers-past.txt","res://wordle-answer-exclude.txt")
 	
-	var correct_wordle = "QUARK"
+	var correct_wordle = "CLINK"
 	
 	#var word_list_fix:Array[String] = [correct_wordle]
 	#add_word_to_list_and_save("res://wordle-answers-past.txt",word_list_fix)
@@ -94,14 +94,17 @@ func _ready()-> void:
 	main_process()
 	
 	#all_combo_test(false,correct_wordle,[])
-	#all_combo_test(false,correct_wordle,[])
+	#all_combo_test(true,correct_wordle,[])
 	#guess_main_process("STARE","RUGBY",[],true)
 	#prints(compute_constraints_from_guesses("RUGBY", ["GUGGL"]))
 	
+	#var corrects = ["ABASH", "ADIOS", "ARSON", "ASPIC", "BURSA", "CHASM", "CRASH", "GRASS", "QUASI", "UNSAY"]
 	#var answers = corrects.duplicate()
-	#answers.insert(0, "GUIRO")
+	#answers.insert(0, "CHIRU")
 	#all_combo_main_process(answers,corrects,["SALET"])
+	
 	"""
+	
 	"""
 
 func main_process()-> void:
