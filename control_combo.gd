@@ -78,11 +78,11 @@ func _ready()-> void:
 	#subtract_list("res://wordle-full.txt", "res://wordle-answers-past.txt","res://wordle-full_exclude.txt")
 	#subtract_list("res://wordle-answer-full.txt", "res://wordle-answers-past.txt","res://wordle-answer-exclude.txt")
 	
-	var correct_wordle = "SPINY"
+	var correct_wordle = "SLIME"
 	
-	#var word_list_fix:Array[String] = [correct_wordle]
-	#add_word_to_list_and_save("res://wordle-answers-past.txt",word_list_fix)
-	#remove_word_from_list_and_save("res://wordle-answer-exclude.txt",word_list_fix)
+	var word_list_fix:Array[String] = [correct_wordle]
+	add_word_to_list_and_save("res://wordle-answers-past.txt",word_list_fix)
+	remove_word_from_list_and_save("res://wordle-answer-exclude.txt",word_list_fix)
 	
 	limit_answer_past = true
 	able_word_list = word_list
@@ -92,6 +92,15 @@ func _ready()-> void:
 		able_answer = all_answer
 	
 	main_process()
+	
+	## Pick random 1 wordle
+	#var best_words = filter_high_weight_words(all_answer_exclude, "res://list_weight.txt", 58.00)
+	#print("\nTỪ ĐƯỢC LỌC (weight >= 58.00%):")
+	#print(best_words)
+	#print("→ TỪ TỐT NHẤT ĐỂ ĐOÁN NGAY: ", best_words[randi_range(0,best_words.size()-1)])
+	
+	#var remaining_words = ["cabri","caird","capri","cardi","caria","carib","carid","carpi","chair","cigar","cimar",	"circa","craic",	"craig","Craik",	"curia"]
+	#call_API_final_check(remaining_words,20)
 	
 	#all_combo_test(false,correct_wordle,[])
 	#all_combo_test(true,correct_wordle,[])
@@ -106,6 +115,73 @@ func _ready()-> void:
 	"""
 	
 	"""
+
+# filter_high_weight_words.gd
+# Godot 4 | Tác giả: Wordle AI God
+# Hàm lọc từ trong mảng candidates có weight >= 58.00% từ file list_weight.txt
+
+func filter_high_weight_words(
+	candidates: Array,                    # Mảng từ cần lọc, ví dụ: ["ABASH", "ADIOS", ...]
+	weight_file_path: String = "res://list_weight.txt",
+	min_weight: float = 58.00
+) -> Array:
+	
+	print("=== LỌC TỪ TRONG DANH SÁCH %d TỪ CÒN LẠI ===" % candidates.size())
+	print("→ Tiêu chí: weight >= %.2f%%" % min_weight)
+	
+	var file = FileAccess.open(weight_file_path, FileAccess.READ)
+	if not file:
+		push_error("KHÔNG MỞ ĐƯỢC FILE: %s" % weight_file_path)
+		return []
+	
+	var word_weights = {}  # "ABACK": 58.0
+	while not file.eof_reached():
+		var line = file.get_line().strip_edges()
+		if line == "" or line.begins_with("#"):
+			continue
+		
+		var parts = line.split("\t", false)
+		if parts.size() < 2:
+			parts = line.split(" ", false)
+		if parts.size() < 2:
+			continue
+		
+		var word = parts[0].strip_edges().to_upper()
+		var weight_str = parts[1].replace("%", "").strip_edges()
+		
+		if word.length() != 5:
+			continue
+		
+		var weight = float(weight_str)
+		word_weights[word] = weight
+	
+	file.close()
+	print("→ Đã load %,d từ với trọng số từ file!" % word_weights.size())
+	
+	# Lọc chỉ những từ trong candidates có weight >= min_weight
+	var high_weight_words = []
+	for word in candidates:
+		var w = word.to_upper()
+		if word_weights.has(w) and word_weights[w] >= min_weight:
+			high_weight_words.append(w)
+		elif not word_weights.has(w):
+			# Nếu không có trong file → mặc định 58% (rất tốt)
+			high_weight_words.append(w)
+	
+	# Sắp xếp A-Z cho đẹp
+	high_weight_words.sort()
+	
+	# In bảng xếp hạng đẹp (debug)
+	print("\nKẾT QUẢ LỌC (weight >= %.2f%%):" % min_weight)
+	if high_weight_words.size() > 0:
+		for i in range(high_weight_words.size()):
+			var w = high_weight_words[i]
+			var weight = word_weights.get(w, 58.0)
+			print("%d. %s → %.4f%%" % [i+1, w, weight])
+	else:
+		print("→ KHÔNG CÓ TỪ NÀO ĐẠT >= %.2f%%" % min_weight)
+	
+	return high_weight_words
 
 func main_process()-> void:
 	# Data
@@ -159,8 +235,8 @@ func all_combo_test(is_multiple:bool = false, test = "SEGUE",answers_array:Array
 		corrects = pick_random_words(able_answer, able_answer.size()-1)
 	
 	#var answers:Array[String] = ["SALET","CARLE"]
-	var answers:Array[String] = ["SALET","ALTER","LEAST","STARE","ROATE","CARNE","TRACE","ROAST","SOARE","AUDIO","ADIEU"]
-	#var answers:Array[String] = ["SALET","ALTER","LEAST","STARE","CRANE","TRACE"]
+	#var answers:Array[String] = ["SALET","ALTER","LEAST","STARE","ROATE","CARNE","TRACE","ROAST","SOARE","AUDIO","ADIEU"]
+	var answers:Array[String] = ["SALET","ALTER","LEAST","STARE","CRANE","TRACE"]
 	
 	all_combo_main_process(answers,corrects,answers_array,false)
 	$AudioStreamPlayer.play()

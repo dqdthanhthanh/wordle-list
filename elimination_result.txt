@@ -1,6 +1,47 @@
-SPINY 
-["S", 1] ["P", 1] ["I", 1] ["N", 1] ["Y", 1] 
-1.0 1.0 1.0 1.0 1.0 
-PYINS → trùng 1 → tỷ lệ 100.00% → điểm 18.50
-SNIPY → trùng 1 → tỷ lệ 100.00% → điểm 18.50
-SPINY → trùng 1 → tỷ lệ 100.00% → điểm 18.50
+SIDLE SLIDE SLIME SMELL 
+["S", 4] ["L", 4] ["E", 4] ["I", 3] ["D", 2] ["M", 2] 
+1.0 0.5 0.5 0.5 0.75 
+IMIDS → trùng 1 → tỷ lệ 25.00% → điểm 1316.95
+MIDIS → trùng 1 → tỷ lệ 25.00% → điểm 1316.90
+DIDIS → trùng 1 → tỷ lệ 25.00% → điểm 1314.23
+IMIDE → trùng 1 → tỷ lệ 25.00% → điểm 1311.62
+MEDII → trùng 1 → tỷ lệ 25.00% → điểm 1311.54
+MIMED → trùng 2 → tỷ lệ 50.00% → điểm 1311.47
+DIDIE → trùng 1 → tỷ lệ 25.00% → điểm 1308.90
+MEIDS → trùng 4 → tỷ lệ 100.00% → điểm 248.62
+MILDS → trùng 4 → tỷ lệ 100.00% → điểm 248.62
+DIMES → trùng 4 → tỷ lệ 100.00% → điểm 248.62
+DISME → trùng 4 → tỷ lệ 100.00% → điểm 248.62
+DEISM → trùng 4 → tỷ lệ 100.00% → điểm 248.57
+IMLIS → trùng 1 → tỷ lệ 25.00% → điểm 245.38
+IDLIS → trùng 1 → tỷ lệ 25.00% → điểm 245.38
+SIDED → trùng 2 → tỷ lệ 50.00% → điểm 245.33
+MIMES → trùng 2 → tỷ lệ 50.00% → điểm 245.28
+DEIDS → trùng 2 → tỷ lệ 50.00% → điểm 245.28
+MEISM → trùng 2 → tỷ lệ 50.00% → điểm 245.23
+LIMED → trùng 4 → tỷ lệ 100.00% → điểm 242.00
+IDLED → trùng 2 → tỷ lệ 50.00% → điểm 238.62
+DILLI → trùng 1 → tỷ lệ 25.00% → điểm 228.97
+SIDLE → trùng 4 → tỷ lệ 100.00% → điểm 79.15
+SLIDE → trùng 4 → tỷ lệ 100.00% → điểm 79.15
+SLIME → trùng 4 → tỷ lệ 100.00% → điểm 79.15
+SMILE → trùng 4 → tỷ lệ 100.00% → điểm 79.15
+LIMES → trùng 4 → tỷ lệ 100.00% → điểm 79.15
+EILDS → trùng 4 → tỷ lệ 100.00% → điểm 79.15
+SILED → trùng 4 → tỷ lệ 100.00% → điểm 79.10
+SIELD → trùng 4 → tỷ lệ 100.00% → điểm 79.10
+IDLES → trùng 4 → tỷ lệ 100.00% → điểm 79.10
+DEILS → trùng 4 → tỷ lệ 100.00% → điểm 79.05
+DELIS → trùng 4 → tỷ lệ 100.00% → điểm 79.05
+DIELS → trùng 4 → tỷ lệ 100.00% → điểm 79.05
+MILES → trùng 4 → tỷ lệ 100.00% → điểm 79.05
+ISLED → trùng 4 → tỷ lệ 100.00% → điểm 79.05
+MEILS → trùng 4 → tỷ lệ 100.00% → điểm 79.05
+MELDS → trùng 4 → tỷ lệ 100.00% → điểm 77.00
+MILLS → trùng 1 → tỷ lệ 25.00% → điểm 65.38
+DILLS → trùng 1 → tỷ lệ 25.00% → điểm 65.38
+MILLE → trùng 1 → tỷ lệ 25.00% → điểm 58.72
+LISLE → trùng 1 → tỷ lệ 25.00% → điểm 45.25
+SMELL → trùng 1 → tỷ lệ 25.00% → điểm 43.20
+MELLS → trùng 1 → tỷ lệ 25.00% → điểm 43.10
+DELLS → trùng 1 → tỷ lệ 25.00% → điểm 43.10
