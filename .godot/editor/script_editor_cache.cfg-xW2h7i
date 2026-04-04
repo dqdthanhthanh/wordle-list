@@ -1,0 +1,317 @@
+[res://README.md]
+
+state={
+"bookmarks": PackedInt32Array(),
+"breakpoints": PackedInt32Array(),
+"column": 0,
+"folded_lines": PackedInt32Array(),
+"h_scroll_position": 0,
+"row": 0,
+"scroll_position": 0.0,
+"selection": false,
+"syntax_highlighter": "Markdown"
+}
+
+[res://control.gd]
+
+state={
+"bookmarks": PackedInt32Array(),
+"breakpoints": PackedInt32Array(),
+"column": 0,
+"folded_lines": PackedInt32Array(148, 165, 222, 236, 316, 318, 369, 439, 477, 484, 489, 586, 632, 656, 660, 704, 708, 717, 721, 782, 786, 865, 869, 962, 966, 1046, 1050, 1115, 1121, 1163, 1167, 1218, 1222, 1271, 1275),
+"h_scroll_position": 0,
+"row": 472,
+"scroll_position": 163.0,
+"selection": false,
+"syntax_highlighter": "GDScript"
+}
+
+[res://filtered_words.txt]
+
+state={
+"bookmarks": PackedInt32Array(),
+"breakpoints": PackedInt32Array(),
+"column": 0,
+"folded_lines": PackedInt32Array(),
+"h_scroll_position": 0,
+"row": 0,
+"scroll_position": 0.0,
+"selection": false,
+"syntax_highlighter": "Plain Text"
+}
+
+[res://valid-wordle-words.txt]
+
+state={
+"bookmarks": PackedInt32Array(),
+"breakpoints": PackedInt32Array(),
+"column": 4,
+"folded_lines": PackedInt32Array(),
+"h_scroll_position": 0,
+"row": 184,
+"scroll_position": 184.0,
+"selection": true,
+"selection_from_column": 0,
+"selection_from_line": 184,
+"selection_to_column": 4,
+"selection_to_line": 184,
+"syntax_highlighter": "Plain Text"
+}
+
+[res://ranked_words.txt]
+
+state={
+"bookmarks": PackedInt32Array(),
+"breakpoints": PackedInt32Array(),
+"column": 11,
+"folded_lines": PackedInt32Array(),
+"h_scroll_position": 0,
+"row": 297,
+"scroll_position": 0.0,
+"selection": true,
+"selection_from_column": 6,
+"selection_from_line": 297,
+"selection_to_column": 11,
+"selection_to_line": 297,
+"syntax_highlighter": "Plain Text"
+}
+
+[res://best_suggestions.txt]
+
+state={
+"bookmarks": PackedInt32Array(),
+"breakpoints": PackedInt32Array(),
+"column": 24,
+"folded_lines": PackedInt32Array(),
+"h_scroll_position": 0,
+"row": 8,
+"scroll_position": 8.0,
+"selection": false,
+"syntax_highlighter": "Plain Text"
+}
+
+[res://ranked_words_answer.txt]
+
+state={
+"bookmarks": PackedInt32Array(),
+"breakpoints": PackedInt32Array(),
+"column": 11,
+"folded_lines": PackedInt32Array(),
+"h_scroll_position": 0,
+"row": 3,
+"scroll_position": 3.0,
+"selection": false,
+"syntax_highlighter": "Plain Text"
+}
+
+[res://ranked_words_all.txt]
+
+state={
+"bookmarks": PackedInt32Array(),
+"breakpoints": PackedInt32Array(),
+"column": 11,
+"folded_lines": PackedInt32Array(),
+"h_scroll_position": 0,
+"row": 2732,
+"scroll_position": 2732.0,
+"selection": true,
+"selection_from_column": 6,
+"selection_from_line": 2732,
+"selection_to_column": 11,
+"selection_to_line": 2732,
+"syntax_highlighter": "Plain Text"
+}
+
+[res://all_past_anwser.txt]
+
+state={
+"bookmarks": PackedInt32Array(),
+"breakpoints": PackedInt32Array(),
+"column": 8,
+"folded_lines": PackedInt32Array(),
+"h_scroll_position": 0,
+"row": 3,
+"scroll_position": 0.0,
+"selection": false,
+"syntax_highlighter": "GDScript"
+}
+
+[res://control_test.gd]
+
+state={
+"bookmarks": PackedInt32Array(),
+"breakpoints": PackedInt32Array(),
+"column": 0,
+"folded_lines": Array[int]([]),
+"h_scroll_position": 0,
+"row": 48,
+"scroll_position": 33.0,
+"selection": false,
+"syntax_highlighter": "GDScript"
+}
+
+[res://control_new_test.gd]
+
+state={
+"bookmarks": PackedInt32Array(),
+"breakpoints": PackedInt32Array(),
+"column": 9,
+"folded_lines": PackedInt32Array(157, 197, 306, 319, 325, 402, 430, 465, 529, 557, 585, 592, 597, 656, 662, 736),
+"h_scroll_position": 0,
+"row": 40,
+"scroll_position": 22.0,
+"selection": true,
+"selection_from_column": 4,
+"selection_from_line": 40,
+"selection_to_column": 9,
+"selection_to_line": 40,
+"syntax_highlighter": "GDScript"
+}
+
+[res://control_combo.gd]
+
+state={
+"bookmarks": PackedInt32Array(),
+"breakpoints": PackedInt32Array(),
+"column": 28,
+"folded_lines": PackedInt32Array(122, 126, 272, 355, 363, 437, 454, 489, 565, 579, 601, 623, 688, 695, 798, 813, 829, 847, 867, 878, 899, 923, 938, 955, 978, 984, 997, 1017, 1036, 1050, 1071, 1107, 1142, 1147, 1206, 1219, 1262, 1330, 1333, 1377, 1380, 1426, 1429, 1453, 1456),
+"h_scroll_position": 0,
+"row": 80,
+"scroll_position": 125.0,
+"selection": false,
+"syntax_highlighter": "GDScript"
+}
+
+[res://elimination_result.txt]
+
+state={
+"bookmarks": PackedInt32Array(),
+"breakpoints": PackedInt32Array(),
+"column": 0,
+"folded_lines": PackedInt32Array(),
+"h_scroll_position": 0,
+"row": 4,
+"scroll_position": 0.0,
+"selection": false,
+"syntax_highlighter": "Plain Text"
+}
+
+[res://wordle-full.txt]
+
+state={
+"bookmarks": PackedInt32Array(),
+"breakpoints": PackedInt32Array(),
+"column": 5,
+"folded_lines": PackedInt32Array(),
+"h_scroll_position": 0,
+"row": 10652,
+"scroll_position": 10644.0,
+"selection": true,
+"selection_from_column": 0,
+"selection_from_line": 10652,
+"selection_to_column": 5,
+"selection_to_line": 10652,
+"syntax_highlighter": "Plain Text"
+}
+
+[res://wordle-answer-full.txt]
+
+state={
+"bookmarks": PackedInt32Array(),
+"breakpoints": PackedInt32Array(),
+"column": 5,
+"folded_lines": PackedInt32Array(),
+"h_scroll_position": 0,
+"row": 2637,
+"scroll_position": 2629.0,
+"selection": true,
+"selection_from_column": 0,
+"selection_from_line": 2637,
+"selection_to_column": 5,
+"selection_to_line": 2637,
+"syntax_highlighter": "Plain Text"
+}
+
+[res://wordle-answer-exclude.txt]
+
+state={
+"bookmarks": PackedInt32Array(),
+"breakpoints": PackedInt32Array(),
+"column": 5,
+"folded_lines": PackedInt32Array(),
+"h_scroll_position": 0,
+"row": 491,
+"scroll_position": 479.0,
+"selection": false,
+"syntax_highlighter": "Plain Text"
+}
+
+[res://wordle-full_exclude.txt]
+
+state={
+"bookmarks": PackedInt32Array(),
+"breakpoints": PackedInt32Array(),
+"column": 5,
+"folded_lines": PackedInt32Array(),
+"h_scroll_position": 0,
+"row": 1356,
+"scroll_position": 1356.0,
+"selection": false,
+"syntax_highlighter": "Plain Text"
+}
+
+[res://rank_elimination_result_first.txt]
+
+state={
+"bookmarks": PackedInt32Array(),
+"breakpoints": PackedInt32Array(),
+"column": 50,
+"folded_lines": PackedInt32Array(),
+"h_scroll_position": 0,
+"row": 11,
+"scroll_position": 11.0,
+"selection": false,
+"syntax_highlighter": "Plain Text"
+}
+
+[res://list_weight.txt]
+
+state={
+"bookmarks": PackedInt32Array(),
+"breakpoints": PackedInt32Array(),
+"column": 10,
+"folded_lines": PackedInt32Array(),
+"h_scroll_position": 0,
+"row": 3159,
+"scroll_position": 0.0,
+"selection": false,
+"syntax_highlighter": "Plain Text"
+}
+
+[res://wordle_words.txt]
+
+state={
+"bookmarks": PackedInt32Array(),
+"breakpoints": PackedInt32Array(),
+"column": 0,
+"folded_lines": PackedInt32Array(),
+"h_scroll_position": 0,
+"row": 0,
+"scroll_position": 0.0,
+"selection": false,
+"syntax_highlighter": "Plain Text"
+}
+
+[res://wordle-answers-past.txt]
+
+state={
+"bookmarks": PackedInt32Array(),
+"breakpoints": PackedInt32Array(),
+"column": 5,
+"folded_lines": PackedInt32Array(),
+"h_scroll_position": 0,
+"row": 99,
+"scroll_position": 91.0,
+"selection": false,
+"syntax_highlighter": "Plain Text"
+}

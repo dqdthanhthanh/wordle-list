@@ -78,7 +78,7 @@ func _ready()-> void:
 	#subtract_list("res://wordle-full.txt", "res://wordle-answers-past.txt","res://wordle-full_exclude.txt")
 	#subtract_list("res://wordle-answer-full.txt", "res://wordle-answers-past.txt","res://wordle-answer-exclude.txt")
 	
-	var correct_wordle = "SLIME"
+	var correct_wordle = "WISER"
 	
 	var word_list_fix:Array[String] = [correct_wordle]
 	add_word_to_list_and_save("res://wordle-answers-past.txt",word_list_fix)
